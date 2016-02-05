@@ -1,0 +1,8 @@
+﻿@viewModel SnowFur.ViewModels.Default, SnowFur
+@masterPage Views/commingSoon.dotmaster
+
+<dot:Content ContentPlaceHolderID="SuccessfulFinishContent">
+</dot:Content>
+<dot:Content ContentPlaceHolderID="PageContent">
+    <p>Už čoskoro spúšťame registráciu</p>
+</dot:Content>

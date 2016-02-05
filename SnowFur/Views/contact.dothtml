@@ -1,0 +1,28 @@
+﻿@viewModel SnowFur.ViewModels.Contact, SnowFur
+@masterPage Views/Master.dotmaster
+
+<dot:Content ContentPlaceHolderID="SuccessfulFinishContent">
+</dot:Content>
+<dot:Content ContentPlaceHolderID="PageContent">
+    <p>V prípade, že nás potrebujete kontaktovať, alebo máte otázku, použite nasledovné kontakty:</p>
+
+    <p><strong>Greyfur</strong>
+    <p>
+    <p>
+        Zodpovednosť za program, informácie o cone. <br />
+        Emailový kontakt: <strong>greyfur (zavináč) azet.sk</strong>
+    </p>
+
+    <p><strong>Silverwolf</strong></p>
+    <p>
+        Zodpovednosť za jednania ohľadom ubytovania. Všetky informácie ohľadom ubytovania Vám rád zodpovie Greyfur
+    </p>
+    <p><strong>Mlpard</strong>
+    <p>
+    <p>
+        Zodpovednosť za Web, všetky chyby, nedostatky, či problémy hláste jemu. <br />
+        Emailový kontakt: <strong>mlpard2 (zavináč) gmail.com</strong>
+    </p>
+    <p>Poďakovanie za grafický design stránok patrí Blue Horsewolf.</p>
+    <p>Poďakovanie za testovanie stránok: Kiraa Corsac.</p>
+</dot:Content>

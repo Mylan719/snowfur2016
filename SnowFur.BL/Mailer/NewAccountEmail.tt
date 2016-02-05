@@ -1,0 +1,17 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+
+<h1>Nová registrácia na Snowfur 2016</h1>
+
+<p>Ďakujeme za vašu registráciu na Snowfur</p>
+
+<p>Kliknutím na nasledujúci odkaz dokončíte registráciu vášho účtu.</p>
+
+<p><a href="<#= RegistrationUrl #>"><#= RegistrationUrl #></a></p>
+
+<#+
+public string RegistrationUrl { get; set; }
+#>

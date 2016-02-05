@@ -1,0 +1,34 @@
+﻿@viewModel SnowFur.ViewModels.Controls.PersonalProfileForm, Snowfur
+
+<h3>Ubytovacie údaje</h3>
+<form class="form">
+    <div class="form-group">
+        <label>Meno:</label>
+        <dot:TextBox class="form-control" Text="{value: FirstName}" />
+        <dot:ValidationMessage class="label label-danger" ShowErrorMessageText="true" ValidatedValue="{value: FirstName}">*</dot:ValidationMessage>
+    </div>
+    <div class="form-group">
+        <label>Priezvisko:</label>
+        <dot:TextBox class="form-control" Text="{value: LastName}" />
+        <dot:ValidationMessage class="label label-danger" ShowErrorMessageText="true" ValidatedValue="{value: LastName}">*</dot:ValidationMessage>
+    </div>
+    <div class="form-group">
+        <label>Ulica:</label>
+        <dot:TextBox class="form-control" Text="{value: Address}" />
+        <dot:ValidationMessage class="label label-danger" ShowErrorMessageText="true" ValidatedValue="{value: Address}">*</dot:ValidationMessage>
+    </div>
+    <div class="form-group">
+        <label>Mesto:</label>
+        <dot:TextBox class="form-control" Text="{value: City}" />
+        <dot:ValidationMessage class="label label-danger" ShowErrorMessageText="true" ValidatedValue="{value: City}">*</dot:ValidationMessage>
+    </div>
+    <div class="form-group">
+        <label>PSČ:</label>
+        <dot:TextBox class="form-control" Text="{value: ZipCode}" />
+        <dot:ValidationMessage class="label label-danger" ShowErrorMessageText="true" ValidatedValue="{value: ZipCode}">*</dot:ValidationMessage>
+    </div>
+    <div class="form-group">
+        <label>Najneskôr v deň konania akcie mám viac ako 18 rokov: (Nie je podmienkou účasti)</label>
+        <dot:CheckBox Checked="{value: Adult}" />
+    </div>
+</form>

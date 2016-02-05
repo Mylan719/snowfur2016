@@ -1,0 +1,22 @@
+﻿@viewModel SnowFur.ViewModels.Admin.BroadcastMail, SnowFur
+@masterPage Views/Admin/admin.dotmaster
+
+<dot:Content ContentPlaceHolderID="SuccessfulFinishContent">
+    <h3 class="alert-heading">Maily odoslané</h3>
+    <p>Email bol odoslaný všetkým užívateľom.</p>
+</dot:Content>
+<dot:Content ContentPlaceHolderID="PageContent">
+    <form class="form">
+        <div class="form-group">
+            <label class="col-md-4 col-sm-8">Predmet</label>
+            <dot:ValidationMessage class="label label-danger" ShowErrorMessageText="true" ValidatedValue="{value: Subject}"></dot:ValidationMessage>
+            <dot:TextBox class="form-control" Text="{value: Subject}" />
+        </div>
+        <div class="form-group">
+            <label class="col-md-4 col-sm-8">Správa</label>
+            <dot:ValidationMessage class="label label-danger" ShowErrorMessageText="true" ValidatedValue="{value: Message}"></dot:ValidationMessage>
+            <dot:TextBox Rows="10" Type="MultiLine" class="form-control" Text="{value: Message}" />
+        </div>
+        <dot:Button Validate.Target="_this" class="btn btn-danger" Click="{command: SendMail()}" Text="Odoslať všetkým registrovaným." />
+    </form>
+</dot:Content>

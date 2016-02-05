@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnowFur", "SnowFur\SnowFur.csproj", "{4B8C16AB-31E8-4019-B021-16BB3837DF1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnowFur.BL", "SnowFur.BL\SnowFur.BL.csproj", "{3234D99C-CB47-41EF-960C-3CD2F0836504}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnowFur.DAL", "SnowFur.DAL\SnowFur.DAL.csproj", "{258D16A2-F82E-441E-A687-081D0837EBE8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4B8C16AB-31E8-4019-B021-16BB3837DF1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B8C16AB-31E8-4019-B021-16BB3837DF1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B8C16AB-31E8-4019-B021-16BB3837DF1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B8C16AB-31E8-4019-B021-16BB3837DF1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3234D99C-CB47-41EF-960C-3CD2F0836504}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3234D99C-CB47-41EF-960C-3CD2F0836504}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3234D99C-CB47-41EF-960C-3CD2F0836504}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3234D99C-CB47-41EF-960C-3CD2F0836504}.Release|Any CPU.Build.0 = Release|Any CPU
+		{258D16A2-F82E-441E-A687-081D0837EBE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{258D16A2-F82E-441E-A687-081D0837EBE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{258D16A2-F82E-441E-A687-081D0837EBE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{258D16A2-F82E-441E-A687-081D0837EBE8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://bluecellview.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = SnowFur.BL\\SnowFur.BL.csproj
+		SccProjectName1 = SnowFur.BL
+		SccLocalPath1 = SnowFur.BL
+		SccProjectUniqueName2 = SnowFur.DAL\\SnowFur.DAL.csproj
+		SccProjectName2 = SnowFur.DAL
+		SccLocalPath2 = SnowFur.DAL
+		SccProjectUniqueName3 = SnowFur\\SnowFur.csproj
+		SccProjectName3 = SnowFur
+		SccLocalPath3 = SnowFur
+	EndGlobalSection
+EndGlobal

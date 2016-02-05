@@ -1,0 +1,28 @@
+﻿@viewModel SnowFur.ViewModels.Attendees, SnowFur
+@masterPage Views/Master.dotmaster
+
+<dot:Content ContentPlaceHolderID="SuccessfulFinishContent">
+
+
+
+</dot:Content>
+<dot:Content ContentPlaceHolderID="PageContent">
+    <p>
+        Zoznam účastníkov ktorý označili, že sa zúčastnia aspoň jedného dňa conu.
+    </p>
+    <p>
+        <b>Legenda:</b>
+        <div class="alert-success color-sample">&nbsp;</div> - platba potvrdená
+        <div class="alert-warning color-sample">&nbsp;</div> - platba zatiaľ nepotvrdená
+    </p>
+    <div class="attendee-table">
+        <dot:Repeater DataSource="{value: AttendeeDataSet}">
+            <ItemTemplate>
+                <div class="{value: ('attendee ' + Color)}">
+                    {{value: Count}}.&nbsp;{{value: NickName}}
+                </div>
+            </ItemTemplate>
+        </dot:Repeater>
+    </div>
+</dot:Content>
+

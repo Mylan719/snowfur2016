@@ -1,0 +1,28 @@
+﻿@viewModel SnowFur.ViewModels.Controls.LoginSection, Snowfur
+
+
+<form Visible="{value: !IsAuthenticated}" Validate.Target="{value: _this}" class="navbar-form  navbar-right">
+    <div class="row">
+        <div class="col-xs-6 sf-width200">
+            <div class="form-group">
+                <dot:ValidationMessage class="label label-danger" ValidatedValue="{value: UserName}"></dot:ValidationMessage>
+                <dot:TextBox class="form-control sf-navbar-input" Text="{value: UserName}" placeholder="Meno" />
+            </div>
+            <div class="form-group">
+                <dot:ValidationMessage class="label label-danger" ValidatedValue="{value: Password}"></dot:ValidationMessage>
+                <dot:TextBox Type="password" class="form-control sf-navbar-input" Text="{value: Password}" placeholder="Heslo" />
+            </div>
+			 <label Visible="{value IsError}" class="label label-danger">
+                {{value: ErrorMessage}}
+            </label>
+        </div>
+        <div class="col-xs-4">
+            <dot:Button ButtonTagName="button" type="submit" Click="{command: Login()}" class="btn sf-navbar-btn" Validate.Enabled="false" Text="Prihlásiť sa" />
+        </div>
+    </div>
+</form>
+
+<form Visible="{value: IsAuthenticated}" class="navbar-form  navbar-right" role="search">
+    <dot:RouteLink RouteName="MyProfile" class="btn sf-navbar-btn">Profil: <br/>{{value: CurrentUserName}}</dot:RouteLink>
+    <dot:Button Text="Odhlásiť sa" Click="{command: Logout()}" class="btn sf-navbar-btn" Validate.Enabled="false" />
+</form>
