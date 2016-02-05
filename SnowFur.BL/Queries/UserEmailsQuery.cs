@@ -31,7 +31,7 @@ namespace SnowFur.BL.Queries
                 query = query.Where(user => user.EmailConfirmed);
             }
 
-            return query.Project().To<UserEmailListDto>();
+            return query.ProjectTo<UserEmailListDto>();
         }
     }
 }

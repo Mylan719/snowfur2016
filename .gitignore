@@ -1,0 +1,14 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/SnowFur/v14
+/packages
+/SnowFur.DAL/bin/Debug
+/SnowFur.DAL/obj/Debug
+/SnowFur.BL/bin/Debug
+/SnowFur.BL/obj/Debug
+/SnowFur/bin
+/SnowFur/obj/Debug
+/SnowFur/Web.Release.config
+/SnowFur/Web.Debug.config
