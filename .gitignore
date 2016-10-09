@@ -12,3 +12,5 @@
 /SnowFur/obj/Debug
 /SnowFur/Web.Release.config
 /SnowFur/Web.Debug.config
+/SnowFur/Properties/PublishProfiles
+/.vs/config
