@@ -24,10 +24,16 @@ namespace SnowFur.DAL.Model
         public string ZipCode { get; set; }
         [MaxLength(100)]
         public string City { get; set; }
+
         [MaxLength(100)]
         public string State { get; set; }
+
         public bool Adult { get; set; }
-        public bool IsDeleted { get; set; }
+
+        public DateTime? DateDeleted { get; set; }
+        public DateTime? DateUpdated { get; set; }
+        public DateTime DateCreated { get; set; }
+
         public virtual User User { get; set; }
 
     }

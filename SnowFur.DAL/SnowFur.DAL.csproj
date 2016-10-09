@@ -76,6 +76,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\ServiceType.cs" />
+    <Compile Include="Model\ConventionPayment.cs" />
+    <Compile Include="Model\Room.cs" />
     <Compile Include="Migrations\201510281748540_InitialCreate.cs" />
     <Compile Include="Migrations\201510281748540_InitialCreate.Designer.cs">
       <DependentUpon>201510281748540_InitialCreate.cs</DependentUpon>
@@ -102,10 +105,12 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ApplicationDbContextContainer.cs" />
-    <Compile Include="Model\RoomMateOffer.cs" />
+    <Compile Include="Model\Convention.cs" />
     <Compile Include="Model\RoomReservation.cs" />
     <Compile Include="Model\PersonalProfile.cs" />
     <Compile Include="Model\Role.cs" />
+    <Compile Include="Model\Service.cs" />
+    <Compile Include="Model\ServiceOrder.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\UserClaim.cs" />
     <Compile Include="Model\UserLogin.cs" />
@@ -136,6 +141,7 @@
       <DependentUpon>201601171240200_DatePaid.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -10,24 +10,18 @@ using System.Threading.Tasks;
 namespace SnowFur.DAL.Model
 {
     public class RoomReservation : IEntity<int>
-    {
-        [Key]
-        [ForeignKey("User")]
+    { 
         public int Id { get; set; }
-        public bool Night1 { get; set; }
-        public bool Night2 { get; set; }
-        public bool Night3 { get; set; }
-        public decimal AmountPayed { get; set; }
-        public DateTime? DatePaid { get; set; }
 
-        public bool IsSponsor { get; set; }
-        public bool IsDogAttending { get; set; }      
-        public bool IsVegetarian { get; set; }
+        public int UserId { get; set; }
+        public int RoomId { get; set; }
 
         [MaxLength(500)]
         public string Note { get; set; }
 
+        [ForeignKey(nameof(UserId))]
         public User User { get; set; }
-
+        [ForeignKey(nameof(RoomId))]
+        public Room Room { get; set; }
     }
 }

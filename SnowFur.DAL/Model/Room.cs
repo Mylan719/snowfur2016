@@ -1,0 +1,29 @@
+﻿using Riganti.Utils.Infrastructure.Core;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SnowFur.DAL.Model
+{
+    public class Room : IEntity<int>
+    {
+        public int Id { get; set; }
+
+        public int ConventionId { get; set; }
+
+        [MaxLength(200)]
+        public string Name { get; set; }
+        public int Capacity { get; set; }
+
+        public DateTime? DateDeleted { get; set; }
+        public DateTime? DateUpdated { get; set; }
+        public DateTime DateCreated { get; set; }
+
+        [ForeignKey(nameof(ConventionId))]
+        public Convention Convention { get; set; }
+    }
+}

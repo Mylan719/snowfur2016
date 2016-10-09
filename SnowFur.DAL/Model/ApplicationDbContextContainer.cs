@@ -15,25 +15,21 @@ namespace SnowFur.DAL.Model
         {
         }
 
+        public IDbSet<Convention> Conventions { get; set; }
         public IDbSet<PersonalProfile> Profiles { get; set; }
-        public IDbSet<RoomMateOffer> RoomMates { get; set; }
+
+        public IDbSet<Service> Services { get; set; }
+        public IDbSet<ServiceOrder> ServiceOrders { get; set; }
+        public IDbSet<Room> Rooms { get; set; }
         public IDbSet<RoomReservation> RoomReservations { get; set; }
+
+        public IDbSet<ConventionPayment> ConventionPaymens { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
-
-            modelBuilder.Entity<RoomMateOffer>()
-               .HasRequired(f => f.Receiver)
-               .WithRequiredDependent()
-               .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<RoomMateOffer>()
-               .HasRequired(f => f.Sender)
-               .WithRequiredDependent()
-               .WillCascadeOnDelete(false);
         }
     }
 }

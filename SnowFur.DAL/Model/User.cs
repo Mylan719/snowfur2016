@@ -14,12 +14,13 @@ namespace SnowFur.DAL.Model
         [MaxLength(500)]
         public string AdditionalInfo { get; set; }
 
-        public bool IsDeleted { get; set; }
+        public DateTime? DateDeleted { get; set; }
+        public DateTime? DateUpdated { get; set; }
+        public DateTime DateCreated { get; set; }
 
         public virtual PersonalProfile PersonalProfile { get; set; }
-        public virtual RoomReservation RoomReservation { get; set; }
-
-        public virtual List<RoomMateOffer> ReceivedRoomMateOffers { get; set; }
-        public virtual List<RoomMateOffer> SentRoomMateOffers { get; set; }
+        public virtual ICollection<RoomReservation> RoomReservations { get; set; }
+        public virtual ICollection<ServiceOrder> ServiceOrders { get; set; }
+        public virtual ICollection<ConventionPayment> Payments { get; set; }
     }
 }
