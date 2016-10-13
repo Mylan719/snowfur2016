@@ -18,7 +18,7 @@ namespace SnowFur.BL.Mailer
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "F:\Code\SnowFur\SnowFur.BL\Mailer\PasswordResetEmail.tt"
+    #line 1 "E:\Code\snowfur2016\SnowFur.BL\Mailer\PasswordResetEmail.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
     public partial class PasswordResetEmail : PasswordResetEmailBase
     {
@@ -31,14 +31,14 @@ namespace SnowFur.BL.Mailer
             this.Write("\r\n<h1>Obnovat zabudnutého hesla</h1>\r\n\r\n<p>Kliknutím na následujúci odkaz obnovít" +
                     "e zabudnuté heslo:</p>\r\n\r\n<p><a href=\"");
             
-            #line 11 "F:\Code\SnowFur\SnowFur.BL\Mailer\PasswordResetEmail.tt"
+            #line 11 "E:\Code\snowfur2016\SnowFur.BL\Mailer\PasswordResetEmail.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(RecoveryUrl));
             
             #line default
             #line hidden
             this.Write("\">");
             
-            #line 11 "F:\Code\SnowFur\SnowFur.BL\Mailer\PasswordResetEmail.tt"
+            #line 11 "E:\Code\snowfur2016\SnowFur.BL\Mailer\PasswordResetEmail.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(RecoveryUrl));
             
             #line default
@@ -47,7 +47,7 @@ namespace SnowFur.BL.Mailer
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 13 "F:\Code\SnowFur\SnowFur.BL\Mailer\PasswordResetEmail.tt"
+        #line 13 "E:\Code\snowfur2016\SnowFur.BL\Mailer\PasswordResetEmail.tt"
 
 public string RecoveryUrl { get; set; }
 

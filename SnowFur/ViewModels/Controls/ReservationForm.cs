@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SnowFur.ViewModels.Controls
 {
-    public class ReservationForm : DotvvmViewModelBase
+    public class ReservationForm : OwinViewModelBase
     {
         public bool Night1 { get; set; }
         public bool Night2 { get; set; }

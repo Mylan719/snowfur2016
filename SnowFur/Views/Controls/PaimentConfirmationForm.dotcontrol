@@ -24,7 +24,7 @@
                 </div>
                 <div class="col-md-12">
                     <label>Zaplatená suma:</label>
-                    <dot:ValidationMessage class="label label-danger" ValidatedValue="{value: Amount}">*</dot:ValidationMessage>
+                    <dot:Validator class="label label-danger" ValidatedValue="{value: Amount}">*</dot:Validator>
                     <dot:TextBox class="form-control" Text="{value: Amount}" />
                 </div>
                 <div class="col-md-12">
@@ -32,20 +32,20 @@
                 </div>
                 <div class="col-sm-4">
                     <dot:TextBox class="form-control col-sm-4" Text="{value: Day}" />
-                    <dot:ValidationMessage class="label label-danger" ValidatedValue="{value: Day}">*</dot:ValidationMessage>
+                    <dot:Validator class="label label-danger" ValidatedValue="{value: Day}">*</dot:Validator>
                 </div>
                 <div class="col-sm-4">
                     <dot:ListBox class="form-control col-sm-4" Size="1" DataSource="{value: Months}" SelectedValue="{value: Month}" />
-                    <dot:ValidationMessage class="label label-danger" ValidatedValue="{value: Month}">*</dot:ValidationMessage>
+                    <dot:Validator class="label label-danger" ValidatedValue="{value: Month}">*</dot:Validator>
                 </div>
                 <div class="col-sm-4">
                     <dot:ListBox class="form-control" Size="1" DataSource="{value: Years}" SelectedValue="{value: Year}" />
-                    <dot:ValidationMessage class="label label-danger" ValidatedValue="{value: Year}">*</dot:ValidationMessage>
+                    <dot:Validator class="label label-danger" ValidatedValue="{value: Year}">*</dot:Validator>
                 </div>
             </div>
             <div class="modal-footer">
 				<dot:Button class="btn btn-success" ButtonTagName="button" Click="{command: Confirm()}">Potvrdiť</dot:Button>
-                <dot:Button class="btn btn-info" ButtonTagName="button" Click="{command: Hide()}" Validate.Enabled="false">Zrušiť</dot:Button>
+                <dot:Button class="btn btn-info" ButtonTagName="button" Click="{command: Hide()}" Validation.Enabled="false">Zrušiť</dot:Button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

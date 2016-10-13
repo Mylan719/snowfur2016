@@ -18,7 +18,7 @@ namespace SnowFur.BL.Mailer
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "F:\Code\SnowFur\SnowFur.BL\Mailer\NewAccountEmail.tt"
+    #line 1 "E:\Code\snowfur2016\SnowFur.BL\Mailer\NewAccountEmail.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
     public partial class NewAccountEmail : NewAccountEmailBase
     {
@@ -32,14 +32,14 @@ namespace SnowFur.BL.Mailer
                     " Snowfur</p>\r\n\r\n<p>Kliknutím na nasledujúci odkaz dokončíte registráciu vášho úč" +
                     "tu.</p>\r\n\r\n<p><a href=\"");
             
-            #line 13 "F:\Code\SnowFur\SnowFur.BL\Mailer\NewAccountEmail.tt"
+            #line 13 "E:\Code\snowfur2016\SnowFur.BL\Mailer\NewAccountEmail.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(RegistrationUrl));
             
             #line default
             #line hidden
             this.Write("\">");
             
-            #line 13 "F:\Code\SnowFur\SnowFur.BL\Mailer\NewAccountEmail.tt"
+            #line 13 "E:\Code\snowfur2016\SnowFur.BL\Mailer\NewAccountEmail.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(RegistrationUrl));
             
             #line default
@@ -48,7 +48,7 @@ namespace SnowFur.BL.Mailer
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 15 "F:\Code\SnowFur\SnowFur.BL\Mailer\NewAccountEmail.tt"
+        #line 15 "E:\Code\snowfur2016\SnowFur.BL\Mailer\NewAccountEmail.tt"
 
 public string RegistrationUrl { get; set; }
 

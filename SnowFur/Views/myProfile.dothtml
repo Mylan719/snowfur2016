@@ -13,27 +13,27 @@
 	</div>
     <div class="row">
         <ul class="nav nav-tabs">
-            <li role="presentation" class="{value: GetClassForId(1)}"><dot:LinkButton Validate.Enabled="false" Click="{command: SwitchTab(1)}">Užívateľský účet</dot:LinkButton></li>
-			<li role="presentation" class="{value: GetClassForId(2)}"><dot:LinkButton Validate.Enabled="false" Click="{command: SwitchTab(2)}">Registračné údaje</dot:LinkButton></li>
-			<li role="presentation" class="{value: GetClassForId(3)}"><dot:LinkButton Validate.Enabled="false" Click="{command: SwitchTab(3)}">Rezervácia izby</dot:LinkButton></li>
+            <li role="presentation" class="{value: GetClassForId(1)}"><dot:LinkButton Validation.Enabled="false" Click="{command: SwitchTab(1)}">Užívateľský účet</dot:LinkButton></li>
+			<li role="presentation" class="{value: GetClassForId(2)}"><dot:LinkButton Validation.Enabled="false" Click="{command: SwitchTab(2)}">Registračné údaje</dot:LinkButton></li>
+			<li role="presentation" class="{value: GetClassForId(3)}"><dot:LinkButton Validation.Enabled="false" Click="{command: SwitchTab(3)}">Rezervácia izby</dot:LinkButton></li>
         </ul>
     </div>
 	<div Visible="{value: (ActiveTabId == 1)}" class="row">
         <div class="col-md-12">
             <cc:PasswordChangeForm DataContext="{value: PasswordChangeForm}"></cc:PasswordChangeForm>
-			<dot:Button Text="Zmeniť heslo" Validate.Target="{value: PasswordChangeForm}" Click="{command: SavePasswordChange()}" class="btn btn-success" />
+			<dot:Button Text="Zmeniť heslo" Validation.Target="{value: PasswordChangeForm}" Click="{command: SavePasswordChange()}" class="btn btn-success" />
         </div>
     </div>
     <div Visible="{value: (ActiveTabId == 2)}" class="row">
         <div class="col-md-12">
             <cc:PersonalProfileForm DataContext="{value: PersonalProfileForm}"></cc:PersonalProfileForm>
-			<dot:Button Text="Uložiť zmeny" Validate.Target="{value: PersonalProfileForm}" Click="{command: SaveProfile()}" class="btn btn-success" />
+			<dot:Button Text="Uložiť zmeny" Validation.Target="{value: PersonalProfileForm}" Click="{command: SaveProfile()}" class="btn btn-success" />
         </div>
     </div>
 	<div Visible="{value: (ActiveTabId == 3)}" class="row">
         <div class="col-md-12 aaaa">
 			<cc:ReservationForm DataContext="{ value: ReservationForm}"></cc:ReservationForm>
-			<dot:Button Text="Uložiť zmeny" Validate.Target="{value: ReservationForm}" Click="{command: SaveReservation()}" class="btn btn-success" />
+			<dot:Button Text="Uložiť zmeny" Validation.Target="{value: ReservationForm}" Click="{command: SaveReservation()}" class="btn btn-success" />
         </div>
     </div>
 </dot:Content>

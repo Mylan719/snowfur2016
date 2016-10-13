@@ -1,5 +1,6 @@
 ﻿using Castle.Windsor;
 using DotVVM.Framework.Runtime;
+using DotVVM.Framework.ViewModel.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,8 @@ namespace SnowFur.Installers
     {
         private readonly WindsorContainer container;
 
-        public WindsorViewModelLoader(WindsorContainer container)
+        public WindsorViewModelLoader(IServiceProvider provider, WindsorContainer container)
+            :base(provider)
         {
             this.container = container;
         }

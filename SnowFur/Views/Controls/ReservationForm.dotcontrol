@@ -30,7 +30,7 @@
     </div>
 	<div class="row">&nbsp;</div>
 	<div class="form-group row">
-        <label class="col-md-12">Špeciálne požiadavky (napríklad ohľadne stravy): <dot:ValidationMessage class="label label-danger" ShowErrorMessageText="true" ValidatedValue="{value: Note}"></dot:ValidationMessage></label>
+        <label class="col-md-12">Špeciálne požiadavky (napríklad ohľadne stravy): <dot:Validator class="label label-danger" ShowErrorMessageText="true" ValidatedValue="{value: Note}"></dot:Validator></label>
 		<div class="col-md-1 col-sm-1 col-xs-1"></div>
         <dot:TextBox class="col-md-10" Type="MultiLine" Text="{value: Note}" />
 		<div class="col-md-1"></div>

@@ -25,10 +25,10 @@ namespace SnowFur.ViewModels
         }
 
         [Bind(Direction.None)]
-        public string PasswordToken => GetQuerySafe<string>("token");
+        public string PasswordToken => GetQueryOrDefault("token");
 
         [Bind(Direction.None)]
-        public string UserName => GetQuerySafe<string>("username");
+        public string UserName => GetQueryOrDefault("username");
 
         public NewPasswordDto NewPassword { get; set; } = new NewPasswordDto();
 
@@ -51,8 +51,8 @@ namespace SnowFur.ViewModels
             var identity = loginFacade.Login(UserName, NewPassword.Password);
             if (identity != null)
             {
-                Context.OwinContext.Authentication.SignIn(identity);
-                Context.Redirect("MyProfile", null);
+                Authentication.SignIn(identity);
+                Context.RedirectToRoute("MyProfile", null);
             }
             IsSuccessfullyFinished = true;
         }

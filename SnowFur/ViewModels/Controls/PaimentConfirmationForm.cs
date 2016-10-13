@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace SnowFur.ViewModels.Controls
 {
-    public class PaimentConfirmationForm : DotvvmViewModelBase
+    public class PaimentConfirmationForm : OwinViewModelBase
     {
         [Required(ErrorMessage = "Zadajte zaplatenu sumu")]
         public decimal Amount { get; set; }
@@ -21,7 +21,7 @@ namespace SnowFur.ViewModels.Controls
         public int Month { get; set; }
         public int Year { get; set; }
 
-        [ViewModelProtection(ViewModelProtectionSettings.SignData)]
+        [Protect(ProtectMode.SignData)]
         [Bind(Direction.Both)]
         public int CurrentUserId { get; set; }
 

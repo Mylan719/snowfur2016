@@ -21,16 +21,16 @@
         </div>
 		<div class="col-md-12">&nbsp;</div>
     </div>
-    <form Validate.Target="{value: Account}" class="form">
+    <form Validation.Target="{value: Account}" class="form">
         <div class="form-group">
             <label>Prezývka (login):</label>
             <dot:TextBox class="form-control" Text="{value: Account.UserName}" />
-            <dot:ValidationMessage class="label label-danger" ShowErrorMessageText="true" ValidatedValue="{value: Account.UserName}">*</dot:ValidationMessage>
+            <dot:Validator class="label label-danger" ShowErrorMessageText="true" ValidatedValue="{value: Account.UserName}">*</dot:Validator>
         </div>
         <div class="form-group">
             <label>E-mail:</label>
             <dot:TextBox class="form-control" Text="{value: Account.Email}" />
-            <dot:ValidationMessage class="label label-danger" ShowErrorMessageText="true" ValidatedValue="{value: Account.Email}">*</dot:ValidationMessage>
+            <dot:Validator class="label label-danger" ShowErrorMessageText="true" ValidatedValue="{value: Account.Email}">*</dot:Validator>
         </div>
         <div class="form-group text-right">
             <dot:Button Text="Registrovať" class="btn btn-primary" Click="{command: Submit()}" />

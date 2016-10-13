@@ -25,10 +25,10 @@ namespace SnowFur.ViewModels
         }
 
         [Bind(Direction.None)]
-        public string PasswordToken => GetQuerySafe<string>("token");
+        public string PasswordToken => GetQueryOrDefault("token");
 
         [Bind(Direction.None)]
-        public string UserName => GetQuerySafe<string>("username");
+        public string UserName => GetQueryOrDefault("username");
 
         public NewPasswordDto NewPassword { get; set; } = new NewPasswordDto();
 
@@ -36,13 +36,13 @@ namespace SnowFur.ViewModels
         {
             if( !personalProfileFacade.ProfileExists(UserName))
             {
-                Context.Redirect(string.Format("~/registerFinish?username={0}&token={1}", UserName, PasswordToken));
+                Context.RedirectToRoute(string.Format("~/registerFinish?username={0}&token={1}", UserName, PasswordToken));
             }
             return base.Init();
         }
 
         [ModelValidationFilter]
-        public void Submit ()
+        public void Submit()
         {
             try
             {

@@ -4,7 +4,7 @@ using SnowFur.ViewModels.Controls;
 
 namespace SnowFur.ViewModels
 {
-    public class PageViewModelBase : DotvvmViewModelBase
+    public class PageViewModelBase : OwinViewModelBase
     {
         public string SubpageTitle { get; set; }
         public string Title { get { return string.Format("{0} - {1}", LogoText, SubpageTitle); } }
@@ -46,13 +46,10 @@ namespace SnowFur.ViewModels
             return base.Init();
         }
 
-        public TOut GetQuerySafe<TOut> ( string key)
+        public string GetQueryOrDefault (string key)
         {
-            if (!Context.Query.ContainsKey(key) || !(Context.Query[key] is TOut))
-            {
-                return default(TOut);
-            }
-            return (TOut) Context.Query[key];
+            string result;
+            return Context.Query.TryGetValue(key, out result) ? result : null;
         }
 
     }

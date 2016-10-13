@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnowFur", "SnowFur\SnowFur.csproj", "{4B8C16AB-31E8-4019-B021-16BB3837DF1D}"
 EndProject
@@ -30,20 +30,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 4
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://bluecellview.visualstudio.com/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = SnowFur.BL\\SnowFur.BL.csproj
-		SccProjectName1 = SnowFur.BL
-		SccLocalPath1 = SnowFur.BL
-		SccProjectUniqueName2 = SnowFur.DAL\\SnowFur.DAL.csproj
-		SccProjectName2 = SnowFur.DAL
-		SccLocalPath2 = SnowFur.DAL
-		SccProjectUniqueName3 = SnowFur\\SnowFur.csproj
-		SccProjectName3 = SnowFur
-		SccLocalPath3 = SnowFur
 	EndGlobalSection
 EndGlobal

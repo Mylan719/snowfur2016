@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SnowFur.ViewModels.Controls
 {
-    public class PersonalProfileForm : DotvvmViewModelBase
+    public class PersonalProfileForm : OwinViewModelBase
     {
         [MaxLength(100, ErrorMessage = "Maximálna dĺžka je 100 znakov.")]
         [Required(ErrorMessage = "Zadajte prosím meno")]

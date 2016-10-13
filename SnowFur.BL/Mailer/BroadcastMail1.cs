@@ -18,7 +18,7 @@ namespace SnowFur.BL.Mailer
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "F:\Code\SnowFur\SnowFur.BL\Mailer\BroadcastMail.tt"
+    #line 1 "E:\Code\snowfur2016\SnowFur.BL\Mailer\BroadcastMail.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
     public partial class BroadcastMail : BroadcastMailBase
     {
@@ -30,14 +30,14 @@ namespace SnowFur.BL.Mailer
         {
             this.Write("\r\n<h1>");
             
-            #line 7 "F:\Code\SnowFur\SnowFur.BL\Mailer\BroadcastMail.tt"
+            #line 7 "E:\Code\snowfur2016\SnowFur.BL\Mailer\BroadcastMail.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Subject));
             
             #line default
             #line hidden
             this.Write("</h1>\r\n\r\n");
             
-            #line 9 "F:\Code\SnowFur\SnowFur.BL\Mailer\BroadcastMail.tt"
+            #line 9 "E:\Code\snowfur2016\SnowFur.BL\Mailer\BroadcastMail.tt"
  
 foreach (var line in MessageLines)
 {
@@ -47,14 +47,14 @@ foreach (var line in MessageLines)
             #line hidden
             this.Write("<p>");
             
-            #line 13 "F:\Code\SnowFur\SnowFur.BL\Mailer\BroadcastMail.tt"
+            #line 13 "E:\Code\snowfur2016\SnowFur.BL\Mailer\BroadcastMail.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(line));
             
             #line default
             #line hidden
             this.Write("</p>\r\n");
             
-            #line 14 "F:\Code\SnowFur\SnowFur.BL\Mailer\BroadcastMail.tt"
+            #line 14 "E:\Code\snowfur2016\SnowFur.BL\Mailer\BroadcastMail.tt"
 
 }
 
@@ -64,7 +64,7 @@ foreach (var line in MessageLines)
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 17 "F:\Code\SnowFur\SnowFur.BL\Mailer\BroadcastMail.tt"
+        #line 17 "E:\Code\snowfur2016\SnowFur.BL\Mailer\BroadcastMail.tt"
 
 public string Subject { get; set; }
 public List<string> MessageLines { get;  set; }

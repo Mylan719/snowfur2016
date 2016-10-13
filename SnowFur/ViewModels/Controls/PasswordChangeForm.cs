@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SnowFur.ViewModels.Controls
 {
-    public class PasswordChangeForm : DotvvmViewModelBase
+    public class PasswordChangeForm : OwinViewModelBase
     {
         [Required(ErrorMessage = "Zadajte pôvodné heslo.")]
         public string OldPassword { get; set; }

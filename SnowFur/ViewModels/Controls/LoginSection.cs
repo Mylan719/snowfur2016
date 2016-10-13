@@ -1,4 +1,5 @@
 ﻿using DotVVM.Framework.Controls;
+using DotVVM.Framework.Hosting;
 using DotVVM.Framework.ViewModel;
 using Microsoft.AspNet.Identity;
 using SnowFur.BL.Facades;
@@ -6,15 +7,15 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SnowFur.ViewModels.Controls
 {
-    public class LoginSection : DotvvmViewModelBase
+    public class LoginSection : OwinViewModelBase
     {
         private LoginFacade loginFacade;
 
         [Bind(Direction.ServerToClient)]
-        public string CurrentUserName => Context.OwinContext.Authentication.User?.Identity?.Name;
+        public string CurrentUserName => Context.HttpContext.User?.Identity?.Name;
 
         [Bind(Direction.ServerToClient)]
-        public int CurrentUserId => Context.OwinContext.Authentication.User?.Identity?.GetUserId<int>() ?? 0;
+        public int CurrentUserId => Context.HttpContext.User?.Identity?.GetUserId<int>() ?? 0;
 
         [Bind(Direction.ServerToClient)]
         public bool IsAuthenticated => CurrentUserId != 0;
@@ -52,15 +53,15 @@ namespace SnowFur.ViewModels.Controls
             }
             else
             {
-                Context.OwinContext.Authentication.SignIn(identity);
+                Authentication.SignIn(identity);
             }
-            Context.Redirect("MyProfile", null);
+            Context.RedirectToRoute("MyProfile", null);
         }
 
         public void Logout()
         {
-            Context.OwinContext.Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            Context.Redirect("Default", null);
+            Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            Context.RedirectToRoute("Default", null);
         }
     }
 }

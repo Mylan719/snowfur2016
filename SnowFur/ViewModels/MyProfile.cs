@@ -34,10 +34,10 @@ namespace SnowFur.ViewModels
         public int ActiveTabId { get; set; }
 
         [Bind(Direction.ServerToClient)]
-        public string CurrentUserName => Context.OwinContext.Authentication.User?.Identity?.Name;
+        public string CurrentUserName => Authentication.User?.Identity?.Name;
 
         [Bind(Direction.ServerToClient)]
-        public int CurrentUserId => Context.OwinContext.Authentication.User?.Identity?.GetUserId<int>() ?? 0;
+        public int CurrentUserId => Authentication.User?.Identity?.GetUserId<int>() ?? 0;
 
         private LoginFacade loginFacade;
         private PersonalProfileFacade personalProfileFacade;

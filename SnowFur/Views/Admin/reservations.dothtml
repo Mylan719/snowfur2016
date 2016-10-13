@@ -44,7 +44,7 @@
                 <ContentTemplate>
 					{{value: DatePaidFormated}} <br />
                     {{value: AmountPayed}} / {{value: AmountToPay}} Eur
-                    <dot:Button ButtButtonTagName="button" class="btn btn-info" Validate.Enabled="false" Click="{command: _parent.ConfirmPayment(Id)}" Text="Zadať sumu" />
+                    <dot:Button ButtButtonTagName="button" class="btn btn-info" Validation.Enabled="false" Click="{command: _parent.ConfirmPayment(Id)}" Text="Zadať sumu" />
                 </ContentTemplate>
             </dot:GridViewTemplateColumn>
             <dot:GridViewTemplateColumn HeaderText="Požiadavky">

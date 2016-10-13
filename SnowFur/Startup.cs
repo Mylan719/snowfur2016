@@ -17,8 +17,9 @@ using SnowFur.DAL.Model;
 using SnowFur.BL.Dtos;
 using AutoMapper;
 using SnowFur.ViewModels.Controls;
-using DotVVM.Framework.Runtime.Compilation.JavascriptCompilation;
-using SnowFur.ViewModels;
+using DotVVM.Framework.ViewModel.Serialization;
+using AutoMapper.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 [assembly: OwinStartup(typeof(SnowFur.Startup))]
 namespace SnowFur
@@ -36,20 +37,18 @@ namespace SnowFur
             });
 
             SetupContainer();
+            SetupMapper();
 
             var applicationPhysicalPath = HostingEnvironment.ApplicationPhysicalPath;
 
             // use DotVVM
-            DotvvmConfiguration dotvvmConfiguration = app.UseDotVVM(applicationPhysicalPath, true);
-            dotvvmConfiguration.ServiceLocator.RegisterSingleton<IViewModelLoader>(() => new WindsorViewModelLoader(container));
+            var dotvvmConfiguration = app.UseDotVVM<DotvvmStartup>(applicationPhysicalPath, true, builder: (b) => {
+                b.Services.AddSingleton<IViewModelLoader>((sp) => new WindsorViewModelLoader(sp, container));
+            });
 
-            RegisterResources(dotvvmConfiguration);
-
-            AddRoutes(dotvvmConfiguration);
-
-            RegisterMappings();
-
-            RegisterJsCompilables();
+#if DEBUG
+            dotvvmConfiguration.Debug = true;
+#endif
 
             // use static files
             app.UseStaticFiles(new StaticFileOptions()
@@ -58,74 +57,24 @@ namespace SnowFur
             });
         }
 
-        private static void RegisterResources(DotvvmConfiguration dotvvmConfiguration)
+        
+
+        private static void SetupMapper()
         {
-            dotvvmConfiguration.Resources.Register("Site", new StylesheetResource
-            {
-                Dependencies = { },
-                Url = "~/Content/Site.css"
-            });
-            dotvvmConfiguration.Resources.Register("Bootstrap.Celurean", new StylesheetResource
-            {
-                Dependencies = { },
-                Url = "~/Content/bootstrap.cerulean.css"
-            });
+            var config = new MapperConfigurationExpression();
 
-            dotvvmConfiguration.Resources.Register("bootstrap", new StylesheetResource
-            {
-                Dependencies = { },
-                Url = "~/Content/bootstrap.css"
-            });
+            config.CreateMap<PersonalProfile, PersonalProfileDto>();
+            config.CreateMap<PersonalProfileDto, PersonalProfile>();
+            config.CreateMap<PersonalProfileForm, PersonalProfileDto>();
+            config.CreateMap<PersonalProfileDto, PersonalProfileForm>();
+            config.CreateMap<PasswordChangeForm, ChangePasswordDto>();
 
-            dotvvmConfiguration.Resources.Register("jquery", new ScriptResource
-            {
-                Dependencies = { },
-                Url = "~/Scripts/jquery-2.1.4.js"
-            });
+            config.CreateMap<ReservationForm, RoomReservationDto>();
+            config.CreateMap<RoomReservationDto, ReservationForm>();
 
-            dotvvmConfiguration.Resources.Register("bootstrap-js", new ScriptResource
-            {
-                Dependencies = { },
-                Url = "~/Scripts/bootstrap.js"
-            });
+            config.CreateMap<User, UserEmailListDto>();
 
-        }
-
-        private static void RegisterMappings()
-        {
-            Mapper.CreateMap<PersonalProfile, PersonalProfileDto>();
-            Mapper.CreateMap<PersonalProfileDto, PersonalProfile>();
-            Mapper.CreateMap<PersonalProfileForm, PersonalProfileDto>();
-            Mapper.CreateMap<PersonalProfileDto, PersonalProfileForm>();
-            Mapper.CreateMap<PasswordChangeForm, ChangePasswordDto>();
-
-            Mapper.CreateMap<ReservationForm, RoomReservationDto>();
-            Mapper.CreateMap<RoomReservationDto, ReservationForm>();
-            
-            Mapper.CreateMap<User, UserEmailListDto>();
-
-        }
-
-        private static void RegisterJsCompilables()
-        {
-            JavascriptTranslator.AddMethodTranslator(typeof(MyProfile), nameof(MyProfile.GetClassForId), new StringJsMethodCompiler("(({0}.ActiveTabId() == {1}) ? \"active\" : \"\")"));
-        }
-
-        private void AddRoutes(DotvvmConfiguration dotvvmConfiguration)
-        {
-            dotvvmConfiguration.RouteTable.Add("Default", "", "Views/default.dothtml");
-            dotvvmConfiguration.RouteTable.Add("Register", "register", "Views/register.dothtml");
-            dotvvmConfiguration.RouteTable.Add("Attendees", "attendees", "Views/attendees.dothtml");
-            dotvvmConfiguration.RouteTable.Add("RegisterFinish", "registerFinish", "Views/registerFinish.dothtml");
-            dotvvmConfiguration.RouteTable.Add("PasswordRecoveryStep1", "passwordRecoveryStep1", "Views/passwordRecoveryStep1.dothtml");
-            dotvvmConfiguration.RouteTable.Add("PasswordRecoveryStep2", "passwordRecoveryStep2", "Views/passwordRecoveryStep2.dothtml");
-            dotvvmConfiguration.RouteTable.Add("MyProfile", "myProfile", "Views/myProfile.dothtml");
-            dotvvmConfiguration.RouteTable.Add("PriceList", "priceList", "Views/priceList.dothtml");
-            dotvvmConfiguration.RouteTable.Add("Contact", "contact", "Views/contact.dothtml");
-
-            dotvvmConfiguration.RouteTable.Add("AdminReservations", "admin/reservations", "Views/Admin/reservations.dothtml");
-            dotvvmConfiguration.RouteTable.Add("AdminBroadcastMail", "admin/broadcastMail", "Views/Admin/broadcastMail.dothtml");
-
+            Mapper.Initialize(config);
         }
 
         private void SetupContainer()
