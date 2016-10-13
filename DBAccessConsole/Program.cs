@@ -1,4 +1,5 @@
 ﻿using Riganti.Utils.Infrastructure.Core;
+using SnowFur.BL.Queries;
 using SnowFur.BL.Repositories;
 using SnowFur.BL.UnitOfWork;
 using SnowFur.DAL.Model;
@@ -26,6 +27,8 @@ namespace DBAccessConsole
             var roomRepo = new RoomRepository(provider);
             var conventionRepo = new ConventionRepository(provider);
             var serviceRepo = new ServiceRepository(provider);
+
+            var roomQuery = new RoomQuery(provider);
 
             using (var ouw = provider.Create())
             {
@@ -65,6 +68,16 @@ namespace DBAccessConsole
                     });
 
                 ouw.Commit();
+            }
+
+
+            using (var uow = provider.Create())
+            {
+                roomQuery.ConventionName = "Comix Salon";
+                roomQuery.Execute().ToList().ForEach(r =>
+                {
+                    Console.WriteLine($"{r.Name}: {r.BedCount} beds.");
+                });
             }
         }
 

@@ -19,7 +19,7 @@ namespace SnowFur.BL.Facades
 
         public int CurrentUserId { get; set; }
 
-        public Func<RoomReservationsQuery> QueryFunc { get; set; }
+        public Func<RoomQuery> QueryFunc { get; set; }
 
         public override RoomReservationDto Create()
         {
@@ -67,8 +67,7 @@ namespace SnowFur.BL.Facades
 
         protected override IQuery<RoomReservationListDto> CreateQuery(RoomReservationFilter filter)
         {
-            var query = QueryFunc();
-            return query;
+            throw new NotImplementedException();
         }
 
         protected override IRepository<RoomReservation, int> GetRepository()

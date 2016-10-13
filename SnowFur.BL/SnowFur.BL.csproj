@@ -202,6 +202,7 @@
     <Compile Include="Dtos\ChangePasswordDto.cs" />
     <Compile Include="Dtos\PersonalProfileDto.cs" />
     <Compile Include="Dtos\NewPasswordDto.cs" />
+    <Compile Include="Dtos\RoomDto.cs" />
     <Compile Include="Dtos\RoomReservationListDto.cs" />
     <Compile Include="Dtos\RoomReservationDto.cs" />
     <Compile Include="Dtos\UserEmailListDto.cs" />
@@ -234,7 +235,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\ApplicationQueryBase.cs" />
     <Compile Include="Queries\AttendeesQuery.cs" />
-    <Compile Include="Queries\RoomReservationsQuery.cs" />
+    <Compile Include="Queries\RoomQuery.cs" />
     <Compile Include="Queries\UserEmailsQuery.cs" />
     <Compile Include="Repositories\ConventionPaymentRepository.cs" />
     <Compile Include="Repositories\RoomRepository.cs" />
