@@ -10,6 +10,7 @@ namespace SnowFur.DAL.Enums
     {
         Default  = 0,
         AccomodationNight = 1,
-        LateRegistration = 2
+        LateRegistration = 2,
+        Additional = 3
     }
 }

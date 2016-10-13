@@ -108,8 +108,8 @@
       <HintPath>..\packages\Riganti.Utils.Infrastructure.Core.1.0.3\lib\net45\Riganti.Utils.Infrastructure.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Riganti.Utils.Infrastructure.EntityFramework, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Riganti.Utils.Infrastructure.EntityFramework.1.0.3\lib\net45\Riganti.Utils.Infrastructure.EntityFramework.dll</HintPath>
+    <Reference Include="Riganti.Utils.Infrastructure.EntityFramework, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Riganti.Utils.Infrastructure.EntityFramework.1.0.2\lib\net45\Riganti.Utils.Infrastructure.EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -252,7 +252,9 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SnowFur.DAL\SnowFur.DAL.csproj">

@@ -19,8 +19,8 @@ namespace SnowFur.DAL.Model
         public DateTime DateCreated { get; set; }
 
         public virtual PersonalProfile PersonalProfile { get; set; }
-        public virtual ICollection<RoomReservation> RoomReservations { get; set; }
-        public virtual ICollection<ServiceOrder> ServiceOrders { get; set; }
-        public virtual ICollection<ConventionPayment> Payments { get; set; }
+        public virtual ICollection<RoomReservation> RoomReservations { get; set; } = new List<RoomReservation>();
+        public virtual ICollection<ServiceOrder> ServiceOrders { get; set; } = new List<ServiceOrder>();
+        public virtual ICollection<ConventionPayment> Payments { get; set; } = new List<ConventionPayment>();
     }
 }

@@ -22,9 +22,9 @@ namespace SnowFur.DAL.Model
         public DateTime? DateDeleted { get; set; }
         public DateTime? DateUpdated { get; set; }
         public DateTime DateCreated { get; set; }
-        
-        public virtual ICollection<Room> Rooms { get; set; }
-        public virtual ICollection<Service> Services { get; set; }
-        public virtual ICollection<ConventionPayment> Payments { get; set; }
+
+        public virtual ICollection<Room> Rooms { get; set; } = new List<Room>();
+        public virtual ICollection<Service> Services { get; set; } = new List<Service>();
+        public virtual ICollection<ConventionPayment> Payments { get; set; } = new List<ConventionPayment>();
     }
 }
