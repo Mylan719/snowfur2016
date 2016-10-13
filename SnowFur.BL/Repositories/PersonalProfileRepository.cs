@@ -9,20 +9,11 @@ using System.Threading.Tasks;
 
 namespace SnowFur.BL.Repositories
 {
-    public class PersonalProfileRepository : EntityFrameworkRepository<PersonalProfile, int>
+    public class PersonalProfileRepository : GuardedEntityRepositiryBase<PersonalProfile>
     {
         public PersonalProfileRepository(IUnitOfWorkProvider provider) : base(provider)
         { }
-        public override void Delete(PersonalProfile entity)
-        {
-            entity.DateDeleted = DateTime.Now;
-        }
-
-        public override void Delete(int id)
-        {
-            Delete(GetById(id));
-        }
-
+       
         public PersonalProfile GetByUserId (int userId)
         {
             return Context.Set<PersonalProfile>().SingleOrDefault(profile => profile.Id == userId);

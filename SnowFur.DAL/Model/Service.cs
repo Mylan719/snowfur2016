@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SnowFur.DAL.Model
 {
-    public class Service : IEntity<int>
+    public class Service : IEntity<int>, IGuardedEntity
     {
         public int Id { get; set; }
 

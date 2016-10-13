@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SnowFur.DAL.Model
 {
-    public class ConventionPayment : IEntity<int>
+    public class ConventionPayment : IEntity<int>, IGuardedEntity
     {
         public int Id { get; set; }
         public decimal Amount { get; set; }

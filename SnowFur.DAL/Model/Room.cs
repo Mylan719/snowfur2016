@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SnowFur.DAL.Model
 {
-    public class Room : IEntity<int>
+    public class Room : IEntity<int>, IGuardedEntity
     {
         public int Id { get; set; }
 

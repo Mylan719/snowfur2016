@@ -9,19 +9,10 @@ using System.Threading.Tasks;
 
 namespace SnowFur.BL.Repositories
 {
-    public class UserRepository : EntityFrameworkRepository<User, int>
+    public class UserRepository : GuardedEntityRepositiryBase<User>
     {
         public UserRepository(IUnitOfWorkProvider provider) : base(provider)
         { }
-        public override void Delete(User entity)
-        {
-            entity.DateDeleted = DateTime.UtcNow;
-        }
-
-        public override void Delete(int id)
-        {
-            Delete(GetById(id));
-        }
 
         public User GetByUserName ( string userName )
         {

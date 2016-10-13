@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SnowFur.DAL.Model
 {
-    public class User : IdentityUser<int, UserLogin, UserRole, UserClaim>, IEntity<int>
+    public class User : IdentityUser<int, UserLogin, UserRole, UserClaim>, IEntity<int>, IGuardedEntity
     {
         [MaxLength(500)]
         public string AdditionalInfo { get; set; }

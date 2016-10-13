@@ -236,6 +236,12 @@
     <Compile Include="Queries\AttendeesQuery.cs" />
     <Compile Include="Queries\RoomReservationsQuery.cs" />
     <Compile Include="Queries\UserEmailsQuery.cs" />
+    <Compile Include="Repositories\ConventionPaymentRepository.cs" />
+    <Compile Include="Repositories\RoomRepository.cs" />
+    <Compile Include="Repositories\ServiceOrderRepository.cs" />
+    <Compile Include="Repositories\ServiceRepository.cs" />
+    <Compile Include="Repositories\ConventionRepository.cs" />
+    <Compile Include="Repositories\GuardedEntityRepositiryBase.cs" />
     <Compile Include="Repositories\RoomReservationRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\PersonalProfileRepository.cs" />

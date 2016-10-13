@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SnowFur.DAL.Model
 {
-    public class PersonalProfile : IEntity<int>
+    public class PersonalProfile : IEntity<int>, IGuardedEntity
     {
         [Key]
         [ForeignKey("User")]

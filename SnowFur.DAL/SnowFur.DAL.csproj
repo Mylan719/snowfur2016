@@ -87,6 +87,7 @@
       <DependentUpon>201610130108008_MaxlengthForConventionName.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\ConventionPayment.cs" />
+    <Compile Include="Model\IGuardedEntity.cs" />
     <Compile Include="Model\Room.cs" />
     <Compile Include="Migrations\201510281748540_InitialCreate.cs" />
     <Compile Include="Migrations\201510281748540_InitialCreate.Designer.cs">
