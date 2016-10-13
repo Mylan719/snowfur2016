@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnowFur.DAL", "SnowFur.DAL\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{459459D1-65E9-4C53-9110-B16C558A7860}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBAccessConsole", "DBAccessConsole\DBAccessConsole.csproj", "{9CB1172F-03FC-4988-A754-677E1B3EAB72}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,8 +31,15 @@ Global
 		{258D16A2-F82E-441E-A687-081D0837EBE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{258D16A2-F82E-441E-A687-081D0837EBE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{258D16A2-F82E-441E-A687-081D0837EBE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CB1172F-03FC-4988-A754-677E1B3EAB72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CB1172F-03FC-4988-A754-677E1B3EAB72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CB1172F-03FC-4988-A754-677E1B3EAB72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CB1172F-03FC-4988-A754-677E1B3EAB72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9CB1172F-03FC-4988-A754-677E1B3EAB72} = {459459D1-65E9-4C53-9110-B16C558A7860}
 	EndGlobalSection
 EndGlobal

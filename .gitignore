@@ -15,3 +15,5 @@
 /SnowFur/Properties/PublishProfiles
 /.vs/config
 *.user
+/DBAccessConsole/bin/Debug
+/DBAccessConsole/obj/Debug
