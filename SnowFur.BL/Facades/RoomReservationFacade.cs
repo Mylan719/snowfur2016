@@ -52,20 +52,11 @@ namespace SnowFur.BL.Facades
 
                 if (reservation == null)
                 {
-                    reservation = new RoomReservation
-                    {
-                        Id = userId,
-                        AmountPayed = amountPayed,
-                        DatePaid = datePaied,
-                        Note = string.Empty
-                    };
-
-                    RoomReservationRepository.Insert(reservation);
+                    new NotImplementedException();
                 }
                 else
                 {
-                    reservation.AmountPayed = amountPayed;
-                    reservation.DatePaid = datePaied;
+                    new NotImplementedException();
                 }
                 
                 uow.Commit();

@@ -17,9 +17,9 @@ namespace SnowFur.DAL.Model
         public int ConventionId { get; set; }
 
         [MaxLength(200)]
-        public int Name { get; set; }
+        public string Name { get; set; }
         [MaxLength(500)]
-        public int Description { get; set; }
+        public string Description { get; set; }
         public decimal Price { get; set; }
         public ServiceType Type { get; set; }
         public DateTime? ChargeAfter { get; set; }

@@ -15,7 +15,7 @@ namespace SnowFur.BL.Repositories
         { }
         public override void Delete(User entity)
         {
-            entity.IsDeleted = true;
+            entity.DateDeleted = DateTime.UtcNow;
         }
 
         public override void Delete(int id)

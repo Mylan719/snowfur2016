@@ -101,14 +101,7 @@ namespace SnowFur
 
             Mapper.CreateMap<ReservationForm, RoomReservationDto>();
             Mapper.CreateMap<RoomReservationDto, ReservationForm>();
-
-            Mapper.CreateMap<RoomReservationDto, RoomReservation>()
-                .ForMember(d => d.Id, a => a.MapFrom(s => s.UserId))
-                .ForMember(d => d.AmountPayed, a => a.Ignore())
-                .ForMember(d => d.DatePaid, a => a.Ignore());
-            Mapper.CreateMap<RoomReservation, RoomReservationDto>()
-                .ForMember(d => d.UserId, a => a.MapFrom( s => s.Id));
-
+            
             Mapper.CreateMap<User, UserEmailListDto>();
 
         }

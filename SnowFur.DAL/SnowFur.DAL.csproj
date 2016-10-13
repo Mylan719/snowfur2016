@@ -77,6 +77,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\ServiceType.cs" />
+    <Compile Include="Migrations\201610130057291_ConventionsRoomsServices.cs" />
+    <Compile Include="Migrations\201610130057291_ConventionsRoomsServices.Designer.cs">
+      <DependentUpon>201610130057291_ConventionsRoomsServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610130108008_MaxlengthForConventionName.cs" />
+    <Compile Include="Migrations\201610130108008_MaxlengthForConventionName.Designer.cs">
+      <DependentUpon>201610130108008_MaxlengthForConventionName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\ConventionPayment.cs" />
     <Compile Include="Model\Room.cs" />
     <Compile Include="Migrations\201510281748540_InitialCreate.cs" />
@@ -139,6 +147,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601171240200_DatePaid.resx">
       <DependentUpon>201601171240200_DatePaid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610130057291_ConventionsRoomsServices.resx">
+      <DependentUpon>201610130057291_ConventionsRoomsServices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610130108008_MaxlengthForConventionName.resx">
+      <DependentUpon>201610130108008_MaxlengthForConventionName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

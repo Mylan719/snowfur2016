@@ -17,14 +17,7 @@ namespace SnowFur.BL.Queries
 
         protected override IQueryable<AttendeeListItemDto> GetQueryable()
         {
-            return Context.Users.Where(u =>
-            u.RoomReservation != null
-            && (u.RoomReservation.Night1 || u.RoomReservation.Night2 || u.RoomReservation.Night3))
-            .Select(u => new AttendeeListItemDto {
-                NickName = u.UserName,
-                Color = (u.RoomReservation.AmountPayed > 0) ? "alert-success" : "alert-warning",
-                Count = u.Id
-            }).OrderBy(a => a.Count);
+            throw new NotImplementedException();
         }
 
         protected override void PostProcessResults(IList<AttendeeListItemDto> results)

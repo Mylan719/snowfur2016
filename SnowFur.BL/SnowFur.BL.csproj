@@ -167,8 +167,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\ApplicationQueryBase.cs" />
     <Compile Include="Queries\AttendeesQuery.cs" />
-    <Compile Include="Queries\UserEmailsQuery.cs" />
     <Compile Include="Queries\RoomReservationsQuery.cs" />
+    <Compile Include="Queries\UserEmailsQuery.cs" />
     <Compile Include="Repositories\RoomReservationRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\PersonalProfileRepository.cs" />

@@ -13,8 +13,8 @@ namespace SnowFur.DAL.Model
     { 
         public int Id { get; set; }
 
-        public int UserId { get; set; }
-        public int RoomId { get; set; }
+        public int? UserId { get; set; }
+        public int? RoomId { get; set; }
 
         [MaxLength(500)]
         public string Note { get; set; }
