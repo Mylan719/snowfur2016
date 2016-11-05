@@ -62,16 +62,16 @@
       <HintPath>..\packages\Castle.Windsor.Extensions.2.2.1.2\lib\net40\Castle.Windsor.Extensions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DotVVM.Core, Version=1.0.4.0, Culture=neutral, PublicKeyToken=23f3607db32275da, processorArchitecture=MSIL">
-      <HintPath>..\packages\DotVVM.Core.1.1.0-alpha\lib\net461\DotVVM.Core.dll</HintPath>
+    <Reference Include="DotVVM.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=23f3607db32275da, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotVVM.Core.1.1.0-beta\lib\net451\DotVVM.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DotVVM.Framework, Version=1.0.4.0, Culture=neutral, PublicKeyToken=23f3607db32275da, processorArchitecture=MSIL">
-      <HintPath>..\packages\DotVVM.1.0.8-pre\lib\net461\DotVVM.Framework.dll</HintPath>
+    <Reference Include="DotVVM.Framework, Version=1.1.0.0, Culture=neutral, PublicKeyToken=23f3607db32275da, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotVVM.1.1.0-beta\lib\net451\DotVVM.Framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Dotvvm.Framework.Hosting.Owin, Version=1.1.0.0, Culture=neutral, PublicKeyToken=23f3607db32275da, processorArchitecture=MSIL">
-      <HintPath>..\packages\DotVVM.Owin.1.1.0-alpha\lib\net461\Dotvvm.Framework.Hosting.Owin.dll</HintPath>
+    <Reference Include="DotVVM.Framework.Hosting.Owin, Version=1.1.0.0, Culture=neutral, PublicKeyToken=23f3607db32275da, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotVVM.Owin.1.1.0-beta\lib\net451\DotVVM.Framework.Hosting.Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -351,7 +351,9 @@
     <Content Include="Views\Controls\PasswordChangeForm.dotcontrol" />
     <Content Include="Views\Controls\ReservationForm.dotcontrol" />
     <Content Include="Views\Master.dotmaster" />
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\Controls\LoginPanel.dotcontrol" />
     <Content Include="Views\default.dothtml" />
     <Content Include="Views\register.dothtml" />
