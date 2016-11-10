@@ -51,22 +51,7 @@ namespace SnowFur.ViewModels.Controls
 
         public void Show(int userId)
         {
-            CurrentUserId = userId;
-            CurrentUserName = personalProfileFacade.GetUserNameById(userId);
-
-            var reservation = roomReservationFacade.Get(userId);
-
-            if (reservation != null)
-            {
-                Amount = reservation.AmountPayed;
-                if (reservation.DatePaid.HasValue)
-                {
-                    Day = reservation.DatePaid.Value.Day;
-                    Month = reservation.DatePaid.Value.Month;
-                    Year = reservation.DatePaid.Value.Year;
-                }
-            }
-            IsShown = true;
+            throw new NotImplementedException();
         }
 
         public void Hide()
@@ -82,25 +67,7 @@ namespace SnowFur.ViewModels.Controls
 
         public void Confirm()
         {
-            try
-            {
-                var paidDate = new DateTime(Year, Month, Day, 10, 0, 0);
-
-                string userNameConfirmed = roomReservationFacade.PayReservation(CurrentUserId, Amount, paidDate);
-                ParentViewModel.SuccessMessage = string.Format("Potvrdená suma {0} Eur v prospech užívateľa {1}", Amount, userNameConfirmed);
-            }
-            catch (UIException ex)
-            {
-                ParentViewModel.ErrorMessage = ex.Message;
-            }
-            catch (ArgumentOutOfRangeException ex)
-            {
-                ParentViewModel.ErrorMessage = ex.Message;
-            }
-            finally
-            {
-                Hide();
-            }
+            throw new NotImplementedException();
         }
-    }
+    }   
 }

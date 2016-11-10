@@ -12,7 +12,7 @@ namespace SnowFur.ViewModels
 {
 	public class Attendees : PageViewModelBase
 	{
-        private ConventionInfoFacade infoFacade;
+        private ConventionFacade infoFacade;
 
         public GridViewDataSet<AttendeeListItemDto> AttendeeDataSet { get; set; }
             = new GridViewDataSet<AttendeeListItemDto>() {
@@ -20,7 +20,7 @@ namespace SnowFur.ViewModels
                 PageSize = 60
             };
 
-        public Attendees(ConventionInfoFacade infoFacade)
+        public Attendees(ConventionFacade infoFacade)
         {
             this.infoFacade = infoFacade;
 

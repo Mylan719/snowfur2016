@@ -2,23 +2,30 @@
 using SnowFur.DAL.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper.QueryableExtensions;
 using Riganti.Utils.Infrastructure.Core;
+using SnowFur.BL.Filters;
 
 namespace SnowFur.BL.Queries
 {
     public class AttendeesQuery : ApplicationQueryBase<AttendeeListItemDto>
     {
+        public ConventionFilter Filter { get; set; }
+
         public AttendeesQuery(IUnitOfWorkProvider provider)
-            :base (provider)
+            : base(provider)
         { }
 
         protected override IQueryable<AttendeeListItemDto> GetQueryable()
-        {
-            throw new NotImplementedException();
-        }
+            => Context.RoomReservations
+                .Include("User")
+                .Where(rr => rr.Room.Convention.Id == Filter.ConventionId)
+                .Select(rr => rr.User)
+                .ProjectTo<AttendeeListItemDto>();
 
         protected override void PostProcessResults(IList<AttendeeListItemDto> results)
         {

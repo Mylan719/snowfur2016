@@ -12,15 +12,15 @@ namespace SnowFur.ViewModels
 {
     public class PasswordRecoveryStep2 : PageViewModelBase
     {
-        private LoginFacade loginFacade;
-        private PersonalProfileFacade personalProfileFacade;
+        private readonly AccountFacade accountFacade;
+        private readonly PersonalProfileFacade personalProfileFacade;
 
-        public PasswordRecoveryStep2(LoginFacade loginFacade, PersonalProfileFacade personalProfileFacade) : base()
+        public PasswordRecoveryStep2(AccountFacade accountFacade, PersonalProfileFacade personalProfileFacade) : base()
         {
             SubpageTitle = "Obnova hesla";
             RabitBackgroundCssClass = "sf-bg-password-recovery";
 
-            this.loginFacade = loginFacade;
+            this.accountFacade = accountFacade;
             this.personalProfileFacade = personalProfileFacade;
         }
 
@@ -36,7 +36,7 @@ namespace SnowFur.ViewModels
         {
             if( !personalProfileFacade.ProfileExists(UserName))
             {
-                Context.RedirectToRoute(string.Format("~/registerFinish?username={0}&token={1}", UserName, PasswordToken));
+                Context.RedirectToRoute($"~/registerFinish?username={UserName}&token={PasswordToken}");
             }
             return base.Init();
         }
@@ -46,7 +46,7 @@ namespace SnowFur.ViewModels
         {
             try
             {
-                loginFacade.SetPassword(UserName, NewPassword.Password, PasswordToken);
+                accountFacade.SetPassword(UserName, NewPassword.Password, PasswordToken);
             }
             catch (UIException ex)
             {

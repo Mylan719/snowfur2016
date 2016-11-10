@@ -39,14 +39,14 @@ namespace SnowFur.ViewModels
         [Bind(Direction.ServerToClient)]
         public int CurrentUserId => Authentication.User?.Identity?.GetUserId<int>() ?? 0;
 
-        private LoginFacade loginFacade;
-        private PersonalProfileFacade personalProfileFacade;
-        private RoomReservationFacade roomReservationFacade;
+        private readonly AccountFacade accountFacade;
+        private readonly PersonalProfileFacade personalProfileFacade;
+        private readonly RoomReservationFacade roomReservationFacade;
 
-        public MyProfile( PersonalProfileFacade proFac, LoginFacade logFac, RoomReservationFacade resFac)
+        public MyProfile( PersonalProfileFacade proFac, AccountFacade accFac, RoomReservationFacade resFac)
         {
             personalProfileFacade = proFac;
-            loginFacade = logFac;
+            accountFacade = accFac;
             roomReservationFacade = resFac;
 
             SubpageTitle = "Môj profil";
@@ -58,21 +58,16 @@ namespace SnowFur.ViewModels
         {
             var task = base.Init();
             roomReservationFacade.CurrentUserId = CurrentUserId;
+            personalProfileFacade.CurrentUserId = CurrentUserId;
             return task;
         }
 
         public override Task PreRender()
         {;
-            var profileDto = personalProfileFacade.GetPersonalProfile(CurrentUserId) ?? new PersonalProfileDto();
+            var profileDto = personalProfileFacade.GetPersonalProfile() ?? new PersonalProfileDto();
             Mapper.Map(profileDto, PersonalProfileForm);
 
-            var reservationDetail = roomReservationFacade.Get(CurrentUserId) ?? new RoomReservationDto();
-            Mapper.Map(reservationDetail, ReservationForm);
-
-            IsRegistrationPaid = reservationDetail.IsPayed;
-            AmountPaid = reservationDetail.AmountPayed;
-            AmountToPay = reservationDetail.AmountToPay;
-
+            //TODO: Fill reservation Data
 
             return base.PreRender();
         }
@@ -93,7 +88,7 @@ namespace SnowFur.ViewModels
             try
             {
                 var changePasswordDto = Mapper.Map<ChangePasswordDto>(PasswordChangeForm);
-                loginFacade.ChangePassword(CurrentUserId, changePasswordDto);
+                accountFacade.ChangePassword(CurrentUserId, changePasswordDto);
             }
             catch (UIException ex)
             {
@@ -109,7 +104,7 @@ namespace SnowFur.ViewModels
         {
             try {
                 var profileDto = Mapper.Map<PersonalProfileDto>(PersonalProfileForm);
-                personalProfileFacade.Update(profileDto, CurrentUserId);               
+                personalProfileFacade.Update(profileDto);               
             }
             catch(UIException ex)
             {
@@ -122,19 +117,7 @@ namespace SnowFur.ViewModels
         [ModelValidationFilter]
         public void SaveReservation()
         {
-            try
-            {
-                var reservationDto = roomReservationFacade.Create();
-                Mapper.Map(ReservationForm, reservationDto);
-
-                roomReservationFacade.Save(reservationDto);
-            }
-            catch (UIException ex)
-            {
-                ErrorMessage = ex.Message;
-            }
-            SuccessMessage = !IsError ? "Rezervácia uložená" : string.Empty;
-            ActiveTabId = 3;
+            throw new NotImplementedException();
         }
     }
 }

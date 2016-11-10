@@ -10,17 +10,16 @@ using System.Threading.Tasks;
 
 namespace SnowFur.BL.Queries
 {
-    public class UserEmailsQuery : ApplicationQueryBase<UserEmailListDto>
+    public class UserEmailsQuery : ApplicationQueryBase<UserEmailDto>
     {
         public UserEmailFilter Filter { get; set; } = new UserEmailFilter { MailConfirmed = true };
 
         public UserEmailsQuery(IUnitOfWorkProvider provider) : base (provider)
         {}
-        protected override IQueryable<UserEmailListDto> GetQueryable()
+        protected override IQueryable<UserEmailDto> GetQueryable()
         {
             var query = Context.Users.AsQueryable();
             
-
             if (!Filter.MailConfirmed)
             {
                 query = query.Where(user => !user.EmailConfirmed);
@@ -31,7 +30,7 @@ namespace SnowFur.BL.Queries
                 query = query.Where(user => user.EmailConfirmed);
             }
 
-            return query.ProjectTo<UserEmailListDto>();
+            return query.ProjectTo<UserEmailDto>();
         }
     }
 }

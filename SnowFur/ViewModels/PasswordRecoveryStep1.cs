@@ -12,18 +12,18 @@ namespace SnowFur.ViewModels
 {
     public class PasswordRecoveryStep1 : PageViewModelBase
     {
-        private LoginFacade loginFacade;
+        private readonly AccountFacade accountFacade;
 
         [Required(ErrorMessage = "Email nezadany.")]
         [EmailAddress(ErrorMessage = "Email v nesprávnom tvare.")]
         public string Email { get; set; }
 
-        public PasswordRecoveryStep1(LoginFacade loginFacade) : base()
+        public PasswordRecoveryStep1(AccountFacade accountFacade) : base()
         {
             SubpageTitle = "Obnova hesla";
             RabitBackgroundCssClass = "sf-bg-password-recovery";
 
-            this.loginFacade = loginFacade;
+            this.accountFacade = accountFacade;
         }
 
         [ModelValidationFilter]
@@ -31,7 +31,7 @@ namespace SnowFur.ViewModels
         {
             try
             {
-                loginFacade.SendPasswordResetEmail(Email, Context.Configuration.RouteTable["PasswordRecoveryStep2"].Url);
+                accountFacade.SendPasswordResetEmail(Email, Context.Configuration.RouteTable["PasswordRecoveryStep2"].Url);
             }
             catch (UIException ex)
             {

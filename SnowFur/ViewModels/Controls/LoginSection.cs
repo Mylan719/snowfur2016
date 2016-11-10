@@ -9,7 +9,7 @@ namespace SnowFur.ViewModels.Controls
 {
     public class LoginSection : OwinViewModelBase
     {
-        private LoginFacade loginFacade;
+        private AccountFacade accountFacade;
 
         [Bind(Direction.ServerToClient)]
         public string CurrentUserName => Context.HttpContext.User?.Identity?.Name;
@@ -32,9 +32,9 @@ namespace SnowFur.ViewModels.Controls
         [Bind(Direction.Both)]
         public string Password { get; set; }
 
-        public LoginSection(LoginFacade loginFacade) : base()
+        public LoginSection(AccountFacade accountFacade) : base()
         {
-            this.loginFacade = loginFacade;
+            this.accountFacade = accountFacade;
         }
 
         public void Login()
@@ -45,7 +45,7 @@ namespace SnowFur.ViewModels.Controls
                 return;
             }
 
-            var identity = loginFacade.Login(UserName, Password);
+            var identity = accountFacade.Login(UserName, Password);
             if (identity == null)
             {
                 ErrorMessage = "Nesprávne meno a heslo.";

@@ -25,5 +25,7 @@ namespace SnowFur.DAL.Model
 
         [ForeignKey(nameof(ConventionId))]
         public Convention Convention { get; set; }
+
+        public virtual ICollection<RoomReservation> Reservations { get; set; } = new List<RoomReservation>();
     }
 }

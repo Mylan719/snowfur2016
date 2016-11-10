@@ -288,6 +288,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DotvvmStartup.cs" />
+    <Compile Include="Installers\AutomapperInstaller.cs" />
     <Compile Include="Installers\DataAccessInstaller.cs" />
     <Compile Include="Installers\ServiceInstaller.cs" />
     <Compile Include="Installers\ViewModelInstaller.cs" />

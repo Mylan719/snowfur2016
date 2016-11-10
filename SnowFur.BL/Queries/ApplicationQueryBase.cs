@@ -11,10 +11,7 @@ namespace SnowFur.BL.Queries
 {
     public abstract class ApplicationQueryBase<TResult> : EntityFrameworkQuery<TResult>
     {
-        public new ApplicationDbContextContainer Context
-        {
-            get { return (ApplicationDbContextContainer)base.Context; }
-        }
+        public new ApplicationDbContextContainer Context => (ApplicationDbContextContainer)base.Context;
 
         public ApplicationQueryBase(IUnitOfWorkProvider provider) : base(provider)
         {

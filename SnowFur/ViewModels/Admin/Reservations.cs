@@ -18,12 +18,12 @@ namespace SnowFur.ViewModels.Admin
     public class Reservations : PageViewModelBase
     {
         public PaimentConfirmationForm PaimentConfirmationForm { get; set; }
-
-        public GridViewDataSet<RoomReservationListDto> Attendees { get; set; } = new GridViewDataSet<RoomReservationListDto>() { SortExpression = nameof(RoomReservationListDto.UserName), PageSize = 60 };
+      
+        //Todo: Atendees here
 
         private RoomReservationFacade roomReservationFacade;
 
-        public Reservations(RoomReservationFacade roomReservationFacade) : base()
+        public Reservations(RoomReservationFacade roomReservationFacade)
         {
             this.roomReservationFacade = roomReservationFacade;
 
@@ -40,7 +40,7 @@ namespace SnowFur.ViewModels.Admin
 
         public override Task PreRender()
         {
-            roomReservationFacade.LoadList(Attendees, new BL.Filters.RoomReservationFilter());
+            //TODO: fill Atendees 
 
             return base.PreRender();
         }

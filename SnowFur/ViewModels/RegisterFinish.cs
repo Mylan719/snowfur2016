@@ -12,15 +12,15 @@ namespace SnowFur.ViewModels
 {
     public class RegisterFinish : PageViewModelBase
     {
-        private LoginFacade loginFacade;
+        private AccountFacade accountFacade;
         private PersonalProfileFacade personalProfileFacade;
 
-        public RegisterFinish(LoginFacade loginFacade, PersonalProfileFacade personalProfileFacade) : base()
+        public RegisterFinish(AccountFacade accountFacade, PersonalProfileFacade personalProfileFacade) : base()
         {
             SubpageTitle = "Dokončenie registrácie";
             RabitBackgroundCssClass = "sf-bg-register";
 
-            this.loginFacade = loginFacade;
+            this.accountFacade = accountFacade;
             this.personalProfileFacade = personalProfileFacade;
         }
 
@@ -38,9 +38,9 @@ namespace SnowFur.ViewModels
         public void Submit ()
         {
             try
-            {
-                loginFacade.CompleteRegistration(UserName, NewPassword.Password, PasswordToken);
-                personalProfileFacade.Insert(Mapper.Map<PersonalProfileDto>(Profile), UserName);
+            {         
+                var profileDto = Mapper.Map<PersonalProfileDto>(Profile);
+                accountFacade.CompleteRegistration(UserName, NewPassword.Password, PasswordToken, profileDto);
             }
             catch (UIException ex)
             {
@@ -48,7 +48,7 @@ namespace SnowFur.ViewModels
                 return;
             }
 
-            var identity = loginFacade.Login(UserName, NewPassword.Password);
+            var identity = accountFacade.Login(UserName, NewPassword.Password);
             if (identity != null)
             {
                 Authentication.SignIn(identity);

@@ -4,10 +4,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
+using SnowFur.BL.Installers;
+using SnowFur.DAL.Model;
 
 namespace SnowFur.BL.Dtos
 {
-    public class PersonalProfileDto
+    public class PersonalProfileDto : IMapperInstaller
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -16,5 +19,10 @@ namespace SnowFur.BL.Dtos
         public string ZipCode { get; set; }
         public string CountryName { get; set; }
         public bool Adult { get; set; }
+
+        public void InstallMapping(IMapperConfigurationExpression configuration)
+        {
+            configuration.CreateMap<PersonalProfile, PersonalProfileDto>().ReverseMap();
+        }
     }
 }

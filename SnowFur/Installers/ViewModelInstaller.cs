@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SnowFur.BL.Services;
 
 namespace SnowFur.Installers
 {
@@ -17,8 +18,8 @@ namespace SnowFur.Installers
         {
             container.Register(
 
-                Classes.FromAssemblyContaining<ApplicationFacadeBase>()
-                    .BasedOn<ApplicationFacadeBase>()
+                Classes.FromAssemblyContaining<ApplicationServiceBase>()
+                    .BasedOn<ApplicationServiceBase>()
                     .LifestyleTransient(),
 
                 Classes.FromThisAssembly()

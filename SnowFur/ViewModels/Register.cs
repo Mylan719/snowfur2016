@@ -11,14 +11,14 @@ namespace SnowFur.ViewModels
 {
     public class Register : PageViewModelBase
     {
-        private LoginFacade loginFacade; 
+        private readonly AccountFacade accountFacade; 
 
-        public Register(LoginFacade loginFacade) : base()
+        public Register(AccountFacade accountFacade) : base()
         {
             SubpageTitle = "Registrácia";
             RabitBackgroundCssClass = "sf-bg-register";
 
-            this.loginFacade = loginFacade;
+            this.accountFacade = accountFacade;
         }
 
         public AccountInfoDto Account { get; set; } = new AccountInfoDto();
@@ -28,13 +28,12 @@ namespace SnowFur.ViewModels
         {
             try
             {
-                loginFacade.RegisterUser(Account, Context.Configuration.RouteTable["RegisterFinish"].Url);
+                accountFacade.RegisterUser(Account, Context.Configuration.RouteTable["RegisterFinish"].Url);
                 IsSuccessfullyFinished = true;
             }
             catch (UIException ex)
             {
                 ErrorMessage = ex.Message;
-                return;
             }
         }
 

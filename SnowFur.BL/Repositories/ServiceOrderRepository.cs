@@ -14,5 +14,12 @@ namespace SnowFur.BL.Repositories
         public ServiceOrderRepository(IUnitOfWorkProvider provider) : base(provider)
         {
         }
+
+        public bool Exists(int userId, int serviceId) => GetByUserService(userId, serviceId) != null;
+
+        public ServiceOrder GetByUserService(int userId, int serviceId)
+            =>
+            ((ApplicationDbContextContainer) Context).ServiceOrders.SingleOrDefault(
+                so => so.ServiceId == serviceId && so.UserId == userId);
     }
 }

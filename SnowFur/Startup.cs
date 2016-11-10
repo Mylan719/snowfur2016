@@ -20,6 +20,7 @@ using SnowFur.ViewModels.Controls;
 using DotVVM.Framework.ViewModel.Serialization;
 using AutoMapper.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SnowFur.BL.Installers;
 
 [assembly: OwinStartup(typeof(SnowFur.Startup))]
 namespace SnowFur
@@ -61,20 +62,7 @@ namespace SnowFur
 
         private static void SetupMapper()
         {
-            var config = new MapperConfigurationExpression();
-
-            config.CreateMap<PersonalProfile, PersonalProfileDto>();
-            config.CreateMap<PersonalProfileDto, PersonalProfile>();
-            config.CreateMap<PersonalProfileForm, PersonalProfileDto>();
-            config.CreateMap<PersonalProfileDto, PersonalProfileForm>();
-            config.CreateMap<PasswordChangeForm, ChangePasswordDto>();
-
-            config.CreateMap<ReservationForm, RoomReservationDto>();
-            config.CreateMap<RoomReservationDto, ReservationForm>();
-
-            config.CreateMap<User, UserEmailListDto>();
-
-            Mapper.Initialize(config);
+            Installers.AutoMapperInstaller.Install();
         }
 
         private void SetupContainer()
