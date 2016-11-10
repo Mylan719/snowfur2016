@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SnowFur.BL.Facades
 {
-    public class RoomReservationFacade
+    public class RoomReservationFacade : ApplicationFacadeBase
     {
         public int CurrentUserId { get; set; }
 

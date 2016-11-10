@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace SnowFur.BL.Facades
 {
-    public class MailingFacade
+    public class MailingFacade : ApplicationFacadeBase
     {
         public MailerService MailerService { get; set; }
         public UserService UserService { get; set; }

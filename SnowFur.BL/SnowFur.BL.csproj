@@ -212,6 +212,7 @@
     <Compile Include="Dtos\RoomListDto.cs" />
     <Compile Include="Dtos\UserPasswordResetDto.cs" />
     <Compile Include="Facades\AccountFacade.cs" />
+    <Compile Include="Facades\ApplicationFacade.cs" />
     <Compile Include="Facades\PersonalProfileFacade.cs" />
     <Compile Include="Facades\RoomReservationFacade.cs" />
     <Compile Include="Filters\ConventionFilter.cs" />

@@ -9,7 +9,7 @@ using SnowFur.BL.Services;
 
 namespace SnowFur.BL.Facades
 {
-    public class PersonalProfileFacade
+    public class PersonalProfileFacade : ApplicationFacadeBase
     {
         private readonly PersonalProfileService personalProfileService;
 

@@ -6,7 +6,7 @@ using SnowFur.BL.Services;
 
 namespace SnowFur.BL.Facades
 {
-    public class ConventionFacade
+    public class ConventionFacade : ApplicationFacadeBase
     {
         private readonly ConventionService conventionService;
 
