@@ -35,6 +35,10 @@ namespace SnowFur.ViewModels
             {
                 ErrorMessage = ex.Message;
             }
+            catch (Exception ex)
+            {
+                ErrorMessage = $"Operácia skonèila chybou. Detaily: {ex.Message}";
+            }
         }
 
     }

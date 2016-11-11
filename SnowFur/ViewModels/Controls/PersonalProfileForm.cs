@@ -5,10 +5,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SnowFur.BL.Installers;
+using AutoMapper;
+using SnowFur.BL.Dtos;
 
 namespace SnowFur.ViewModels.Controls
 {
-    public class PersonalProfileForm : OwinViewModelBase
+    public class PersonalProfileForm : OwinViewModelBase, IMapperInstaller
     {
         [MaxLength(100, ErrorMessage = "Maximálna dĺžka je 100 znakov.")]
         [Required(ErrorMessage = "Zadajte prosím meno")]
@@ -35,5 +38,10 @@ namespace SnowFur.ViewModels.Controls
         public string CountryName { get; set; }
 
         public bool Adult { get; set; }
+
+        public void InstallMapping(IMapperConfigurationExpression configuration)
+        {
+            configuration.CreateMap<PersonalProfileForm, PersonalProfileDto>().ReverseMap();
+        }
     }
 }

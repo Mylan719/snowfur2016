@@ -44,6 +44,10 @@ namespace SnowFur
         private void RegisterControls(DotvvmConfiguration config)
         {
             config.Markup.Controls.Add(new DotvvmControlConfiguration() { TagPrefix = "cc", TagName = "LoginPanel", Src= "Views/Controls/LoginPanel.dotcontrol" });
+            config.Markup.Controls.Add(new DotvvmControlConfiguration() { TagPrefix = "cc", TagName = "PasswordChangeForm", Src = "Views/Controls/PasswordChangeForm.dotcontrol" });
+            config.Markup.Controls.Add(new DotvvmControlConfiguration() { TagPrefix = "cc", TagName = "PaimentConfirmationForm", Src = "Views/Controls/PaimentConfirmationForm.dotcontrol" });
+            config.Markup.Controls.Add(new DotvvmControlConfiguration() { TagPrefix = "cc", TagName = "PersonalProfileForm", Src = "Views/Controls/PersonalProfileForm.dotcontrol" });
+            config.Markup.Controls.Add(new DotvvmControlConfiguration() { TagPrefix = "cc", TagName = "ReservationForm", Src = "Views/Controls/ReservationForm.dotcontrol" });
         }
 
         private static void RegisterResources(DotvvmConfiguration dotvvmConfiguration)

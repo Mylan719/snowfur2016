@@ -57,6 +57,7 @@ namespace SnowFur.BL.Services
                 {
                     Email = newUser.Email,
                     UserName = newUser.UserName,
+                    DateCreated = DateTime.UtcNow
                 };
 
                 userManager.Create(user);
@@ -96,6 +97,7 @@ namespace SnowFur.BL.Services
                     throw new UIException("Odkaz na ktorý ste klikli už nie je aktuálny.");
                 }
                 user.EmailConfirmed = true;
+                user.DateUpdated = DateTime.UtcNow;;
 
                 uow.Commit();
             }
@@ -136,7 +138,7 @@ namespace SnowFur.BL.Services
             using (var uow = UnitOfWorkProvider.Create())
             {
                 var userManager = AppUserManager();
-                var user = new User() {Email = contactEmail, UserName = userName};
+                var user = new User() {Email = contactEmail, UserName = userName, DateCreated = DateTime.UtcNow};
                 var result = userManager.Create(user);
                 uow.Commit();
 
@@ -156,6 +158,7 @@ namespace SnowFur.BL.Services
                 var userManager = AppUserManager();
                 var user = userManager.FindById(currentUserId);
                 Mapper.Map(userInfo, user);
+                user.DateUpdated = DateTime.UtcNow;
                 uow.Commit();
             }
         }
