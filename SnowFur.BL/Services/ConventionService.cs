@@ -30,10 +30,13 @@ namespace SnowFur.BL.Services
 
         public void FillAttendees(GridViewDataSet<AttendeeListItemDto> attendeeDataSet, ConventionFilter filter)
         {
-            var q = AttendeesQueryFunc();
-            q.Filter = filter;
+            using (UnitOfWorkProvider.Create())
+            {
+                var q = AttendeesQueryFunc();
+                q.Filter = filter;
 
-            FillDataSet(attendeeDataSet, q);
+                FillDataSet(attendeeDataSet, q);
+            }
         }
     }
 }

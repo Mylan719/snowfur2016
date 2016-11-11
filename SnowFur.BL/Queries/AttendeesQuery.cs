@@ -29,10 +29,10 @@ namespace SnowFur.BL.Queries
 
         protected override void PostProcessResults(IList<AttendeeListItemDto> results)
         {
-            int ordinalNumber = 1;
+            var ordinalNumber = 1;
             foreach (var attendee in results)
             {
-                attendee.Count = ordinalNumber++;
+                attendee.RegistrationNumber = ordinalNumber++;
             }
         }
     }

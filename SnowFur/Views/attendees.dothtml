@@ -19,7 +19,7 @@
         <dot:Repeater DataSource="{value: AttendeeDataSet}">
             <ItemTemplate>
                 <div class="{value: ('attendee ' + Color)}">
-                    {{value: Count}}.&nbsp;{{value: NickName}}
+                    {{value: RegistrationNumber}}.&nbsp;{{value: NickName}}
                 </div>
             </ItemTemplate>
         </dot:Repeater>

@@ -16,7 +16,7 @@ namespace SnowFur.ViewModels
 
         public GridViewDataSet<AttendeeListItemDto> AttendeeDataSet { get; set; }
             = new GridViewDataSet<AttendeeListItemDto>() {
-                SortExpression = nameof(AttendeeListItemDto.Count),
+                SortExpression = nameof(AttendeeListItemDto.RegistrationNumber),
                 PageSize = 60
             };
 
