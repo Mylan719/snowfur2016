@@ -10,40 +10,10 @@
             <dot:GridViewTextColumn ValueBinding="{value: UserName}" HeaderText="Prezývka"></dot:GridViewTextColumn>
             <dot:GridViewTextColumn ValueBinding="{value: FirstName}" HeaderText="Meno"></dot:GridViewTextColumn>
             <dot:GridViewTextColumn ValueBinding="{value: LastName}" HeaderText="Priezvisko"></dot:GridViewTextColumn>
-            <dot:GridViewTemplateColumn CssClass="{value: (Night1 ? 'alert-success sf-width50' : 'alert-danger width50')}" HeaderText="29. 1. - 30. 1.">
-                <ContentTemplate>
-                    <dot:CheckBox Enabled="false" Checked="{value: Night1}"></dot:CheckBox>
-                </ContentTemplate>
-            </dot:GridViewTemplateColumn>
-            <dot:GridViewTemplateColumn CssClass="{value: (Night2? 'alert-success' : 'alert-danger')}" HeaderText="30. 1. - 31. 1.">
-                <ContentTemplate>
-                    <dot:CheckBox Enabled="false" Checked="{value: Night2}"></dot:CheckBox>
-                </ContentTemplate>
-            </dot:GridViewTemplateColumn>
-            <dot:GridViewTemplateColumn CssClass="{value: (Night3 ? 'alert-success' : 'alert-danger')}" HeaderText="31. 1. - 1. 2.">
-                <ContentTemplate>
-                    <dot:CheckBox Enabled="false" Checked="{value: Night3}"></dot:CheckBox>
-                </ContentTemplate>
-            </dot:GridViewTemplateColumn>
-            <dot:GridViewTemplateColumn HeaderText="Vegetarián">
-                <ContentTemplate>
-                    {{value: (IsVegetarian ? 'Áno':'Nie')}}
-                </ContentTemplate>
-            </dot:GridViewTemplateColumn>
-            <dot:GridViewTemplateColumn HeaderText="Pes">
-                <ContentTemplate>
-                    {{value: (IsDogAttending ? 'Áno':'Nie')}}
-                </ContentTemplate>
-            </dot:GridViewTemplateColumn>
-			<dot:GridViewTemplateColumn HeaderText="Sponzor">
-                <ContentTemplate>
-                    {{value: (IsSponsor ? 'Áno':'Nie')}}
-                </ContentTemplate>
-            </dot:GridViewTemplateColumn>
             <dot:GridViewTemplateColumn CssClass="{value: (IsPayed ? 'payed':'unpayed')}" HeaderText="Pladba za registráciu">
                 <ContentTemplate>
 					{{value: DatePaidFormated}} <br />
-                    {{value: AmountPayed}} / {{value: AmountToPay}} Eur
+                    {{value: AmountPayed}} Eur
                     <dot:Button ButtButtonTagName="button" class="btn btn-info" Validation.Enabled="false" Click="{command: _parent.ConfirmPayment(Id)}" Text="Zadať sumu" />
                 </ContentTemplate>
             </dot:GridViewTemplateColumn>

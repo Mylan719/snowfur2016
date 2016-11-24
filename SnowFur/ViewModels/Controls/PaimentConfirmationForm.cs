@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace SnowFur.ViewModels.Controls
 {
-    public class PaimentConfirmationForm : OwinViewModelBase
+    public class PaimentConfirmationForm
     {
         [Required(ErrorMessage = "Zadajte zaplatenu sumu")]
         public decimal Amount { get; set; }
@@ -40,13 +40,11 @@ namespace SnowFur.ViewModels.Controls
         [Bind(Direction.None)]
         public Reservations ParentViewModel { get; set; }
 
-        private RoomReservationFacade roomReservationFacade;
-        private PersonalProfileFacade personalProfileFacade;
+        private ConventionFacade conventionFacade;
 
-        public PaimentConfirmationForm(RoomReservationFacade roomReservationFacade, PersonalProfileFacade personalProfileFacade)
+        public PaimentConfirmationForm(ConventionFacade conventionFacade)
         {
-            this.roomReservationFacade = roomReservationFacade;
-            this.personalProfileFacade = personalProfileFacade;
+            this.conventionFacade = conventionFacade;
         }
 
         public void Show(int userId)

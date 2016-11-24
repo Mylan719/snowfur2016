@@ -86,6 +86,10 @@
     <Compile Include="Migrations\201610130108008_MaxlengthForConventionName.Designer.cs">
       <DependentUpon>201610130108008_MaxlengthForConventionName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611240133100_ConventionUpdate.cs" />
+    <Compile Include="Migrations\201611240133100_ConventionUpdate.Designer.cs">
+      <DependentUpon>201611240133100_ConventionUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\ConventionPayment.cs" />
     <Compile Include="Model\IGuardedEntity.cs" />
     <Compile Include="Model\Room.cs" />
@@ -159,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610130108008_MaxlengthForConventionName.resx">
       <DependentUpon>201610130108008_MaxlengthForConventionName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611240133100_ConventionUpdate.resx">
+      <DependentUpon>201611240133100_ConventionUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

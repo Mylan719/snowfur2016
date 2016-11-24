@@ -1,0 +1,24 @@
+﻿@viewModel SnowFur.ViewModels.Admin.ConventionsViewModel, SnowFur
+@masterPage Views/Admin/admin.dotmaster
+
+<dot:Content ContentPlaceHolderID="SuccessfulFinishContent">
+</dot:Content>
+<dot:Content ContentPlaceHolderID="PageContent">
+    <dot:GridView class="grid-view" DataSource="{value: Conventions}">
+        <Columns>
+            <dot:GridViewTextColumn ValueBinding="{value: Name}" HeaderText="Meno" />
+            <dot:GridViewTemplateColumn HeaderText="Aktívna">
+                <span class="glyphicon" Class-glyphicon-check="{value: IsActive}"></span>
+                <dot:Button class="btn btn-danger" Visible="{value: !IsActive}" Click="{command: _parent.ActivateConvention(Id)}">
+                    Aktivovať
+                </dot:Button>
+            </dot:GridViewTemplateColumn>
+            <dot:GridViewTemplateColumn HeaderText="-">
+              
+                <dot:Button class="btn btn-danger" Click="{command: _parent.ActivateConvention(Id)}">
+                    Upraviť
+                </dot:Button>
+            </dot:GridViewTemplateColumn>
+        </Columns>
+    </dot:GridView>
+</dot:Content>

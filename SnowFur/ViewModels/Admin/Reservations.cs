@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using DotVVM.Framework.Controls;
 using DotVVM.Framework.Runtime.Filters;
 using Riganti.Utils.Infrastructure.Core;
+using SnowFur.BL.Queries;
 using SnowFur.ViewModels.Controls;
 using SnowFur.BL.Repositories;
 
@@ -18,29 +19,40 @@ namespace SnowFur.ViewModels.Admin
     public class Reservations : PageViewModelBase
     {
         public PaimentConfirmationForm PaimentConfirmationForm { get; set; }
-      
-        //Todo: Atendees here
 
-        private RoomReservationFacade roomReservationFacade;
+        public GridViewDataSet<AttendeeAdminListDto> Attendees { get; set; }
+          = new GridViewDataSet<AttendeeAdminListDto>()
+          {
+              SortExpression = nameof(AttendeeAdminListDto.UserName),
+              PageSize = 60
+          };
 
-        public Reservations(RoomReservationFacade roomReservationFacade)
+
+        private ConventionFacade conventionFacade;
+
+        public Reservations(ConventionFacade conventionFacade)
         {
-            this.roomReservationFacade = roomReservationFacade;
+            this.conventionFacade = conventionFacade;
+            conventionFacade.InitializeActiveConvention();
+
+            PaimentConfirmationForm = new PaimentConfirmationForm(conventionFacade);
 
             SubpageTitle = "Rezervácie";
         }
 
         public override Task Init()
         {
-            PaimentConfirmationForm.Context = Context;
-            PaimentConfirmationForm.ParentViewModel = this;
+            if (PaimentConfirmationForm != null)
+            {
+                PaimentConfirmationForm.ParentViewModel = this;
+            }
 
             return base.Init();
         }
 
         public override Task PreRender()
         {
-            //TODO: fill Atendees 
+            conventionFacade.FillAdminAtendees(Attendees);
 
             return base.PreRender();
         }

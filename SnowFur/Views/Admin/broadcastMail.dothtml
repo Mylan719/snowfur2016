@@ -17,6 +17,6 @@
             <dot:Validator class="label label-danger" ShowErrorMessageText="true" ValidatedValue="{value: Message}"></dot:Validator>
             <dot:TextBox Rows="10" Type="MultiLine" class="form-control" Text="{value: Message}" />
         </div>
-        <dot:Button Validation.Target="_this" class="btn btn-danger" Click="{command: SendMail()}" Text="Odoslať všetkým registrovaným." />
+        <dot:Button Validation.Target="{value: _this}" class="btn btn-danger" Click="{command: SendMail()}" Text="Odoslať všetkým registrovaným." />
     </form>
 </dot:Content>

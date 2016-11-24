@@ -17,6 +17,8 @@ namespace SnowFur.BL.Services
     {
         public Func<ConventionListQuery> ListQueryFunc { get; set; }
         public Func<AttendeesQuery> AttendeesQueryFunc { get; set; }
+        public Func<AdminAttendeeOverviewQuery> AdminAttendeesQueryFunc { get; set; }
+
         public ConventionRepository Repository { get; set; }
 
         protected override IQuery<ConventionListDto> CreateQuery(DefaultFilter filter)
@@ -33,6 +35,17 @@ namespace SnowFur.BL.Services
             using (UnitOfWorkProvider.Create())
             {
                 var q = AttendeesQueryFunc();
+                q.Filter = filter;
+
+                FillDataSet(attendeeDataSet, q);
+            }
+        }
+
+        public void FillAdminAtendees(GridViewDataSet<AttendeeAdminListDto> attendeeDataSet, ConventionFilter filter)
+        {
+            using (UnitOfWorkProvider.Create())
+            {
+                var q = AdminAttendeesQueryFunc();
                 q.Filter = filter;
 
                 FillDataSet(attendeeDataSet, q);

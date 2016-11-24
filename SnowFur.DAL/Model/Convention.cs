@@ -16,6 +16,15 @@ namespace SnowFur.DAL.Model
         public string Name { get; set; }
         public int Nights { get; set; }
 
+        public bool IsActive { get; set; }
+
+        public string Description { get; set; }
+        public string Activities { get; set; }
+        public string ContactInfo { get; set; }
+        public string PlaceName { get; set; }
+        public decimal GpsLatitude { get; set; }
+        public decimal GpsLongitude { get; set; }
+
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
 

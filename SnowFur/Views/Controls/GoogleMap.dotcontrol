@@ -1,0 +1,36 @@
+﻿@viewModel System.Object, mscorlib
+@baseType SnowFur.Views.Controls.GoogleMap, SnowFur
+
+<div>
+    <h3>Interaktívna mapa:</h3>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUhc2UB6C3ekQ9KFoMt1VpJpZ0MNxiil0&sensor=false">
+    </script>
+    <script type="text/javascript">
+		  function initialize() {
+			var myLatlng = new google.maps.LatLng(49.110396, 18.893355);
+
+			var mapOptions = {
+			    zoom: 10,
+			  	center: myLatlng,
+			  	scrollwheel: false,
+				navigationControl: false,
+				mapTypeControl: true,
+				scaleControl: false,
+				draggable: false,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			}
+
+			var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+			// To add the marker to the map, use the 'map' property
+			var marker = new google.maps.Marker({
+				position: myLatlng,
+				map: map,
+				title:"Chata Lesník."
+			});
+		  }
+		  google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+    <div id="map-canvas" class="GoogleMap">
+    </div>
+</div>

@@ -48,6 +48,9 @@
       <HintPath>..\packages\DotVVM.Core.1.1.0-beta\lib\net451\DotVVM.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="DotVVM.Framework">
+      <HintPath>..\packages\DotVVM.1.1.0-beta\lib\net451\DotVVM.Framework.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -213,6 +216,8 @@
     <Compile Include="Dtos\UserPasswordResetDto.cs" />
     <Compile Include="Facades\AccountFacade.cs" />
     <Compile Include="Facades\ApplicationFacade.cs" />
+    <Compile Include="Dtos\ConventionLandingPageDto.cs" />
+    <Compile Include="Dtos\ConventionContactPageDto.cs" />
     <Compile Include="Facades\PersonalProfileFacade.cs" />
     <Compile Include="Facades\RoomReservationFacade.cs" />
     <Compile Include="Filters\ConventionFilter.cs" />
@@ -223,6 +228,8 @@
     <Compile Include="Dtos\UserEmailDto.cs" />
     <Compile Include="Dtos\UserBasicInfoDto.cs" />
     <Compile Include="Installers\AutoMapperInstaller.cs" />
+    <Compile Include="Queries\AdminAttendeeOverviewQuery.cs" />
+    <Compile Include="Queries\AttendeeAdminListDto.cs" />
     <Compile Include="Queries\ReservedRoomsQuery.cs" />
     <Compile Include="Queries\ServiceListQuery.cs" />
     <Compile Include="Queries\ServiceUserOrderQuery.cs" />

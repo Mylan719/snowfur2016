@@ -1,10 +1,12 @@
+using System;
 using System.Threading.Tasks;
 using DotVVM.Framework.ViewModel;
+using Riganti.Utils.Infrastructure.Core;
 using SnowFur.ViewModels.Controls;
 
 namespace SnowFur.ViewModels
 {
-    public class PageViewModelBase : OwinViewModelBase
+    public abstract class PageViewModelBase : OwinViewModelBase
     {
         public string SubpageTitle { get; set; }
         public string Title => $"{LogoText} - {SubpageTitle}";
@@ -35,7 +37,6 @@ namespace SnowFur.ViewModels
 
         public PageViewModelBase() : base()
         {
-            LogoText = "Snowfur 2016";
             RabitBackgroundCssClass = "sf-bg-intro";
         }
 
@@ -52,5 +53,20 @@ namespace SnowFur.ViewModels
             return Context.Query.TryGetValue(key, out result) ? result : null;
         }
 
+        protected void ReportErrors(Action action)
+        {
+            try
+            {
+                action();
+            }
+            catch (UIException ex)
+            {
+                ErrorMessage = ex.Message;
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = $"Chyba aplik·cie: {ex.Message} - to sa nemalo staù. :'<";
+            }
+        }
     }
 }

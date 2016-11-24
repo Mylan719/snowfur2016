@@ -13,6 +13,7 @@ namespace SnowFur.BL.Dtos
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public bool IsActive { get; set; }
 
         public void InstallMapping(IMapperConfigurationExpression configuration)
         {

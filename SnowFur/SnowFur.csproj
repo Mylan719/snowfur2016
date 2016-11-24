@@ -296,6 +296,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Admin\BroadcastMail.cs" />
+    <Compile Include="ViewModels\Admin\ConventionsViewModel.cs" />
     <Compile Include="ViewModels\Admin\Reservations.cs" />
     <Compile Include="ViewModels\Attendees.cs" />
     <Compile Include="ViewModels\Controls\PaimentConfirmationForm.cs" />
@@ -305,6 +306,7 @@
     <Compile Include="ViewModels\OwinViewModelBase.cs" />
     <Compile Include="ViewModels\PageViewModelBase.cs" />
     <Compile Include="ViewModels\Controls\LoginSection.cs" />
+    <Compile Include="Views\Controls\GoogleMap.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.cerulean.css" />
@@ -372,6 +374,8 @@
     <Content Include="Views\Controls\PaimentConfirmationForm.dotcontrol" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <Content Include="Views\Controls\GoogleMap.dotcontrol" />
+    <Content Include="Views\Admin\Conventions.dothtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>

@@ -16,7 +16,7 @@ namespace SnowFur.BL.Dtos
 
         public void InstallMapping(IMapperConfigurationExpression configuration)
         {
-            configuration.CreateMap<User, UserBasicInfoDto>();
+            configuration.CreateMap<User, UserEmailDto>();
         }
     }
 }

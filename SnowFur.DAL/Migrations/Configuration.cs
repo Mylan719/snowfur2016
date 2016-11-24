@@ -1,3 +1,5 @@
+using SnowFur.DAL.Model;
+
 namespace SnowFur.DAL.Migrations
 {
     using System;
@@ -15,18 +17,18 @@ namespace SnowFur.DAL.Migrations
 
         protected override void Seed(SnowFur.DAL.Model.ApplicationDbContextContainer context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            context.Conventions.AddOrUpdate(c=> new Convention
+            {
+                IsActive = true,
+                Description = "<b>Lol</b>",
+                Activities = "<ul><li>Foo</li><li>Bar</li></ul>",
+                ContactInfo = "Nope",
+                Name = "MyCon",
+                PlaceName = "Kvolna",
+                GpsLatitude = 40,
+                GpsLongitude = 18,
+                DateCreated = DateTime.UtcNow
+            });
         }
     }
 }
