@@ -299,6 +299,7 @@
     <Compile Include="ViewModels\Admin\ConventionsViewModel.cs" />
     <Compile Include="ViewModels\Admin\Reservations.cs" />
     <Compile Include="ViewModels\Attendees.cs" />
+    <Compile Include="ViewModels\Controls\ConventionDetailForm.cs" />
     <Compile Include="ViewModels\Controls\PaimentConfirmationForm.cs" />
     <Compile Include="ViewModels\Controls\PasswordChangeForm.cs" />
     <Compile Include="ViewModels\Controls\ReservationForm.cs" />
@@ -376,6 +377,7 @@
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\Controls\GoogleMap.dotcontrol" />
     <Content Include="Views\Admin\Conventions.dothtml" />
+    <Content Include="Views\Controls\ConventionDetail.dotcontrol" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>

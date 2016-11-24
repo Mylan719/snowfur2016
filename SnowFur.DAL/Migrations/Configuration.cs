@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Configuration;
 using SnowFur.DAL.Model;
 
 namespace SnowFur.DAL.Migrations
@@ -17,7 +19,30 @@ namespace SnowFur.DAL.Migrations
 
         protected override void Seed(SnowFur.DAL.Model.ApplicationDbContextContainer context)
         {
-            context.Conventions.AddOrUpdate(c=> new Convention
+            context.Roles.AddOrUpdate(new Role
+            {
+                Id = 1,
+                Name = "admin",
+            });
+
+            context.Users.AddOrUpdate(new User
+            {
+                Id = 1,
+                UserName = "admin",
+                DateCreated = DateTime.UtcNow,
+                Email = "admin@aa.aa",
+                EmailConfirmed = true,
+                Roles = {
+                    new UserRole
+                    {
+                        RoleId = 1
+                    }
+                },
+                SecurityStamp = "08058364-ce39-44c9-8650-d5b44de3c087",
+                PasswordHash = "AJdgbg6YJdYKpNokDKo01uzURfGz1Qwt2q8naJc+Hz2l/LEgkLmxy/L6RfR8vWVSUQ=="
+            });
+
+            context.Conventions.AddOrUpdate(new Convention
             {
                 IsActive = true,
                 Description = "<b>Lol</b>",
@@ -27,8 +52,12 @@ namespace SnowFur.DAL.Migrations
                 PlaceName = "Kvolna",
                 GpsLatitude = 40,
                 GpsLongitude = 18,
-                DateCreated = DateTime.UtcNow
+                DateCreated = DateTime.UtcNow,
+                StartDate = DateTime.UtcNow.AddDays(-10),
+                EndDate = DateTime.UtcNow.AddDays(-6)
             });
+
+            context.SaveChanges();
         }
     }
 }

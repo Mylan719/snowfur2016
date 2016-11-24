@@ -22,7 +22,6 @@ namespace SnowFur.ViewModels.Controls
         public int Year { get; set; }
 
         [Protect(ProtectMode.SignData)]
-        [Bind(Direction.Both)]
         public int CurrentUserId { get; set; }
 
         [Bind(Direction.ServerToClient)]

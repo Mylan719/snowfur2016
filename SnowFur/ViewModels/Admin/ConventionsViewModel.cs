@@ -8,13 +8,14 @@ using DotVVM.Framework.Runtime.Filters;
 using DotVVM.Framework.ViewModel;
 using SnowFur.BL.Dtos;
 using SnowFur.BL.Facades;
+using SnowFur.ViewModels.Controls;
 
 namespace SnowFur.ViewModels.Admin
 {
     [Authorize("admin")]
     public class ConventionsViewModel : PageViewModelBase
     {
-        public ConventionDetailDto ConventionDetail { get; set; }
+        public ConventionDetailForm ConventionDetail { get; set; }
 
         private ConventionFacade conventionFacade;
 
@@ -47,7 +48,7 @@ namespace SnowFur.ViewModels.Admin
         {
             ReportErrors(() =>
             {
-                ConventionDetail = conventionFacade.GetConventionDetail(id);
+                ConventionDetail = new ConventionDetailForm(conventionFacade.GetConventionDetail(id));
             });
         }
     }
