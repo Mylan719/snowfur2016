@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using AutoMapper;
 using DotVVM.Framework.Controls;
 using Riganti.Utils.Infrastructure.Core;
@@ -94,6 +95,16 @@ namespace SnowFur.BL.Facades
         public void FillAdminAtendees(GridViewDataSet<AttendeeAdminListDto> attendeeDataSet)
         {
             conventionService.FillAdminAtendees(attendeeDataSet, new ConventionFilter { ConventionId = ActiveConventionId});
+        }
+
+        public IList<AttendeeListItemDto> GetAtendees()
+        {
+            using (conventionService.UnitOfWorkProvider.Create())
+            {
+                var q = conventionService.AttendeesQueryFunc();
+                q.Filter = new ConventionFilter() { ConventionId = ActiveConventionId };
+                return q.Execute();
+            }
         }
     }
 }
