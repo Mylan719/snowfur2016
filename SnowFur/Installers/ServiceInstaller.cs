@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SnowFur.Controllers;
 
 namespace SnowFur.Installers
 {
@@ -16,6 +17,10 @@ namespace SnowFur.Installers
         {
             container.Register(
                 Component.For<MailerService>().LifestyleSingleton()
+            );
+
+            container.Register(
+                Component.For<RequiredController>().LifestyleTransient()
             );
         }
     }
