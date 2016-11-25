@@ -1,81 +1,108 @@
-﻿@viewModel SnowFur.BL.Dtos.ConventionDetailDto, SnowFur.BL
+﻿@viewModel SnowFur.ViewModels.Controls.ConventionDetailForm, SnowFur
 
 <dot:InlineScript>
     dotvvm.events.afterPostback.subscribe(function () {
-        var showModal = dotvvm.viewModels.root.viewModel.PaimentConfirmationForm().IsShown();
+        var showModal = dotvvm.viewModels.root.viewModel.ConventionDetail().IsShown();
         if (showModal) {
             $('#attendee-detail').modal('show');
         } else {
-            $('#attendee-detail').modal('hide');
+           $('#attendee-detail').modal('hide');
         }
+
+        $("button[data-tag='convention-modal-hide']").on('click', function () {
+            $('#attendee-detail').modal('hide');
+        });
     });
 </dot:InlineScript>
 
-<div class="modal fade" role="dialog" html:id="attendee-detail">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">Potvrdenie priatej platby</h3>
-            </div>
-            <div class="modal-body row">
-                <div class="col-md-12">
-                    <label>Názov:</label>
-                    <dot:TextBox class="form-control" Text="{value: Description}" />
-                    <dot:Validator class="label label-danger" ValidatedValue="{value: Description}">
-                        *
-                    </dot:Validator>
+<div DataContext="{value: Detail}">
+    <div class="modal fade" role="dialog" html:id="attendee-detail">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Potvrdenie priatej platby</h3>
                 </div>
-                <div class="col-md-12">
-                    <label>Od:</label>
-                    <dot:TextBox class="form-control" Type="Date" Text="{value: StartDate}" />
+                <div class="modal-body">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">Texty</div>
+                        <div class="panel-body">
+                            <div class="col-md-12">
+                                <label>Názov:</label>
+                                <dot:TextBox class="form-control" Text="{value: Name}" />
+                                <dot:Validator class="label label-danger" ValidatedValue="{value: Name}">
+                                    *
+                                </dot:Validator>
+                            </div>
+                            <div class="col-md-12">
+                                <label>Počet nocí:</label>
+                                <dot:TextBox class="form-control sf-width50" Type="Number" Text="{value: Nights}" />
+                                <dot:Validator class="label label-danger" ValidatedValue="{value: Name}">
+                                    *
+                                </dot:Validator>
+                            </div>
+                            <div class="col-md-6">
+                                <label>Od:</label>
+                                <dot:TextBox class="form-control" Type="Date" Text="{value: StartDate}" FormatString="dd. MM. yyyy" />
+                            </div>
+                            <div class="col-md-6">
+                                <label>Do:</label>
+                                <dot:TextBox class="form-control" Type="Date" Text="{value: EndDate}" FormatString="dd. MM. yyyy"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-info">
+                        <div class="panel-heading">Miesto</div>
+                        <div class="panel-body">
+                            <div class="col-md-12">
+                                <label>Názov miesta:</label>
+                                <dot:TextBox class="form-control" Text="{value: PlaceName}" />
+                                <dot:Validator class="label label-danger" ValidatedValue="{value: PlaceName}">
+                                    *
+                                </dot:Validator>
+                            </div>
+                            <div class="col-md-2 text-center">
+                                <label>GPS:</label>
+                            </div>
+                            <div class="col-md-3">
+                                <dot:TextBox class="form-control sf-width50" Text="{value: GpsLatitude}" />
+                            </div>
+                            <div class="col-md-3">
+                                <dot:TextBox class="form-control sf-width50" Text="{value: GpsLongitude}" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-info">
+                        <div class="panel-heading">Texty</div>
+                        <div class="panel-body">
+                            <div class="col-md-12">
+                                <label>Obsah hlavnej stránky:</label>
+                                <dot:TextBox class="form-control" Type="MultiLine" Text="{value: Description}" />
+                                <dot:Validator class="label label-danger" ValidatedValue="{value: Description}">
+                                    *
+                                </dot:Validator>
+                            </div>
+                            <div class="col-md-12">
+                                <label>Program:</label>
+                                <dot:TextBox class="form-control" Type="MultiLine" Text="{value: Activities}" />
+                                <dot:Validator class="label label-danger" ValidatedValue="{value: Activities}">
+                                    *
+                                </dot:Validator>
+                            </div>
+                            <div class="col-sm-12">
+                                <label>Kontaktná stránka:</label>
+                                <dot:TextBox class="form-control" Text="{value: ContactInfo}" Type="MultiLine" />
+                                <dot:Validator class="label label-danger" ValidatedValue="{value: ContactInfo}">
+                                    *
+                                </dot:Validator>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-12">
-                    <label>Do:</label>
-                    <dot:TextBox class="form-control" Type="Date" Text="{value: EndDate}" />                 
+                <div class="modal-footer">
+                    <dot:Button class="btn btn-success" data-tag="convention-modal-hide" ButtonTagName="button" Click="{command: _parent.Save()}">Potvrdiť</dot:Button>
+                    <dot:Button class="btn btn-info" data-tag="convention-modal-hide" ButtonTagName="button" Click="{command: _parent.Hide()}" Validation.Enabled="false">Zrušiť</dot:Button>
                 </div>
-                <div class="panel panel-info">
-                    <div class="panel-heading">Miesto</div>
-                    <div class="col-md-12">
-                        <label>Názov miesta:</label>
-                        <dot:TextBox class="form-control" Type="MultiLine" Text="{value: PlaceName}" />
-                        <dot:Validator class="label label-danger" ValidatedValue="{value: PlaceName}">
-                            *
-                        </dot:Validator>
-                    </div>
-                    <div class="col-md-12">
-                        <label>GPS:</label>
-                        (<dot:TextBox class="form-control" Text="{value: PlaceName}" />, <dot:TextBox class="form-control" Text="{value: PlaceName}" />)
-                    </div>
-                </div>
-                <div class="panel panel-info">
-                    <div class="panel-heading">Stránky</div>
-                    <div class="col-md-12">
-                        <label>Obsah hlavnej stránky:</label>
-                        <dot:TextBox class="form-control" Type="MultiLine" Text="{value: Description}" />
-                        <dot:Validator class="label label-danger" ValidatedValue="{value: Description}">
-                            *
-                        </dot:Validator>
-                    </div>
-                    <div class="col-md-12">
-                        <label>Program:</label>
-                        <dot:TextBox class="form-control col-sm-4" Type="MultiLine" Text="{value: Activities}" />
-                        <dot:Validator class="label label-danger" ValidatedValue="{value: Activities}">
-                            *
-                        </dot:Validator>
-                    </div>
-                    <div class="col-sm-4">
-                        <label>Kontaktná stránka:</label>
-                        <dot:TextBox class="form-control col-sm-4" Text="{value: ContactInfo}" Type="MultiLine" />
-                        <dot:Validator class="label label-danger" ValidatedValue="{value: ContactInfo}">
-                            *
-                        </dot:Validator>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <dot:Button class="btn btn-success" ButtonTagName="button" Click="{command: Confirm()}">Potvrdiť</dot:Button>
-                <dot:Button class="btn btn-info" ButtonTagName="button" Click="{command: Hide()}" Validation.Enabled="false">Zrušiť</dot:Button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</div>

@@ -15,10 +15,12 @@
             </dot:GridViewTemplateColumn>
             <dot:GridViewTemplateColumn HeaderText="-">
               
-                <dot:Button class="btn btn-danger" Click="{command: _parent.ActivateConvention(Id)}">
+                <dot:Button class="btn btn-danger" Click="{command: _parent.EditConvention(Id)}">
                     Upraviť
                 </dot:Button>
             </dot:GridViewTemplateColumn>
         </Columns>
     </dot:GridView>
+
+    <cc:ConventionDetail DataContext="{value: ConventionDetail}"></cc:ConventionDetail>
 </dot:Content>

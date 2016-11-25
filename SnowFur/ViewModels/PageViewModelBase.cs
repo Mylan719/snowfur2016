@@ -53,7 +53,7 @@ namespace SnowFur.ViewModels
             return Context.Query.TryGetValue(key, out result) ? result : null;
         }
 
-        protected void ReportErrors(Action action)
+        public void ReportErrors(Action action)
         {
             try
             {

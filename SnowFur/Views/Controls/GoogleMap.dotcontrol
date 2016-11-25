@@ -7,10 +7,10 @@
     </script>
     <script type="text/javascript">
 		  function initialize() {
-			var myLatlng = new google.maps.LatLng(49.110396, 18.893355);
+			var myLatlng = new google.maps.LatLng({{resource: string.Format("{0:00.}",_control.Latitude)}}, {{resource: string.Format("{0:00.}",_control.Longitude)}});
 
 			var mapOptions = {
-			    zoom: 10,
+			    zoom: {{resource: _control.Zoom}},
 			  	center: myLatlng,
 			  	scrollwheel: false,
 				navigationControl: false,
@@ -26,7 +26,7 @@
 			var marker = new google.maps.Marker({
 				position: myLatlng,
 				map: map,
-				title:"Chata Lesník."
+				title: "<dot:Literal RenderSpanElement='false' Text='{resource: _control.PointTitle}' />"
 			});
 		  }
 		  google.maps.event.addDomListener(window, 'load', initialize);

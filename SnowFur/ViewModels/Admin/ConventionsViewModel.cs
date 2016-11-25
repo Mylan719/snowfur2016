@@ -17,7 +17,7 @@ namespace SnowFur.ViewModels.Admin
     {
         public ConventionDetailForm ConventionDetail { get; set; }
 
-        private ConventionFacade conventionFacade;
+        private readonly ConventionFacade conventionFacade;
 
         public GridViewDataSet<ConventionListDto> Conventions { get; set; } = new GridViewDataSet<ConventionListDto>()
         {
@@ -28,6 +28,13 @@ namespace SnowFur.ViewModels.Admin
         public ConventionsViewModel(ConventionFacade conventionFacade)
         {
             this.conventionFacade = conventionFacade;
+        }
+
+        public override Task Load()
+        {
+            ConventionDetail = ConventionDetail ?? new ConventionDetailForm();
+            ConventionDetail.Load(conventionFacade, this);
+            return base.Load();
         }
 
         public override Task PreRender()
@@ -48,7 +55,7 @@ namespace SnowFur.ViewModels.Admin
         {
             ReportErrors(() =>
             {
-                ConventionDetail = new ConventionDetailForm(conventionFacade.GetConventionDetail(id));
+                ConventionDetail.Detail = conventionFacade.GetConventionDetail(id);
             });
         }
     }

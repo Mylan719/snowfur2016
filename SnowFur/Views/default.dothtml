@@ -15,7 +15,12 @@
             <strong>Miesto</strong>
             <p>{{value: PlaceName}}<br />GPS: {{value: GpsLatitude}}, {{value: GpsLongitude}}</p>
         </div>
-        <cc:GoogleMap Zoom="10" class="col-md-6"></cc:GoogleMap>
+        <cc:GoogleMap
+                      Latitude="{value: GpsLatitude}" 
+                      Longitude="{value: GpsLongitude}" 
+                      Zoom="10" 
+                      PointTitle="{value: PlaceName}"
+                      class="col-md-6"></cc:GoogleMap>
         <div class="col-md-12">
             <dot:HtmlLiteral Html="{value: Activities}" />
         </div>

@@ -51,6 +51,7 @@ namespace SnowFur
             config.Markup.Controls.Add(new DotvvmControlConfiguration() { TagPrefix = "cc", TagName = "ReservationForm", Src = "Views/Controls/ReservationForm.dotcontrol" });
              config.Markup.Controls.Add(new DotvvmControlConfiguration() { TagPrefix = "cc", TagName = "ReservationForm", Src = "Views/Controls/ReservationForm.dotcontrol" });
             config.Markup.AddMarkupControl("cc","GoogleMap", "Views/Controls/GoogleMap.dotcontrol");
+            config.Markup.AddMarkupControl("cc", "ConventionDetail", "Views/Controls/ConventionDetail.dotcontrol");
         }
 
         private static void RegisterResources(DotvvmConfiguration dotvvmConfiguration)
@@ -59,7 +60,7 @@ namespace SnowFur
             dotvvmConfiguration.Resources.Register("Bootstrap.Celurean", new StylesheetResource { Url = "~/Content/bootstrap.cerulean.css" });
             dotvvmConfiguration.Resources.Register("bootstrap", new StylesheetResource { Url = "~/Content/bootstrap.css" });
 
-            dotvvmConfiguration.Resources.Register("jquery", new ScriptResource { Url = "~/Scripts/jquery-2.1.4.js" });
+            dotvvmConfiguration.Resources.Register("jquery", new ScriptResource { Url = "~/Scripts/jquery-3.1.1.js" });
             dotvvmConfiguration.Resources.Register("bootstrap-js", new ScriptResource { Url = "~/Scripts/bootstrap.js" });
         }
 
