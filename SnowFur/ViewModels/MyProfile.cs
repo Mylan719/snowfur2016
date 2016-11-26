@@ -41,9 +41,9 @@ namespace SnowFur.ViewModels
 
         private readonly AccountFacade accountFacade;
         private readonly PersonalProfileFacade personalProfileFacade;
-        private readonly RoomReservationFacade roomReservationFacade;
+        private readonly ReservationFacade roomReservationFacade;
 
-        public MyProfile( PersonalProfileFacade proFac, AccountFacade accFac, RoomReservationFacade resFac)
+        public MyProfile( PersonalProfileFacade proFac, AccountFacade accFac, ReservationFacade resFac)
         {
             personalProfileFacade = proFac;
             accountFacade = accFac;
@@ -57,7 +57,7 @@ namespace SnowFur.ViewModels
         public override Task Init()
         {
             var task = base.Init();
-            roomReservationFacade.CurrentUserId = CurrentUserId;
+            roomReservationFacade.Init(CurrentUserId);
             personalProfileFacade.CurrentUserId = CurrentUserId;
             return task;
         }

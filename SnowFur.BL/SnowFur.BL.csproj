@@ -220,7 +220,7 @@
     <Compile Include="Dtos\ConventionLandingPageDto.cs" />
     <Compile Include="Dtos\ConventionContactPageDto.cs" />
     <Compile Include="Facades\PersonalProfileFacade.cs" />
-    <Compile Include="Facades\RoomReservationFacade.cs" />
+    <Compile Include="Facades\ReservationFacade.cs" />
     <Compile Include="Filters\ConventionFilter.cs" />
     <Compile Include="Filters\ConventionUserFilter.cs" />
     <Compile Include="Installers\IMapperInstaller.cs" />

@@ -38,6 +38,7 @@ namespace SnowFur.ViewModels.Admin
             PaimentConfirmationForm = new PaimentConfirmationForm(conventionFacade);
 
             SubpageTitle = "Rezervácie";
+            LogoText = "Convention Admin";
         }
 
         public override Task Init()

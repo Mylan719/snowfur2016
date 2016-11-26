@@ -12,12 +12,24 @@ namespace SnowFur.BL.Facades
     public class ConventionFacade : ApplicationFacadeBase
     {
         private readonly ConventionService conventionService;
+        private readonly RoomService roomService;
 
+
+        public string ActiveConventionName { get; set; }
         public int ActiveConventionId { get; private set; }
 
-        public ConventionFacade(ConventionService conventionService)
+        public RoomService RoomService
+        {
+            get
+            {
+                return roomService;
+            }
+        }
+
+        public ConventionFacade(ConventionService conventionService, RoomService roomService)
         {
             this.conventionService = conventionService;
+            this.roomService = roomService;
         }
 
         public void FillAttendees(GridViewDataSet<AttendeeListItemDto> attendeeDataSet)
@@ -33,6 +45,7 @@ namespace SnowFur.BL.Facades
                 {
                     var convention = conventionService.Repository.GetActive();
                     ActiveConventionId = convention.Id;
+                    ActiveConventionName = convention.Name;
                 }
                 catch (Exception ex)
                 {
@@ -95,5 +108,27 @@ namespace SnowFur.BL.Facades
         {
             conventionService.FillAdminAtendees(attendeeDataSet, new ConventionFilter { ConventionId = ActiveConventionId});
         }
+
+        public void FillRooms(GridViewDataSet<RoomListDto> roomsDataSet)
+        {
+            roomService.LoadList(roomsDataSet, new ConventionFilter { ConventionId = ActiveConventionId });
+        }
+
+        public void Save(RoomDetailDto roomDetil)
+        {
+            roomService.Save(roomDetil);
+        }
+
+        public int GetReservationCount(int roomId)
+        {
+            using (conventionService.UnitOfWorkProvider.Create())
+            {
+                return roomService.Repository.GetRoomReservationCount(roomId);
+            }
+        }
+
+        public RoomDetailDto GetRoomDetail(int id) => roomService.Get(id);
+
+        public void RemoveRoom(int roomId) => roomService.Remove(roomId);
     }
 }

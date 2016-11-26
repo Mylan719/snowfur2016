@@ -309,6 +309,7 @@
     <Compile Include="ViewModels\PageViewModelBase.cs" />
     <Compile Include="ViewModels\Controls\LoginSection.cs" />
     <Compile Include="Views\Controls\GoogleMap.cs" />
+    <Compile Include="Views\Controls\YesNo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.cerulean.css" />
@@ -380,6 +381,7 @@
     <Content Include="Views\Admin\Conventions.dothtml" />
     <Content Include="Views\Controls\ConventionDetail.dotcontrol" />
     <Content Include="Views\Admin\rooms.dothtml" />
+    <Content Include="Views\Controls\YesNo.dotcontrol" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>

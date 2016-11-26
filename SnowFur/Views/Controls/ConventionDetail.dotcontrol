@@ -6,7 +6,7 @@
         if (showModal) {
             $('#attendee-detail').modal('show');
         } else {
-           $('#attendee-detail').modal('hide');
+            $('#attendee-detail').modal('hide');
         }
 
         $("button[data-tag='convention-modal-hide']").on('click', function () {
@@ -15,15 +15,17 @@
     });
 </dot:InlineScript>
 
-<div DataContext="{value: Detail}">
-    <div class="modal fade" role="dialog" html:id="attendee-detail">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title">Convention</h3>
-                </div>
-                <div class="modal-body">
+
+<div class="modal fade" role="dialog" html:id="attendee-detail">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Convention</h3>
+            </div>
+            <div class="modal-body">
+                <div DataContext="{value: Detail}">
                     <div class="panel panel-info">
+
                         <div class="panel-heading">Texty</div>
                         <div class="panel-body">
                             <div class="col-md-12">
@@ -42,11 +44,11 @@
                             </div>
                             <div class="col-md-6">
                                 <label>Od:</label>
-                                <dot:TextBox class="form-control" Type="Date" Text="{value: _parent.StartDateString}"/>
+                                <dot:TextBox class="form-control" Type="Date" Text="{value: _parent.StartDateString}" />
                             </div>
                             <div class="col-md-6">
                                 <label>Do:</label>
-                                <dot:TextBox class="form-control" Type="Date" Text="{value: _parent.EndDateString}"/>
+                                <dot:TextBox class="form-control" Type="Date" Text="{value: _parent.EndDateString}" />
                             </div>
                         </div>
                     </div>
@@ -98,11 +100,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <dot:Button class="btn btn-success" data-tag="convention-modal-hide" ButtonTagName="button" Click="{command: _parent.Save()}">Potvrdiť</dot:Button>
-                    <dot:Button class="btn btn-info" data-tag="convention-modal-hide" ButtonTagName="button" Click="{command: _parent.Hide()}" Validation.Enabled="false">Zrušiť</dot:Button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-</div>
+            </div>
+            <div class="modal-footer">
+                <dot:Button class="btn btn-success" data-tag="convention-modal-hide" ButtonTagName="button" Click="{command: Save()}">Potvrdiť</dot:Button>
+                <dot:Button class="btn btn-info" data-tag="convention-modal-hide" ButtonTagName="button" Click="{command: Hide()}" Validation.Enabled="false">Zrušiť</dot:Button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

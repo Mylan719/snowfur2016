@@ -13,5 +13,7 @@ namespace SnowFur.BL.Repositories
         public RoomRepository(IUnitOfWorkProvider provider) : base(provider)
         {
         }
+
+        public int GetRoomReservationCount(int roomId) => GetById(roomId).Reservations.Count;
     }
 }

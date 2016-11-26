@@ -36,6 +36,7 @@
                 <li><dot:RouteLink RouteName="AdminReservations" Text="Rezervácie a platby" /></li>
 				<li><dot:RouteLink RouteName="AdminBroadcastMail" Text="Hromadné maily" /></li>
                 <li><dot:RouteLink RouteName="AdminConventions" Text="Conventions" /></li>
+                <li><dot:RouteLink RouteName="AdminRooms" Text="Izby" /></li>
             </ul>
             <cc:LoginPanel DataContext="{value: LoginSection}"></cc:LoginPanel>
         </div>

@@ -21,6 +21,9 @@
                 {{value: Note}}
             </dot:GridViewTemplateColumn>
         </Columns>
+        <EmptyDataTemplate>
+            <p>Žiadne rezervácie</p>
+        </EmptyDataTemplate>
     </dot:GridView>
 	<cc:PaimentConfirmationForm DataContext="{value: PaimentConfirmationForm}"></cc:PaimentConfirmationForm>
 </dot:Content>

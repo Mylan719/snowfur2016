@@ -1,4 +1,4 @@
-﻿@viewModel SnowFur.ViewModels.Admin.ConventionsViewModel, SnowFur
+﻿@viewModel SnowFur.ViewModels.Admin.RoomsAdminViewModel, SnowFur
 @masterPage Views/Admin/admin.dotmaster
 
 <dot:Content ContentPlaceHolderID="SuccessfulFinishContent">
@@ -6,26 +6,63 @@
 <dot:Content ContentPlaceHolderID="PageContent">
     <div class="row">
         <div class="col-md-12">
-            <dot:Button class="btn btn-success" ButtonTagName="button" Click="{command: AddConvention()}">Pridať</dot:Button>
+            <h4>{{value: ConventionName}} - management izieb</h4>
         </div>
-        <dot:GridView class="col-md-12 grid-view" DataSource="{value: Conventions}">
+        <table class="col-md-12 grid-view" DataContext="{value: Detail}" Visible="{value: Id == 0}">
+            <tbody>
+                <tr>
+                    <td><dot:TextBox Text="{value: Name}" /></td>
+                    <td><dot:TextBox Type="Number" Text="{value: Capacity}" /></td>
+                    <td>
+                        <dot:Button class="btn btn-sm btn-success" Click="{command: _parent.SaveEdit()}">Pridať</dot:Button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <dot:GridView class="col-md-12 grid-view" DataSource="{value: Rooms}" InlineEditing="true">
             <Columns>
-                <dot:GridViewTextColumn ValueBinding="{value: Name}" HeaderText="Meno" />
-                <dot:GridViewTemplateColumn HeaderText="">
-                    <span class="label label-success" Visible="{value: IsActive}">Aktívna</span>
-                    <dot:Button class="btn btn-sm btn-primary" Visible="{value: !IsActive}" Click="{command: _parent.ActivateConvention(Id)}">
-                        Aktivovať
-                    </dot:Button>
+                <dot:GridViewTextColumn AllowSorting="true" ValueBinding="{value: Id}"
+                                        HeaderText="#"
+                                        IsEditable="false" />
+                <dot:GridViewTemplateColumn  AllowSorting="true" SortExpression="Name" HeaderText="Meno">
+                    <ContentTemplate>
+                        {{value: Name}}
+                    </ContentTemplate>
+                    <EditTemplate>
+                        <dot:TextBox Text="{value: _parent.Detail.Name}" />
+                    </EditTemplate>
+                </dot:GridViewTemplateColumn>
+                <dot:GridViewTemplateColumn HeaderText="Miesta" AllowSorting="true" SortExpression="Capacity">
+                    <ContentTemplate>
+                        {{value: Capacity}}
+                    </ContentTemplate>
+                    <EditTemplate>
+                        <dot:TextBox Type="Number" Text="{value: _parent.Detail.Capacity}" />
+                    </EditTemplate>
                 </dot:GridViewTemplateColumn>
                 <dot:GridViewTemplateColumn HeaderText="">
-
-                    <dot:Button class="btn btn-sm btn-danger" Click="{command: _parent.EditConvention(Id)}">
-                        Upraviť
-                    </dot:Button>
+                    <ContentTemplate>
+                        <dot:Button class="btn btn-sm btn-primary" Click="{command: _parent.Edit(Id)}">Upraviť</dot:Button>
+                        <dot:Button class="btn btn-sm btn-danger" Click="{command: _parent.Delete(Id, false)}">Zmazať</dot:Button>
+                    </ContentTemplate>
+                    <EditTemplate>
+                        <dot:Button class="btn btn-sm btn-success" Click="{command: _parent.SaveEdit()}">Uložit</dot:Button>
+                        <dot:Button class="btn btn-sm btn-danger" Click="{command: _parent.CancelEdit()}">Zrušiť</dot:Button>
+                    </EditTemplate>
                 </dot:GridViewTemplateColumn>
             </Columns>
-            
+            <EmptyDataTemplate>
+                <p>Žiadne izby</p>
+            </EmptyDataTemplate>
         </dot:GridView>
     </div>
-    <cc:ConventionDetail DataContext="{value: ConventionDetail}"></cc:ConventionDetail>
+
+    <cc:YesNo
+        IsShown="{value: DeletePropmptId != null}"
+        Header="Zmazať?"
+        Message="Izbu má už niekto rezervovanú naozaj zmazať?"
+        YesAction="{command: Delete(DeletePropmptId.Value, true)}"
+        NoAction="{command: DeletePropmptId = null}" />
+
+
 </dot:Content>

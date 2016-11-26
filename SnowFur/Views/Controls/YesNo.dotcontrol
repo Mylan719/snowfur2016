@@ -1,0 +1,40 @@
+﻿@viewModel System.Object, mscorlib
+@baseType SnowFur.Views.Controls.YesNo, SnowFur
+
+<dot:InlineScript>
+    dotvvm.events.afterPostback.subscribe(function () {
+        var isShown = $('span[data-yesno=x]').attr("data-show") === "true";
+        if (isShown) {
+            $('#yesno-modal').modal('show');
+        } else {
+            $('#yesno-modal').modal('hide');
+        }
+
+        $("button[data-tag='yesno-modal-hide']").on('click', function () {
+            $('#yesno-modal').modal('hide');
+        });
+    });
+</dot:InlineScript>
+
+<span data-yesno="x" data-show="{controlProperty: IsShown}"></span>
+<div class="modal fade" role="dialog" html:ID="yesno-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Convention</h3>
+            </div>
+            <div class="modal-body">
+                <div class="panel panel-info">
+                    <div class="panel-heading">{{controlProperty: Header}}</div>
+                    <div class="panel-body">
+                        {{controlProperty: Message}}
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <dot:Button class="btn btn-success" data-tag="yesno-modal-hide" ButtonTagName="button" Click="{controlCommand: YesAction()}">Potvrdiť</dot:Button>
+                <dot:Button class="btn btn-info" data-tag="yesno-modal-hide" ButtonTagName="button" Click="{controlCommand:  NoAction()}" Validation.Enabled="false">Zrušiť</dot:Button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

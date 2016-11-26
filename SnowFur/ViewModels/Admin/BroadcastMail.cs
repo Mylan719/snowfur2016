@@ -18,6 +18,8 @@ namespace SnowFur.ViewModels.Admin
         public BroadcastMail(MailingFacade fac)
         {
             mailingFacade = fac;
+            LogoText = "Convention Admin";
+            SubpageTitle = "Hromadné maily";
         }
 
         [Required(ErrorMessage = "Vyžadované")]

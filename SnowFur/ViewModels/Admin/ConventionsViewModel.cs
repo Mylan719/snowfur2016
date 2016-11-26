@@ -29,6 +29,8 @@ namespace SnowFur.ViewModels.Admin
         public ConventionsViewModel(ConventionFacade conventionFacade)
         {
             this.conventionFacade = conventionFacade;
+            LogoText = "Convention Admin";
+            SubpageTitle = "Conventions";
         }
 
         public override Task Load()

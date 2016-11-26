@@ -11,6 +11,7 @@ namespace SnowFur.BL.Dtos
 {
     public class RoomListDto : IMapperInstaller
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public int Capacity { get; set; }
 
