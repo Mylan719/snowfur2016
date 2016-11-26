@@ -285,6 +285,7 @@ table.grid-view {
     max-width: 100%;
     table-layout: fixed;
     background-color: white;
+    margin: 10px 0;
 }
 
     table.grid-view th {

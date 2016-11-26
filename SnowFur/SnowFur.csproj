@@ -298,6 +298,7 @@
     <Compile Include="ViewModels\Admin\BroadcastMail.cs" />
     <Compile Include="ViewModels\Admin\ConventionsViewModel.cs" />
     <Compile Include="ViewModels\Admin\Reservations.cs" />
+    <Compile Include="ViewModels\Admin\RoomsAdminViewModel.cs" />
     <Compile Include="ViewModels\Attendees.cs" />
     <Compile Include="ViewModels\Controls\ConventionDetailForm.cs" />
     <Compile Include="ViewModels\Controls\PaimentConfirmationForm.cs" />
@@ -378,6 +379,7 @@
     <Content Include="Views\Controls\GoogleMap.dotcontrol" />
     <Content Include="Views\Admin\Conventions.dothtml" />
     <Content Include="Views\Controls\ConventionDetail.dotcontrol" />
+    <Content Include="Views\Admin\rooms.dothtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>

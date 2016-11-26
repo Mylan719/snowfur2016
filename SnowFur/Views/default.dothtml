@@ -11,7 +11,7 @@
         <div class="col-md-6">
             <h3>Základné informácie</h3>
             <strong>Termín</strong>
-            <p>{{value: StartDate}} - {{value: EndDate}}</p>
+            <p><dot:Literal Text="{value: StartDate}" RenderSpanElement="false" FormatString="dd. MM. yyyy"/> - <dot:Literal Text="{value: EndDate}" RenderSpanElement="false" FormatString="dd. MM. yyyy" /></p>
             <strong>Miesto</strong>
             <p>{{value: PlaceName}}<br />GPS: {{value: GpsLatitude}}, {{value: GpsLongitude}}</p>
         </div>

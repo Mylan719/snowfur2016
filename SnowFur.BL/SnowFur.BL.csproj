@@ -214,6 +214,7 @@
     <Compile Include="Dtos\RoomDetailDto.cs" />
     <Compile Include="Dtos\RoomListDto.cs" />
     <Compile Include="Dtos\UserPasswordResetDto.cs" />
+    <Compile Include="Extensions\FormatExtensions.cs" />
     <Compile Include="Facades\AccountFacade.cs" />
     <Compile Include="Facades\ApplicationFacade.cs" />
     <Compile Include="Dtos\ConventionLandingPageDto.cs" />

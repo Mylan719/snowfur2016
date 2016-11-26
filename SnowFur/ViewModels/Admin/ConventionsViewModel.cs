@@ -22,7 +22,8 @@ namespace SnowFur.ViewModels.Admin
         public GridViewDataSet<ConventionListDto> Conventions { get; set; } = new GridViewDataSet<ConventionListDto>()
         {
             SortExpression = nameof(ConventionListDto.IsActive),
-            PageSize = 4
+            SortDescending = true,
+            PageSize = 100
         };
 
         public ConventionsViewModel(ConventionFacade conventionFacade)
@@ -48,6 +49,8 @@ namespace SnowFur.ViewModels.Admin
             ReportErrors(() =>
             {
                 conventionFacade.ActivateConvention(id);
+                var con = conventionFacade.GetConventionDetail(id);
+                SuccessMessage = $"Convention {con.Name} aktivovaná.";
             });
         }
 
@@ -56,6 +59,14 @@ namespace SnowFur.ViewModels.Admin
             ReportErrors(() =>
             {
                 ConventionDetail.Detail = conventionFacade.GetConventionDetail(id);
+            });
+        }
+
+        public void AddConvention()
+        {
+            ReportErrors(() =>
+            {
+                ConventionDetail.Detail = new ConventionDetailDto();
             });
         }
     }
