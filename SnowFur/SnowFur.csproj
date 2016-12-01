@@ -297,6 +297,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Admin\BroadcastMail.cs" />
     <Compile Include="ViewModels\Admin\ConventionsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\RoomReservations.cs" />
     <Compile Include="ViewModels\Admin\Reservations.cs" />
     <Compile Include="ViewModels\Admin\RoomsAdminViewModel.cs" />
     <Compile Include="ViewModels\Attendees.cs" />
@@ -382,6 +383,7 @@
     <Content Include="Views\Controls\ConventionDetail.dotcontrol" />
     <Content Include="Views\Admin\rooms.dothtml" />
     <Content Include="Views\Controls\YesNo.dotcontrol" />
+    <Content Include="Views\Admin\roomReservations.dothtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>

@@ -21,13 +21,13 @@ namespace SnowFur.BL.Services
         public RoomRepository RoomRepository { get; set; }
         public UserRepository UserRepository { get; set; }
 
-        public void LoadListForAttendee(GridViewDataSet<ReservedRoomListDto> resultDataSet, ConventionFilter filter)
+        public List<ReservedRoomListDto> GetReservedRooms(ConventionFilter filter)
         {
             using (UnitOfWorkProvider.Create())
             {
                 var q = ReservedRoomsQuery();
                 q.Filter = filter;
-                FillDataSet(resultDataSet, q);
+                return q.Execute().ToList();
             }
         }
 

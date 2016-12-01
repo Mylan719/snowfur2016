@@ -1,0 +1,22 @@
+﻿@viewModel SnowFur.ViewModels.Admin.RoomReservations, SnowFur
+@masterPage Views/Admin/admin.dotmaster
+
+<dot:Content ContentPlaceHolderID="SuccessfulFinishContent">
+</dot:Content>
+<dot:Content ContentPlaceHolderID="PageContent">
+    <table>
+        <dot:Repeater WrapperTagName="tbody" DataSource="{value: Reservations}">
+            <ItemTemplate>
+                <tr>
+                    <td>{{value: Name}}</td>
+                    <td>{{value: FreeBeds}} / {{value: Capacity}} volne</td>
+                    <td>
+                        <dot:Repeater WrapperTagName="ul" DataSource="{value: AtendeeNames}">
+                            <li>{{value: UserName}} <dot:Button class="btn btn-sm btn-danger" Click="{command: _root.RemoveUserFromRoom(_this.Id,_parent.Id)}" Text="Odobrat z izby"/></li>
+                        </dot:Repeater>
+                    </td>
+                </tr>
+            </ItemTemplate>
+        </dot:Repeater>
+    </table>
+</dot:Content>

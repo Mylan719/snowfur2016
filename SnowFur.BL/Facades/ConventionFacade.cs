@@ -6,6 +6,7 @@ using SnowFur.BL.Dtos;
 using SnowFur.BL.Filters;
 using SnowFur.BL.Queries;
 using SnowFur.BL.Services;
+using System.Collections.Generic;
 
 namespace SnowFur.BL.Facades
 {
@@ -13,7 +14,7 @@ namespace SnowFur.BL.Facades
     {
         private readonly ConventionService conventionService;
         private readonly RoomService roomService;
-
+        private readonly RoomReservationService roomReservationService;
 
         public string ActiveConventionName { get; set; }
         public int ActiveConventionId { get; private set; }
@@ -26,10 +27,11 @@ namespace SnowFur.BL.Facades
             }
         }
 
-        public ConventionFacade(ConventionService conventionService, RoomService roomService)
+        public ConventionFacade(ConventionService conventionService, RoomService roomService, RoomReservationService roomReservationService)
         {
             this.conventionService = conventionService;
             this.roomService = roomService;
+            this.roomReservationService = roomReservationService;
         }
 
         public void FillAttendees(GridViewDataSet<AttendeeListItemDto> attendeeDataSet)
@@ -130,5 +132,15 @@ namespace SnowFur.BL.Facades
         public RoomDetailDto GetRoomDetail(int id) => roomService.Get(id);
 
         public void RemoveRoom(int roomId) => roomService.Remove(roomId);
+
+        public List<ReservedRoomListDto> GetAdminRoomReservations()
+        {
+            return roomReservationService.GetReservedRooms(new ConventionFilter { ConventionId = ActiveConventionId });
+        }
+
+        public void RemoveUserFromRoom(int userId, int roomId)
+        {
+            roomReservationService.CancelReservation(userId, roomId);
+        }
     }
 }
