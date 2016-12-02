@@ -12,6 +12,7 @@
     <dot:RequiredResource Name="bootstrap-js" />
 </head>
 <body>
+    <dot:Button Click="{command: LoginSection.Login()}" Text="a"></dot:Button>
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron hidden-sm hidden-xs sf-logo">
         <div class="container row">

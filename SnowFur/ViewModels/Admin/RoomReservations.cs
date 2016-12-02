@@ -21,6 +21,9 @@ namespace SnowFur.ViewModels.Admin
         private ConventionFacade conventionFacade;
 
         public List<ReservedRoomListDto> Reservations { get; set; } = new List<ReservedRoomListDto>();
+        public List<UserBasicInfoDto> UnaccomodatedUsers { get; set; } = new List<UserBasicInfoDto>();
+
+        public int SelectedUserToAdd { get; set; } = -1;
 
         public RoomReservations(ConventionFacade conventionFacade)
         {
@@ -36,6 +39,7 @@ namespace SnowFur.ViewModels.Admin
             ReportErrors(() =>
             {
                 Reservations = conventionFacade.GetAdminRoomReservations();
+                UnaccomodatedUsers = conventionFacade.GetUnacomodatedUsers();
             });
             return base.PreRender();
         }
@@ -45,6 +49,14 @@ namespace SnowFur.ViewModels.Admin
             ReportErrors(() =>
             {
                 conventionFacade.RemoveUserFromRoom(userId, roomId);
+            });
+        }
+
+        public void AddUser(int roomId)
+        {
+            ReportErrors(() =>
+            {
+                conventionFacade.AddUserToRoom(SelectedUserToAdd, roomId);
             });
         }
     }

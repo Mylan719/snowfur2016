@@ -51,6 +51,12 @@ strong {
 }
 
 
+.sf-header-control{
+    color: #1a405d;
+    border: 2px solid #1a405d;
+    border-radius: 4px;
+}
+
 .sf-page-content {
     background-color: #FFF;
     padding-top: 40px;

@@ -37,6 +37,7 @@
 				<li><dot:RouteLink RouteName="AdminBroadcastMail" Text="Hromadné maily" /></li>
                 <li><dot:RouteLink RouteName="AdminConventions" Text="Conventions" /></li>
                 <li><dot:RouteLink RouteName="AdminRooms" Text="Izby" /></li>
+                <li><dot:RouteLink RouteName="AdminRoomReservations" Text="Rezervacie Izieb" /></li>
             </ul>
             <cc:LoginPanel DataContext="{value: LoginSection}"></cc:LoginPanel>
         </div>

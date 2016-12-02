@@ -4,19 +4,36 @@
 <dot:Content ContentPlaceHolderID="SuccessfulFinishContent">
 </dot:Content>
 <dot:Content ContentPlaceHolderID="PageContent">
-    <table>
-        <dot:Repeater WrapperTagName="tbody" DataSource="{value: Reservations}">
-            <ItemTemplate>
+    <div class="row">
+        <table class="grid-view col-md-12">
+            <thead>
                 <tr>
-                    <td>{{value: Name}}</td>
-                    <td>{{value: FreeBeds}} / {{value: Capacity}} volne</td>
-                    <td>
-                        <dot:Repeater WrapperTagName="ul" DataSource="{value: AtendeeNames}">
-                            <li>{{value: UserName}} <dot:Button class="btn btn-sm btn-danger" Click="{command: _root.RemoveUserFromRoom(_this.Id,_parent.Id)}" Text="Odobrat z izby"/></li>
-                        </dot:Repeater>
-                    </td>
+                    <th>Izba:</th>
+                    <th>Obsadenie</th>
+                    <th colspan="2">
+                        Priradit uzivatela:
+                        <dot:ComboBox class="sf-header-control sf-width200" DisplayMember="UserName" ValueMember="Id" SelectedValue="{value: _root.SelectedUserToAdd}" DataSource="{value: _root.UnaccomodatedUsers}" />
+                    </th>
                 </tr>
-            </ItemTemplate>
-        </dot:Repeater>
-    </table>
+            </thead>
+            <dot:Repeater WrapperTagName="tbody" DataSource="{value: Reservations}">
+                <ItemTemplate>
+                    <tr>
+                        <td>{{value: Name}}</td>
+                        <td>{{value: FreeBeds}} / {{value: Capacity}} volne</td>
+                        <td>
+                            <dot:Repeater WrapperTagName="ul" DataSource="{value: AtendeeNames}">
+                                <li>{{value: UserName}} <dot:Button class="btn btn-sm btn-danger" Click="{command: _root.RemoveUserFromRoom(_this.Id,_parent.Id)}" Text="Odobrat z izby" /></li>
+                            </dot:Repeater>
+                        </td>
+                        <td>
+                            <fieldset class="form-group form-group-sm">
+                                <dot:Button class="btn btn-sm btn-primary" Click="{command: _root.AddUser(Id)}" Text="Ubytovat" />
+                            </fieldset>
+                        </td>
+                    </tr>
+                </ItemTemplate>
+            </dot:Repeater>
+        </table>
+    </div>
 </dot:Content>

@@ -235,6 +235,7 @@
     <Compile Include="Queries\ServiceListQuery.cs" />
     <Compile Include="Queries\ServiceUserOrderQuery.cs" />
     <Compile Include="Queries\ConventionListQuery.cs" />
+    <Compile Include="Queries\UnacomodatedUsersQuery.cs" />
     <Compile Include="Services\ApplicationServiceBase.cs" />
     <Compile Include="Facades\ConventionFacade.cs" />
     <Compile Include="Services\ConventionService.cs" />

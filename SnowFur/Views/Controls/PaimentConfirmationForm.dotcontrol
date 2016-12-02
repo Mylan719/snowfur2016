@@ -44,8 +44,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-				<dot:Button class="btn btn-success" ButtonTagName="button" Click="{command: Confirm()}">Potvrdiť</dot:Button>
-                <dot:Button class="btn btn-info" ButtonTagName="button" Click="{command: Hide()}" Validation.Enabled="false">Zrušiť</dot:Button>
+				<dot:Button class="btn btn-success" ButtonTagName="button" Click="{controlCommand: _this.Confirm()}">Potvrdiť</dot:Button>
+                <dot:Button class="btn btn-info" ButtonTagName="button" Click="{controlCommand: _this.Hide()}" Validation.Enabled="false">Zrušiť</dot:Button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

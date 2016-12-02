@@ -16,6 +16,7 @@ namespace SnowFur.BL.Services
     public class RoomReservationService : ApplicationServiceBase
     {
         public Func<ReservedRoomsQuery> ReservedRoomsQuery { get; set; }
+        public Func<UnacomodatedUsersQuery> UnacomodatedUsersQuery { get; set; }
         public RoomReservationRepository RoomReservationRepository { get; set; }
         public ConventionRepository ConventionRepository { get; set; }
         public RoomRepository RoomRepository { get; set; }
@@ -76,6 +77,16 @@ namespace SnowFur.BL.Services
                 uow.Commit();
             }
 
+        }
+
+        public List<UserBasicInfoDto> GetUnacomodatedUsers(ConventionFilter filter)
+        {
+            using (UnitOfWorkProvider.Create())
+            {
+                var q = UnacomodatedUsersQuery();
+                q.Filter = filter;
+                return q.Execute().ToList();
+            }
         }
 
         private void CheckUserAndRoom(int userId, int roomId)

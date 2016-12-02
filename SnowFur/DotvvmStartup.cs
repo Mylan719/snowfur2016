@@ -40,6 +40,7 @@ namespace SnowFur
             dotvvmConfiguration.RouteTable.Add("AdminBroadcastMail", "admin/broadcastMail", "Views/Admin/broadcastMail.dothtml");
             dotvvmConfiguration.RouteTable.Add("AdminConventions", "admin/conventions", "Views/Admin/Conventions.dothtml");
             dotvvmConfiguration.RouteTable.Add("AdminRooms", "admin/rooms", "Views/Admin/rooms.dothtml");
+            dotvvmConfiguration.RouteTable.Add("AdminRoomReservations", "admin/roomReservations", "Views/Admin/roomReservations.dothtml");
 
         }
 

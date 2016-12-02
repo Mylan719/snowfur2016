@@ -142,5 +142,16 @@ namespace SnowFur.BL.Facades
         {
             roomReservationService.CancelReservation(userId, roomId);
         }
+
+        public void AddUserToRoom(int userId, int roomId)
+        {
+            roomReservationService.MakeReservation(userId, roomId, ActiveConventionId);
+        }
+
+
+        public List<UserBasicInfoDto> GetUnacomodatedUsers()
+        {
+            return roomReservationService.GetUnacomodatedUsers(new ConventionFilter { ConventionId = ActiveConventionId });
+        }
     }
 }

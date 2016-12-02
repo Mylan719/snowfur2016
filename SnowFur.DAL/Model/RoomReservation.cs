@@ -10,7 +10,8 @@ using System.Threading.Tasks;
 namespace SnowFur.DAL.Model
 {
     public class RoomReservation : IEntity<int>
-    { 
+    {
+        [Key]
         public int Id { get; set; }
 
         public int? UserId { get; set; }

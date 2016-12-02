@@ -90,6 +90,14 @@
     <Compile Include="Migrations\201611240133100_ConventionUpdate.Designer.cs">
       <DependentUpon>201611240133100_ConventionUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612021846395_IdentityFix1.cs" />
+    <Compile Include="Migrations\201612021846395_IdentityFix1.Designer.cs">
+      <DependentUpon>201612021846395_IdentityFix1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612021848084_IdentityFix2.cs" />
+    <Compile Include="Migrations\201612021848084_IdentityFix2.Designer.cs">
+      <DependentUpon>201612021848084_IdentityFix2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\ConventionPayment.cs" />
     <Compile Include="Model\IGuardedEntity.cs" />
     <Compile Include="Model\Room.cs" />
@@ -166,6 +174,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611240133100_ConventionUpdate.resx">
       <DependentUpon>201611240133100_ConventionUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612021846395_IdentityFix1.resx">
+      <DependentUpon>201612021846395_IdentityFix1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612021848084_IdentityFix2.resx">
+      <DependentUpon>201612021848084_IdentityFix2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
