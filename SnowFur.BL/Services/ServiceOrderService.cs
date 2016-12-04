@@ -16,7 +16,7 @@ namespace SnowFur.BL.Services
 {
     public class ServiceOrderService : ApplicationServiceBase
     {
-        public Func<ServiceUserOrderQuery> QueryFunc { get; set; }
+        public Func<UserServiceOrderQuery> QueryFunc { get; set; }
         public ServiceOrderRepository ServiceOrderRepository { get; set; }
         public ConventionRepository ConventionRepository { get; set; }
         public ServiceRepository ServiceRepository { get; set; }
@@ -24,13 +24,13 @@ namespace SnowFur.BL.Services
 
         public  Func<ServiceType, IServiceOrderStrategy> ServiceOrderStrategyProvider { get; set; }
 
-        public void LoadListForAttendee(GridViewDataSet<ServiceUserOrderListDto> resultDataSet, ConventionUserFilter filter)
+        public List<UserServiceOrderDto> LoadListForAttendee(ConventionUserFilter filter)
         {
             using (UnitOfWorkProvider.Create())
             {
                 var q = QueryFunc();
                 q.Filter = filter;
-                FillDataSet(resultDataSet, q);
+                return q.Execute().ToList();
             }
         }
 

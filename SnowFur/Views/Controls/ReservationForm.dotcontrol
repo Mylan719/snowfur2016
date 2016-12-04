@@ -2,38 +2,11 @@
 
 <h3>Rezervácia izby</h3>
 <form class="form">
-	<div class="form-group row">
-        <label class="col-md-4 col-sm-8">NOC: Piatok, 29. 1. 2016 - Sobota, 30. 1. 2016</label>
-        <dot:CheckBox class="col-md-1" Checked="{value: Night1}" />
-    </div>
-	<div class="form-group row">
-        <label class="col-md-4 col-sm-8">NOC: Sobota, 30. 1. 2016 - Nedeľa, 31. 1. 2016</label>
-        <dot:CheckBox class="col-md-1"  Checked="{value: Night2}" />
-    </div>
-	<div class="form-group row">
-        <label class="col-md-4 col-sm-8">NOC: Nedeľa, 31. 1. 2016 - Pondelok, 1. 2. 2016</label>
-        <dot:CheckBox class="col-md-1" Checked="{value: Night3}" />
-    </div>
-	<div class="form-group row">
-        <label class="col-md-4 col-sm-8">Mám záujem byť sponzor:</label>
-        <dot:CheckBox class="col-md-1" Checked="{value: IsSponsor}" />
-    </div>
-	<div class="row">&nbsp;</div>
-	<div class="form-group row">
-        <label class="col-md-4 col-sm-8">Ubytovanie so psom:</label>
-        <dot:CheckBox class="col-md-1" Checked="{value: IsDogAttending}" />
-    </div>
-	<div class="row">&nbsp;</div>
-	<div class="form-group row">
-        <label class="col-md-4 col-sm-8">Mám záujem o vegetariánsku stravu:</label>
-        <dot:CheckBox class="col-md-1" Checked="{value: IsVegetarian}" />
-    </div>
-	<div class="row">&nbsp;</div>
-	<div class="form-group row">
-        <label class="col-md-12">Špeciálne požiadavky (napríklad ohľadne stravy): <dot:Validator class="label label-danger" ShowErrorMessageText="true" ValidatedValue="{value: Note}"></dot:Validator></label>
-		<div class="col-md-1 col-sm-1 col-xs-1"></div>
-        <dot:TextBox class="col-md-10" Type="MultiLine" Text="{value: Note}" />
-		<div class="col-md-1"></div>
-    </div>
+    <dot:Repeater DataSource="{value: Orders}">
+        <div class="form-group row">
+            <label class="col-md-4 col-sm-8">{{value: Name}} - ({{value: Price}} EUR) </label>
+            <dot:CheckBox class="col-md-1" Checked="{value: IsOrdered}" />
+        </div>
+    </dot:Repeater>
 </form>
 

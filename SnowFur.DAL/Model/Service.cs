@@ -30,5 +30,8 @@ namespace SnowFur.DAL.Model
 
         [ForeignKey(nameof(ConventionId))]
         public Convention Convention { get; set; }
+
+        public virtual ICollection<ServiceOrder> Orders { get; set; } = new List<ServiceOrder>();
+
     }
 }

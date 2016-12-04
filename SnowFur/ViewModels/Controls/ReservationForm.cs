@@ -1,4 +1,5 @@
 ﻿using DotVVM.Framework.ViewModel;
+using SnowFur.BL.Dtos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,17 +11,11 @@ namespace SnowFur.ViewModels.Controls
 {
     public class ReservationForm : OwinViewModelBase
     {
-        public bool Night1 { get; set; }
-        public bool Night2 { get; set; }
-        public bool Night3 { get; set; }
+        public List<UserServiceOrderDto> Orders { get; set; }
 
-        public bool IsVegetarian { get; set; }
+        public ReservationForm()
+        {
 
-        public bool IsSponsor { get; set; }
-
-        public bool IsDogAttending { get; set; }
-
-        [MaxLength(500, ErrorMessage = "Maximálna dĺžka je 500 znakov.")]
-        public string Note { get; set; }
+        }
     }
 }

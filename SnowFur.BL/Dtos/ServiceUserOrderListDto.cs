@@ -10,20 +10,17 @@ using SnowFur.DAL.Model;
 
 namespace SnowFur.BL.Dtos
 {
-    public class ServiceUserOrderListDto : IMapperInstaller
+    public class UserServiceOrderDto : IMapperInstaller
     {
         public int ServiceId { get; set; }
-        public int UserId { get; set; }
-        public int ServiceType { get; set; }
-        public string ServiceName { get; set; }
-        public decimal ServicePrice { get; set; }
-
-        public bool IsActive { get; set; }
+        public string Name { get; set; }
+        public decimal Price { get; set; }
         public bool IsOrdered { get; set; }
-
         public void InstallMapping(IMapperConfigurationExpression configuration)
         {
-            configuration.CreateMap<ServiceOrder, ServiceUserOrderListDto>();
+            configuration.CreateMap<Service, UserServiceOrderDto>()
+                .ForMember(m => m.IsOrdered, a => a.Ignore())
+                .ForMember(m => m.ServiceId, a => a.MapFrom(s => s.Id));
         }
     }
 }

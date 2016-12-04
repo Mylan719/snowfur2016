@@ -14,28 +14,26 @@ using SnowFur.DAL.Enums;
 
 namespace SnowFur.BL.Queries
 {
-    public class ServiceUserOrderQuery : ApplicationQueryBase<ServiceUserOrderListDto>
+    public class UserServiceOrderQuery : ApplicationQueryBase<UserServiceOrderDto>
     {
         public ConventionUserFilter Filter { get; set; }
-        public Func<ServiceType, IServiceOrderStrategy> ServiceOrderStrategyProvider { get; set; }
-
-        public ServiceUserOrderQuery(IUnitOfWorkProvider provider)
+      
+        public UserServiceOrderQuery(IUnitOfWorkProvider provider)
             :base (provider)
         { }
 
-        protected override IQueryable<ServiceUserOrderListDto> GetQueryable()
-            => Context.ServiceOrders
-            .Include("User")
-            .Include("Service")
-            .Where(s => s.Service.DateDeleted == null && s.Service.ConventionId == Filter.ConventionId && s.UserId == Filter.UserId)
-            .ProjectTo<ServiceUserOrderListDto>();
+        protected override IQueryable<UserServiceOrderDto> GetQueryable()
+            => Context.Services
+            .Include("ServiceOrders")
+            .Where(s => s.DateDeleted == null && s.ConventionId == Filter.ConventionId)
+            .ProjectTo<UserServiceOrderDto>();
 
-        protected override void PostProcessResults(IList<ServiceUserOrderListDto> results)
+        protected override void PostProcessResults(IList<UserServiceOrderDto> results)
         {
-            foreach (var result in results)
+            foreach(var r in results)
             {
-                var strategy = ServiceOrderStrategyProvider((ServiceType) result.ServiceType);
-                result.IsActive = strategy.CanBeOrdered(Filter.UserId, result.ServiceId);
+                var order = Context.ServiceOrders.FirstOrDefault(so => so.ServiceId == r.ServiceId && so.UserId == Filter.UserId);
+                r.IsOrdered = order == null;
             }
 
             base.PostProcessResults(results);
