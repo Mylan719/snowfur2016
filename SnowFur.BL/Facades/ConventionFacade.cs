@@ -168,5 +168,8 @@ namespace SnowFur.BL.Facades
             => serviceService.GetServiceTypes();
 
         public void RemoveService(int serviceId) => serviceService.Remove(serviceId);
+
+        public List<PriceListSectionDto> GetPriceList() 
+            => serviceService.GetPriceList(new ConventionFilter { ConventionId = ActiveConventionId });
     }
 }

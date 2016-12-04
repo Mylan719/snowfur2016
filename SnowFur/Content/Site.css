@@ -286,6 +286,17 @@ a.sf-navbar-btn {
         font-size:18px;
     }
 
+table.grid-view.grid-view-middle
+{
+    margin:0;
+}
+
+table.grid-view.grid-view-streatch
+{
+    width:100%;
+}
+
+
 table.grid-view {
     border: #1a405d solid 2px;
     border-radius: 4px;

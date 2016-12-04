@@ -14,6 +14,7 @@ namespace SnowFur.BL.Services
 {
     public class ServiceService : CrudServiceBase<Service, int, ServiceDetailDto, ServiceDetailDto, ConventionFilter>
     {
+        public Func<PriceListQuery> PriceListQueryFunc { get; set; }
         public Func<ServiceListQuery> QueryFunc { get; set; }
         public ServiceRepository Repository { get; set; }
 
@@ -37,6 +38,18 @@ namespace SnowFur.BL.Services
             using (UnitOfWorkProvider.Create())
             {
                 return Repository.GetOrdersCount(serviceId);
+            }
+        }
+
+        public List<PriceListSectionDto> GetPriceList(ConventionFilter filter)
+        {
+            using (UnitOfWorkProvider.Create())
+            {
+                var q = PriceListQueryFunc();
+                q.Filter = filter;
+                return q
+                    .Execute()
+                    .ToList();
             }
         }
     }

@@ -21,6 +21,7 @@ namespace SnowFur.ViewModels
         {
             this.conventionFacade = conventionFacade;
             this.conventionFacade.InitializeActiveConvention();
+
         }
 
         public override Task PreRender()

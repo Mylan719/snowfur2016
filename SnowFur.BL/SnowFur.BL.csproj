@@ -207,6 +207,8 @@
     <Compile Include="Dtos\ConventionDetailDto.cs" />
     <Compile Include="Dtos\ConventionListDto.cs" />
     <Compile Include="Dtos\PaymentInfoDto.cs" />
+    <Compile Include="Dtos\PriceListItemDto.cs" />
+    <Compile Include="Dtos\PriceListSectionDto.cs" />
     <Compile Include="Dtos\ServiceDetailDto.cs" />
     <Compile Include="Dtos\ServiceListDto.cs" />
     <Compile Include="Dtos\ServiceTypeDto.cs" />
@@ -234,6 +236,7 @@
     <Compile Include="Queries\AdminAttendeeOverviewQuery.cs" />
     <Compile Include="Queries\AttendeeAdminListDto.cs" />
     <Compile Include="Queries\ReservedRoomsQuery.cs" />
+    <Compile Include="Queries\PriceListQuery.cs" />
     <Compile Include="Queries\ServiceListQuery.cs" />
     <Compile Include="Queries\ServiceUserOrderQuery.cs" />
     <Compile Include="Queries\ConventionListQuery.cs" />
