@@ -4,7 +4,7 @@
 <dot:Content ContentPlaceHolderID="SuccessfulFinishContent">
 </dot:Content>
 <dot:Content ContentPlaceHolderID="PageContent">
-    <div class="row" DataContext="{value: Page}">
+    <div class="row" DataContext="{value: Page}" RenderSettings.Mode="Server">
         <div class="col-md-12">
             <dot:HtmlLiteral Html="{value: Description}" />
         </div>

@@ -24,7 +24,7 @@
                 </div>
                 <div class="col-md-12">
                     <label>Zaplatená suma:</label>
-                    <dot:Validator class="label label-danger" ValidatedValue="{value: Amount}">*</dot:Validator>
+                    <dot:Validator class="label label-danger" Value="{value: Amount}">*</dot:Validator>
                     <dot:TextBox class="form-control" Text="{value: Amount}" />
                 </div>
                 <div class="col-md-12">
@@ -32,15 +32,15 @@
                 </div>
                 <div class="col-sm-4">
                     <dot:TextBox class="form-control col-sm-4" Text="{value: Day}" />
-                    <dot:Validator class="label label-danger" ValidatedValue="{value: Day}">*</dot:Validator>
+                    <dot:Validator class="label label-danger" Value="{value: Day}">*</dot:Validator>
                 </div>
                 <div class="col-sm-4">
                     <dot:ListBox class="form-control col-sm-4" Size="1" DataSource="{value: Months}" SelectedValue="{value: Month}" />
-                    <dot:Validator class="label label-danger" ValidatedValue="{value: Month}">*</dot:Validator>
+                    <dot:Validator class="label label-danger" Value="{value: Month}">*</dot:Validator>
                 </div>
                 <div class="col-sm-4">
                     <dot:ListBox class="form-control" Size="1" DataSource="{value: Years}" SelectedValue="{value: Year}" />
-                    <dot:Validator class="label label-danger" ValidatedValue="{value: Year}">*</dot:Validator>
+                    <dot:Validator class="label label-danger" Value="{value: Year}">*</dot:Validator>
                 </div>
             </div>
             <div class="modal-footer">

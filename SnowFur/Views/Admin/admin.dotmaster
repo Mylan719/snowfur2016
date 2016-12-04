@@ -38,6 +38,7 @@
                 <li><dot:RouteLink RouteName="AdminConventions" Text="Conventions" /></li>
                 <li><dot:RouteLink RouteName="AdminRooms" Text="Izby" /></li>
                 <li><dot:RouteLink RouteName="AdminRoomReservations" Text="Rezervacie Izieb" /></li>
+                <li><dot:RouteLink RouteName="AdminServices" Text="Cenník" /></li>
             </ul>
             <cc:LoginPanel DataContext="{value: LoginSection}"></cc:LoginPanel>
         </div>

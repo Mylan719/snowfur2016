@@ -1,0 +1,74 @@
+﻿@viewModel SnowFur.ViewModels.Admin.ServicesAdmin, SnowFur
+@masterPage Views/Admin/admin.dotmaster
+
+<dot:Content ContentPlaceHolderID="SuccessfulFinishContent">
+</dot:Content>
+<dot:Content ContentPlaceHolderID="PageContent">
+    <div class="row">
+        <table class="grid-view col-lg-12" DataContext="{value: NewDetail}">
+            <tbody>
+                <tr>
+                    <td>
+                        <dot:TextBox Text="{value: Name}" />
+                    </td>
+                    <td>
+                        <dot:TextBox Text="{value: Description}"/>
+                    </td>
+                    <td>
+                        <dot:ComboBox SelectedValue="{value: Type}" DisplayMember="Name" ValueMember="Id" DataSource="{value: _root.ServiceTypes}" />
+                    </td>
+                    <td>
+                        <dot:TextBox Type="Number" FormatString="n2" Text="{value: Price}"/>
+                    </td>
+                    <td>
+                        <dot:CheckBox Checked="{value: IsChargeAfterSet}" />
+                        <dot:TextBox Enabled="{value: IsChargeAfterSet}" Type="Date" Text="{value: ChargeAfterString}"/>
+                    </td>
+                    <td>
+                        <dot:Button class="btn btn-sm btn-success" Click="{command: _root.Add()}" Text="Pridať položku"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <dot:GridView class="grid-view col-lg-12" InlineEditing="true" DataSource="{value: Services}">
+            <Columns>
+                <dot:GridViewTextColumn AllowSorting="true" ValueBinding="{value: Name}" IsEditable="true" HeaderText="Názov" />
+                <dot:GridViewTextColumn ValueBinding="{value: Description}" IsEditable="true" HeaderText="Popis" />
+                <dot:GridViewTemplateColumn AllowSorting="true" SortExpression="Type" IsEditable="true" HeaderText="Typ">
+                    <ContentTemplate>
+                        {{value: TypeName}}
+                    </ContentTemplate>
+                    <EditTemplate>
+                        <dot:ComboBox SelectedValue="{value: Type}" DisplayMember="Name" ValueMember="Id" DataSource="{value: _root.ServiceTypes}"/>
+                    </EditTemplate>
+                </dot:GridViewTemplateColumn>
+                <dot:GridViewTextColumn ValueType="Number" ValueBinding="{value: Price}" FormatString="n2" IsEditable="true" HeaderText="Cena" />
+                <dot:GridViewTemplateColumn IsEditable="true" HeaderText="Účtovať po">
+                    <ContentTemplate>
+                        <dot:Literal Text="{value: _this.ChargeAfterString}"/>
+                    </ContentTemplate>
+                    <EditTemplate>
+                        <dot:CheckBox Checked="{value: _this.IsChargeAfterSet}" />
+                        <dot:TextBox Enabled="{value: IsChargeAfterSet}" Type="Date" Text="{value: ChargeAfterString}"/>
+                    </EditTemplate>
+                </dot:GridViewTemplateColumn>
+                <dot:GridViewTemplateColumn>
+                    <ContentTemplate>
+                        <dot:Button class="btn btn-sm btn-primary" Click="{command: _root.Edit(Id)}" Text="Upraviť" />
+                        <dot:Button class="btn btn-sm btn-primary" Click="{command: _root.Delete(Id, false)}" Text="Zmazať" />
+                    </ContentTemplate>
+                    <EditTemplate>
+                        <dot:Button class="btn btn-sm btn-success" Click="{command: _root.SaveEdit(_this)}" Text="Uložiť" />
+                        <dot:Button class="btn btn-sm btn-primary" Click="{command: _root.CancelEdit()}" Text="Zrušiť" />
+                    </EditTemplate>
+                </dot:GridViewTemplateColumn>
+            </Columns>
+        </dot:GridView>
+
+        <cc:YesNo IsShown="{value: DeletePropmptId != null}"
+                  Header="Zmazať?"
+                  Message="Službu má už niekto objednanú naozaj zmazať?"
+                  YesAction="{command: Delete(DeletePropmptId.Value, true)}"
+                  NoAction="{command: DeletePropmptId = null}" />
+    </div>
+</dot:Content>

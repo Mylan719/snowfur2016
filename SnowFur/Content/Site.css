@@ -1,4 +1,5 @@
-﻿@font-face {
+﻿@import url('Site.css');
+@font-face {
     font-family: amatic-bold;
     src: url(Fonts/Amatic-Bold.ttf);
 }
@@ -309,6 +310,18 @@ table.grid-view {
         max-width: 190px;
         overflow: auto;
         padding: 10px;
+    }
+
+    table.grid-view  input[type=date] {
+        padding: 2px;
+        width: 130px;
+        height: 24px;
+    }
+
+    table.grid-view  input[type=checkbox] {
+        padding: 0;
+        width: 15px;
+        height: 15px;
     }
 
         table.grid-view td.payed {

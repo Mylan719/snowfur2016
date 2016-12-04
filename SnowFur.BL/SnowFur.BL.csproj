@@ -209,6 +209,8 @@
     <Compile Include="Dtos\PaymentInfoDto.cs" />
     <Compile Include="Dtos\ServiceDetailDto.cs" />
     <Compile Include="Dtos\ServiceListDto.cs" />
+    <Compile Include="Dtos\ServiceTypeDto.cs" />
+    <Compile Include="Dtos\ServiceTypeHelper.cs" />
     <Compile Include="Dtos\ServiceUserOrderListDto.cs" />
     <Compile Include="Dtos\ReservedRoomListDto.cs" />
     <Compile Include="Dtos\RoomDetailDto.cs" />

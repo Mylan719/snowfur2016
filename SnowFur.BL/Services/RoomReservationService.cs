@@ -22,6 +22,28 @@ namespace SnowFur.BL.Services
         public RoomRepository RoomRepository { get; set; }
         public UserRepository UserRepository { get; set; }
 
+        public bool IsRoomFull(int roomId)
+        {
+            return GetRoomCapacity(roomId) <= 0;
+        }
+
+        public int GetReservationCount(int roomId)
+        {
+            using (UnitOfWorkProvider.Create())
+            {
+                return RoomRepository.GetRoomReservationCount(roomId);
+            }
+        }
+
+        public int GetRoomCapacity(int roomId)
+        {
+            using (UnitOfWorkProvider.Create())
+            {
+                var room = RoomRepository.GetById(roomId);
+                return room.Capacity;
+            }
+        }
+
         public List<ReservedRoomListDto> GetReservedRooms(ConventionFilter filter)
         {
             using (UnitOfWorkProvider.Create())

@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SnowFur.DAL.Enums
+namespace SnowFur.BL.Dtos
 {
-    public enum ServiceType
+    public class ServiceTypeDto
     {
-        Additional = 0,
-        AccomodationNight = 1,
-        Food = 2
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

@@ -13,12 +13,12 @@
                 <div class="form-group">
                     <label>Heslo:</label>
                     <dot:TextBox class="form-control" Type="Password" Text="{value: NewPassword.Password}" />
-                    <dot:Validator class="label label-danger" ShowErrorMessageText="true" ValidatedValue="{value: NewPassword.Password}">*</dot:Validator>
+                    <dot:Validator class="label label-danger" ShowErrorMessageText="true" Value="{value: NewPassword.Password}">*</dot:Validator>
                 </div>
                 <div class="form-group">
                     <label>Heslo znovu:</label>
                     <dot:TextBox class="form-control" Type="Password" Text="{value: NewPassword.PasswordAgain}" />
-                    <dot:Validator class="label label-danger" ShowErrorMessageText="true" ValidatedValue="{value: NewPassword.PasswordAgain}">*</dot:Validator>
+                    <dot:Validator class="label label-danger" ShowErrorMessageText="true" Value="{value: NewPassword.PasswordAgain}">*</dot:Validator>
                 </div>
             </form>
         </div>

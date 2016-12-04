@@ -8,19 +8,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SnowFur.BL.Filters;
+using SnowFur.BL.Extensions;
 
 namespace SnowFur.BL.Queries
 {
-    public class ServiceListQuery : ApplicationQueryBase<ServiceListDto>
+    public class ServiceListQuery : ApplicationQueryBase<ServiceDetailDto>
     {
         public ConventionFilter Filter { get; set; }
 
         public ServiceListQuery(IUnitOfWorkProvider provider) : base (provider)
         {}
 
-        protected override IQueryable<ServiceListDto> GetQueryable()
+        protected override IQueryable<ServiceDetailDto> GetQueryable()
             => Context.Services
                 .Where(r => r.DateDeleted == null && r.ConventionId == Filter.ConventionId)
-                .ProjectTo<ServiceListDto>();
+                .ProjectTo<ServiceDetailDto>();
+
+        protected override void PostProcessResults(IList<ServiceDetailDto> results)
+        {   
+            foreach (var item in results)
+            {
+                item.IsChargeAfterSet = item.ChargeAfter.HasValue;
+                item.ChargeAfterString = item.ChargeAfter.HasValue
+                    ? item.ChargeAfter.Value.ToHtmlPickerFormatDate()
+                    : "";
+                item.TypeName = ServiceTypeHelper.GetName(item.Type);
+            }
+            base.PostProcessResults(results);
+        }
     }
 }

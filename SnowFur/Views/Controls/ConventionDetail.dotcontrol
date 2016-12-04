@@ -31,14 +31,14 @@
                             <div class="col-md-12">
                                 <label>Názov:</label>
                                 <dot:TextBox class="form-control" Text="{value: Name}" />
-                                <dot:Validator class="label label-danger" ValidatedValue="{value: Name}">
+                                <dot:Validator class="label label-danger" Value="{value: Name}">
                                     *
                                 </dot:Validator>
                             </div>
                             <div class="col-md-12">
                                 <label>Počet nocí:</label>
                                 <dot:TextBox class="form-control sf-width50" Type="Number" Text="{value: Nights}" />
-                                <dot:Validator class="label label-danger" ValidatedValue="{value: Name}">
+                                <dot:Validator class="label label-danger" Value="{value: Name}">
                                     *
                                 </dot:Validator>
                             </div>
@@ -58,7 +58,7 @@
                             <div class="col-md-12">
                                 <label>Názov miesta:</label>
                                 <dot:TextBox class="form-control" Text="{value: PlaceName}" />
-                                <dot:Validator class="label label-danger" ValidatedValue="{value: PlaceName}">
+                                <dot:Validator class="label label-danger" Value="{value: PlaceName}">
                                     *
                                 </dot:Validator>
                             </div>
@@ -79,21 +79,21 @@
                             <div class="col-md-12">
                                 <label>Obsah hlavnej stránky:</label>
                                 <dot:TextBox class="form-control" Type="MultiLine" Text="{value: Description}" />
-                                <dot:Validator class="label label-danger" ValidatedValue="{value: Description}">
+                                <dot:Validator class="label label-danger" Value="{value: Description}">
                                     *
                                 </dot:Validator>
                             </div>
                             <div class="col-md-12">
                                 <label>Program:</label>
                                 <dot:TextBox class="form-control" Type="MultiLine" Text="{value: Activities}" />
-                                <dot:Validator class="label label-danger" ValidatedValue="{value: Activities}">
+                                <dot:Validator class="label label-danger" Value="{value: Activities}">
                                     *
                                 </dot:Validator>
                             </div>
                             <div class="col-sm-12">
                                 <label>Kontaktná stránka:</label>
                                 <dot:TextBox class="form-control" Text="{value: ContactInfo}" Type="MultiLine" />
-                                <dot:Validator class="label label-danger" ValidatedValue="{value: ContactInfo}">
+                                <dot:Validator class="label label-danger" Value="{value: ContactInfo}">
                                     *
                                 </dot:Validator>
                             </div>
@@ -102,8 +102,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <dot:Button class="btn btn-success" data-tag="convention-modal-hide" ButtonTagName="button" Click="{command: Save()}">Potvrdiť</dot:Button>
-                <dot:Button class="btn btn-info" data-tag="convention-modal-hide" ButtonTagName="button" Click="{command: Hide()}" Validation.Enabled="false">Zrušiť</dot:Button>
+                <dot:Button class="btn btn-success" data-tag="convention-modal-hide" ButtonTagName="button" Click="{controlCommand: _this.Save()}">Potvrdiť</dot:Button>
+                <dot:Button class="btn btn-info" data-tag="convention-modal-hide" ButtonTagName="button" Click="{controlCommand: _this.Hide()}" Validation.Enabled="false">Zrušiť</dot:Button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

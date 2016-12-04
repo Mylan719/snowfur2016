@@ -21,6 +21,8 @@ namespace SnowFur.ViewModels
         public PasswordChangeForm PasswordChangeForm { get; set; }
         public ReservationForm ReservationForm { get; set; }
 
+        public RoomReservationForm RoomReservationForm { get; set; }
+
         [Bind(Direction.ServerToClient)]
         public bool IsRegistrationPaid { get; set; }
 
@@ -59,11 +61,12 @@ namespace SnowFur.ViewModels
             var task = base.Init();
             roomReservationFacade.Init(CurrentUserId);
             personalProfileFacade.CurrentUserId = CurrentUserId;
+            RoomReservationForm.SetParent(this);
             return task;
         }
 
         public override Task PreRender()
-        {;
+        {
             var profileDto = personalProfileFacade.GetPersonalProfile() ?? new PersonalProfileDto();
             Mapper.Map(profileDto, PersonalProfileForm);
 

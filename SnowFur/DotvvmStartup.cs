@@ -41,6 +41,7 @@ namespace SnowFur
             dotvvmConfiguration.RouteTable.Add("AdminConventions", "admin/conventions", "Views/Admin/Conventions.dothtml");
             dotvvmConfiguration.RouteTable.Add("AdminRooms", "admin/rooms", "Views/Admin/rooms.dothtml");
             dotvvmConfiguration.RouteTable.Add("AdminRoomReservations", "admin/roomReservations", "Views/Admin/roomReservations.dothtml");
+            dotvvmConfiguration.RouteTable.Add("AdminServices", "admin/services", "Views/Admin/services.dothtml");
 
         }
 
@@ -55,6 +56,7 @@ namespace SnowFur
             config.Markup.AddMarkupControl("cc","GoogleMap", "Views/Controls/GoogleMap.dotcontrol");
             config.Markup.AddMarkupControl("cc", "ConventionDetail", "Views/Controls/ConventionDetail.dotcontrol");
             config.Markup.AddMarkupControl("cc", "YesNo", "Views/Controls/YesNo.dotcontrol");
+            config.Markup.AddMarkupControl("cc", "RoomReservationForm", "Views/Controls/RoomReservationForm.dotcontrol");
         }
 
         private static void RegisterResources(DotvvmConfiguration dotvvmConfiguration)

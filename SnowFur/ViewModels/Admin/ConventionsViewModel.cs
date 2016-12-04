@@ -42,7 +42,7 @@ namespace SnowFur.ViewModels.Admin
 
         public override Task PreRender()
         {
-            conventionFacade.LoadList(Conventions);
+            conventionFacade.FillConventions(Conventions);
             return base.PreRender();
         }
 

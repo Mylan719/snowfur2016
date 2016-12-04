@@ -299,12 +299,14 @@
     <Compile Include="ViewModels\Admin\ConventionsViewModel.cs" />
     <Compile Include="ViewModels\Admin\RoomReservations.cs" />
     <Compile Include="ViewModels\Admin\Reservations.cs" />
+    <Compile Include="ViewModels\Admin\Services.cs" />
     <Compile Include="ViewModels\Admin\RoomsAdminViewModel.cs" />
     <Compile Include="ViewModels\Attendees.cs" />
     <Compile Include="ViewModels\Controls\ConventionDetailForm.cs" />
     <Compile Include="ViewModels\Controls\PaimentConfirmationForm.cs" />
     <Compile Include="ViewModels\Controls\PasswordChangeForm.cs" />
     <Compile Include="ViewModels\Controls\ReservationForm.cs" />
+    <Compile Include="ViewModels\Controls\RoomReservationForm.cs" />
     <Compile Include="ViewModels\Default.cs" />
     <Compile Include="ViewModels\OwinViewModelBase.cs" />
     <Compile Include="ViewModels\PageViewModelBase.cs" />
@@ -384,6 +386,8 @@
     <Content Include="Views\Admin\rooms.dothtml" />
     <Content Include="Views\Controls\YesNo.dotcontrol" />
     <Content Include="Views\Admin\roomReservations.dothtml" />
+    <Content Include="Views\Controls\RoomReservationForm.dotcontrol" />
+    <Content Include="Views\Admin\services.dothtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>

@@ -15,6 +15,7 @@ namespace SnowFur.BL.Facades
         private readonly ConventionService conventionService;
         private readonly RoomService roomService;
         private readonly RoomReservationService roomReservationService;
+        private readonly ServiceService serviceService;
 
         public string ActiveConventionName { get; set; }
         public int ActiveConventionId { get; private set; }
@@ -27,16 +28,12 @@ namespace SnowFur.BL.Facades
             }
         }
 
-        public ConventionFacade(ConventionService conventionService, RoomService roomService, RoomReservationService roomReservationService)
+        public ConventionFacade(ConventionService conventionService, RoomService roomService, RoomReservationService roomReservationService, ServiceService serviceService)
         {
             this.conventionService = conventionService;
             this.roomService = roomService;
             this.roomReservationService = roomReservationService;
-        }
-
-        public void FillAttendees(GridViewDataSet<AttendeeListItemDto> attendeeDataSet)
-        {
-            conventionService.FillAttendees(attendeeDataSet, new ConventionFilter {ConventionId = ActiveConventionId});
+            this.serviceService = serviceService;
         }
 
         public void InitializeActiveConvention()
@@ -76,17 +73,6 @@ namespace SnowFur.BL.Facades
             }
         }
 
-        public void LoadList(GridViewDataSet<ConventionListDto> resultDataSet)
-        {
-            conventionService.LoadList(resultDataSet, new DefaultFilter());
-        }
-
-        public void FillAttendees(GridViewDataSet<AttendeeListItemDto> attendeeDataSet, ConventionFilter filter)
-        {
-            conventionService.FillAttendees(attendeeDataSet, filter);
-        }
-
-
         public void Save(ConventionDetailDto item)
         {
             conventionService.Save(item);
@@ -106,9 +92,25 @@ namespace SnowFur.BL.Facades
             }
         }
 
+        public void FillConventions(GridViewDataSet<ConventionListDto> resultDataSet)
+        {
+            conventionService.LoadList(resultDataSet, new DefaultFilter());
+        }
+
+        public void FillAttendees(GridViewDataSet<AttendeeListItemDto> attendeeDataSet)
+        {
+            conventionService.FillAttendees(attendeeDataSet, new ConventionFilter { ConventionId = ActiveConventionId });
+        }
+
+       
         public void FillAdminAtendees(GridViewDataSet<AttendeeAdminListDto> attendeeDataSet)
         {
             conventionService.FillAdminAtendees(attendeeDataSet, new ConventionFilter { ConventionId = ActiveConventionId});
+        }
+
+        public void FillServices(GridViewDataSet<ServiceDetailDto> serviceDataSet)
+        {
+            serviceService.LoadList(serviceDataSet, new ConventionFilter { ConventionId = ActiveConventionId });
         }
 
         public void FillRooms(GridViewDataSet<RoomListDto> roomsDataSet)
@@ -129,6 +131,9 @@ namespace SnowFur.BL.Facades
             }
         }
 
+        public int GetOrderCount(int serviceId)
+            => serviceService.GetOrdersCount(serviceId);
+
         public RoomDetailDto GetRoomDetail(int id) => roomService.Get(id);
 
         public void RemoveRoom(int roomId) => roomService.Remove(roomId);
@@ -148,10 +153,20 @@ namespace SnowFur.BL.Facades
             roomReservationService.MakeReservation(userId, roomId, ActiveConventionId);
         }
 
-
         public List<UserBasicInfoDto> GetUnacomodatedUsers()
         {
             return roomReservationService.GetUnacomodatedUsers(new ConventionFilter { ConventionId = ActiveConventionId });
         }
+
+        public void Save(ServiceDetailDto service)
+        {
+            service.ConventionId = ActiveConventionId;
+            serviceService.Save(service);
+        }
+
+        public List<ServiceTypeDto> GetServiceTypes()
+            => serviceService.GetServiceTypes();
+
+        public void RemoveService(int serviceId) => serviceService.Remove(serviceId);
     }
 }

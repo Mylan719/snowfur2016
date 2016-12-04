@@ -1,0 +1,27 @@
+﻿@viewModel SnowFur.ViewModels.Controls.RoomReservationForm, SnowFur
+
+<table class="grid-view col-md-12">
+    <thead>
+        <tr>
+            <th>Izba:</th>
+            <th>Obsadenie</th>
+            <th colspan="2"></th>
+        </tr>
+    </thead>
+    <dot:Repeater WrapperTagName="tbody" DataSource="{value: Reservations}">
+        <ItemTemplate>
+            <tr>
+                <td>{{value: Name}}</td>
+                <td>{{value: FreeBeds}} / {{value: Capacity}} volne</td>
+                <td>
+                    <dot:Repeater WrapperTagName="ul" DataSource="{value: AtendeeNames}">
+                        <li class="label label-info">{{value: UserName}}</li>
+                    </dot:Repeater>
+                </td>
+                <td>
+                    <dot:Button class="btn btn-sm btn-primary" Click="{controlCommand: _root.AddToRoom(_this.Id)}" Text="Ubytovat" />
+                </td>
+            </tr>
+        </ItemTemplate>
+    </dot:Repeater>
+</table>

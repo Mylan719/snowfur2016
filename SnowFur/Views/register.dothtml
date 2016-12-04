@@ -25,12 +25,12 @@
         <div class="form-group">
             <label>Prezývka (login):</label>
             <dot:TextBox class="form-control" Text="{value: Account.UserName}" />
-            <dot:Validator class="label label-danger" ShowErrorMessageText="true" ValidatedValue="{value: Account.UserName}">*</dot:Validator>
+            <dot:Validator class="label label-danger" ShowErrorMessageText="true" Value="{value: Account.UserName}">*</dot:Validator>
         </div>
         <div class="form-group">
             <label>E-mail:</label>
             <dot:TextBox class="form-control" Text="{value: Account.Email}" />
-            <dot:Validator class="label label-danger" ShowErrorMessageText="true" ValidatedValue="{value: Account.Email}">*</dot:Validator>
+            <dot:Validator class="label label-danger" ShowErrorMessageText="true" Value="{value: Account.Email}">*</dot:Validator>
         </div>
         <div class="form-group text-right">
             <dot:Button Text="Registrovať" class="btn btn-primary" Click="{command: Submit()}" />

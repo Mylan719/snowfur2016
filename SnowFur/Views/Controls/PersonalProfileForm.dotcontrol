@@ -5,27 +5,27 @@
     <div class="form-group">
         <label>Meno:</label>
         <dot:TextBox class="form-control" Text="{value: FirstName}" />
-        <dot:Validator class="label label-danger" ShowErrorMessageText="true" ValidatedValue="{value: FirstName}">*</dot:Validator>
+        <dot:Validator class="label label-danger" ShowErrorMessageText="true" Value="{value: FirstName}">*</dot:Validator>
     </div>
     <div class="form-group">
         <label>Priezvisko:</label>
         <dot:TextBox class="form-control" Text="{value: LastName}" />
-        <dot:Validator class="label label-danger" ShowErrorMessageText="true" ValidatedValue="{value: LastName}">*</dot:Validator>
+        <dot:Validator class="label label-danger" ShowErrorMessageText="true" Value="{value: LastName}">*</dot:Validator>
     </div>
     <div class="form-group">
         <label>Ulica:</label>
         <dot:TextBox class="form-control" Text="{value: Address}" />
-        <dot:Validator class="label label-danger" ShowErrorMessageText="true" ValidatedValue="{value: Address}">*</dot:Validator>
+        <dot:Validator class="label label-danger" ShowErrorMessageText="true" Value="{value: Address}">*</dot:Validator>
     </div>
     <div class="form-group">
         <label>Mesto:</label>
         <dot:TextBox class="form-control" Text="{value: City}" />
-        <dot:Validator class="label label-danger" ShowErrorMessageText="true" ValidatedValue="{value: City}">*</dot:Validator>
+        <dot:Validator class="label label-danger" ShowErrorMessageText="true" Value="{value: City}">*</dot:Validator>
     </div>
     <div class="form-group">
         <label>PSČ:</label>
         <dot:TextBox class="form-control" Text="{value: ZipCode}" />
-        <dot:Validator class="label label-danger" ShowErrorMessageText="true" ValidatedValue="{value: ZipCode}">*</dot:Validator>
+        <dot:Validator class="label label-danger" ShowErrorMessageText="true" Value="{value: ZipCode}">*</dot:Validator>
     </div>
     <div class="form-group">
         <label>Najneskôr v deň konania akcie mám viac ako 18 rokov: (Nie je podmienkou účasti)</label>
