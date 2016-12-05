@@ -19,7 +19,6 @@ namespace SnowFur.ViewModels.Controls
         private MyProfile parent;
 
         public List<ReservedRoomListDto> Reservations { get; set; }
-        public int CurrentUserId => Authentication.User?.Identity?.GetUserId<int>() ?? 0;
 
         public RoomReservationForm(ReservationFacade reservationFacade,ConventionFacade conventionFacade)
         {

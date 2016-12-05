@@ -1,5 +1,6 @@
 ﻿using DotVVM.Framework.Hosting;
 using DotVVM.Framework.ViewModel;
+using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using System;
@@ -17,5 +18,8 @@ namespace SnowFur.ViewModels
         public IAuthenticationManager Authentication => OwinContext.Authentication;
         [Bind(Direction.None)]
         public IQueryCollection Query => Context.HttpContext.Request.Query;
+
+        [Bind(Direction.None)]
+        public int CurrentUserId => Authentication.User?.Identity?.GetUserId<int>() ?? 0;
     }
 }

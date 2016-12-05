@@ -33,7 +33,7 @@ namespace SnowFur.BL.Queries
             foreach(var r in results)
             {
                 var order = Context.ServiceOrders.FirstOrDefault(so => so.ServiceId == r.ServiceId && so.UserId == Filter.UserId);
-                r.IsOrdered = order == null;
+                r.IsOrdered = order != null;
             }
 
             base.PostProcessResults(results);

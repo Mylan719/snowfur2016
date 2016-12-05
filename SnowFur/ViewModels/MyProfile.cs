@@ -38,18 +38,15 @@ namespace SnowFur.ViewModels
         [Bind(Direction.ServerToClient)]
         public string CurrentUserName => Authentication.User?.Identity?.Name;
 
-        [Bind(Direction.ServerToClient)]
-        public int CurrentUserId => Authentication.User?.Identity?.GetUserId<int>() ?? 0;
-
         private readonly AccountFacade accountFacade;
         private readonly PersonalProfileFacade personalProfileFacade;
-        private readonly ReservationFacade roomReservationFacade;
+        private readonly ReservationFacade reservationFacade;
 
         public MyProfile( PersonalProfileFacade proFac, AccountFacade accFac, ReservationFacade resFac)
         {
             personalProfileFacade = proFac;
             accountFacade = accFac;
-            roomReservationFacade = resFac;
+            reservationFacade = resFac;
 
             SubpageTitle = "Môj profil";
             RabitBackgroundCssClass = "sf-bg-program";
@@ -59,9 +56,12 @@ namespace SnowFur.ViewModels
         public override Task Init()
         {
             var task = base.Init();
-            roomReservationFacade.Init(CurrentUserId);
+            reservationFacade.Init(CurrentUserId);
             personalProfileFacade.CurrentUserId = CurrentUserId;
+
             RoomReservationForm.SetParent(this);
+            ReservationForm.SetParent(this);
+
             return task;
         }
 
@@ -69,8 +69,6 @@ namespace SnowFur.ViewModels
         {
             var profileDto = personalProfileFacade.GetPersonalProfile() ?? new PersonalProfileDto();
             Mapper.Map(profileDto, PersonalProfileForm);
-
-            //TODO: Fill reservation Data
 
             return base.PreRender();
         }

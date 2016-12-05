@@ -1,12 +1,25 @@
 ﻿@viewModel SnowFur.ViewModels.Controls.ReservationForm, Snowfur
 
-<h3>Rezervácia izby</h3>
-<form class="form">
-    <dot:Repeater DataSource="{value: Orders}">
+<p>
+    <br />
+    Zarezervujte si miesto na cone a doplnkové služby:
+</p>
+<form class="panel panel-default">
+    <dot:Repeater WrapperTagName="div" class="panel-body" DataSource="{value: Orders}">
         <div class="form-group row">
             <label class="col-md-4 col-sm-8">{{value: Name}} - ({{value: Price}} EUR) </label>
             <dot:CheckBox class="col-md-1" Checked="{value: IsOrdered}" />
         </div>
     </dot:Repeater>
+    <div class="panel-body">
+        <dot:Button Text="Uložiť zmeny" Validation.Enabled="false" Click="{controlCommand: _this.Save()}" class="btn btn-success" />
+        <dot:Button Text="Zrušiť" Validation.Enabled="false" Click="{controlCommand: _this.Cancel()}" class="btn btn-danger" />
+    </div>
 </form>
+<div class="alert alert-info">
+    <h4>Výška platby: {{value: ToPay}} EUR</h4>
+</div>
+
+
+
 

@@ -22,9 +22,7 @@ namespace SnowFur.BL.Services
         public ServiceRepository ServiceRepository { get; set; }
         public UserRepository UserRepository { get; set; }
 
-        public  Func<ServiceType, IServiceOrderStrategy> ServiceOrderStrategyProvider { get; set; }
-
-        public List<UserServiceOrderDto> LoadListForAttendee(ConventionUserFilter filter)
+        public List<UserServiceOrderDto> GetServiceOrders(ConventionUserFilter filter)
         {
             using (UnitOfWorkProvider.Create())
             {
@@ -42,17 +40,10 @@ namespace SnowFur.BL.Services
 
                 if (ServiceOrderRepository.Exists(userId, serviceId))
                 {
-                    throw new UIException("Složba je už objednaná.");
+                    return;
                 }
 
                 var service = ServiceRepository.GetById(serviceId);
-
-                var strategy = ServiceOrderStrategyProvider(service.Type);
-
-                if (!strategy.CanBeOrdered(userId, serviceId))
-                {
-                    throw new UIException("Službu nie je možné objednať.");
-                }
 
                 ServiceOrderRepository.Insert(new ServiceOrder
                 {
@@ -71,7 +62,7 @@ namespace SnowFur.BL.Services
                 var serviceOrder = ServiceOrderRepository.GetByUserService(userId, serviceId);
                 if (serviceOrder == null)
                 {
-                    throw new UIException("Neexistuje onjednávka.");
+                    return;
                 }
                 ServiceOrderRepository.Delete(serviceOrder);
                 uow.Commit();

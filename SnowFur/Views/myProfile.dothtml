@@ -15,8 +15,8 @@
         <ul class="nav nav-tabs">
             <li role="presentation" class="{value: GetClassForId(1)}"><dot:LinkButton Validation.Enabled="false" Click="{command: SwitchTab(1)}">Užívateľský účet</dot:LinkButton></li>
 			<li role="presentation" class="{value: GetClassForId(2)}"><dot:LinkButton Validation.Enabled="false" Click="{command: SwitchTab(2)}">Registračné údaje</dot:LinkButton></li>
-			<li role="presentation" class="{value: GetClassForId(3)}"><dot:LinkButton Validation.Enabled="false" Click="{command: SwitchTab(3)}">Vybrat sluzby</dot:LinkButton></li>
-            <li role="presentation" class="{value: GetClassForId(4)}"><dot:LinkButton Validation.Enabled="false" Click="{command: SwitchTab(4)}">Rezervácia izby</dot:LinkButton></li>
+			<li role="presentation" class="{value: GetClassForId(3)}"><dot:LinkButton Validation.Enabled="false" Click="{command: SwitchTab(3)}">Rezervácia a platba</dot:LinkButton></li>
+            <li role="presentation" class="{value: GetClassForId(4)}"><dot:LinkButton Validation.Enabled="false" Click="{command: SwitchTab(4)}">Výber izby</dot:LinkButton></li>
         </ul>
     </div>
 	<div Visible="{value: (ActiveTabId == 1)}" class="row">
@@ -34,7 +34,6 @@
 	<div Visible="{value: (ActiveTabId == 3)}" class="row">
         <div class="col-md-12">
 			<cc:ReservationForm DataContext="{value: ReservationForm}"></cc:ReservationForm>
-			<dot:Button Text="Uložiť zmeny" Validation.Target="{value: ReservationForm}" Click="{command: SaveReservation()}" class="btn btn-success" />
         </div>
     </div>
     <div Visible="{value: (ActiveTabId == 4)}" class="row">
