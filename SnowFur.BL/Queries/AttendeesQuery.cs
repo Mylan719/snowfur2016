@@ -21,10 +21,11 @@ namespace SnowFur.BL.Queries
         { }
 
         protected override IQueryable<AttendeeListItemDto> GetQueryable()
-            => Context.RoomReservations
+            => Context.ServiceOrders
                 .Include("User")
-                .Where(rr => rr.Room.Convention.Id == Filter.ConventionId)
+                .Where(rr => rr.Service.Convention.Id == Filter.ConventionId)
                 .Select(rr => rr.User)
+                .Distinct()
                 .ProjectTo<AttendeeListItemDto>();
 
         protected override void PostProcessResults(IList<AttendeeListItemDto> results)

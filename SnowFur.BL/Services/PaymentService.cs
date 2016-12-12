@@ -16,9 +16,7 @@ namespace SnowFur.BL.Services
         public ConventionPaymentRepository PaymentRepository { get; set; }
         public UserRepository UserRepository { get; set; }
 
-        public int ActiveConventionId { get; set; }
-
-        public void SetPayment(int userId, decimal amount)
+        public void SetPayment(int userId, int conventionId, decimal amount)
         {
             using(var uow = UnitOfWorkProvider.Create())
             {
@@ -27,7 +25,7 @@ namespace SnowFur.BL.Services
                     throw new UIException("Neexistuje užívateľ.");   
                 }
 
-                var payment = PaymentRepository.GetByUserConvention(userId, ActiveConventionId);
+                var payment = PaymentRepository.GetByUserConvention(userId, conventionId);
 
                 if (payment != null)
                 {
@@ -38,7 +36,7 @@ namespace SnowFur.BL.Services
                 {
                     payment = new ConventionPayment
                     {
-                        ConventionId = ActiveConventionId,
+                        ConventionId = conventionId,
                         UserId = userId,
                         Amount = amount
                     };
@@ -48,7 +46,7 @@ namespace SnowFur.BL.Services
             }
         }
 
-        public PaymentInfoDto GetPayment(int userId)
+        public PaymentInfoDto GetPayment(int userId, int conventionId)
         {
             using (var uow = UnitOfWorkProvider.Create())
             {
@@ -57,7 +55,7 @@ namespace SnowFur.BL.Services
                     throw new UIException("Neexistuje užívateľ.");
                 }
 
-                var payment = PaymentRepository.GetByUserConvention(userId, ActiveConventionId);
+                var payment = PaymentRepository.GetByUserConvention(userId, conventionId);
 
                 return Mapper.Map<PaymentInfoDto>(payment);
             }

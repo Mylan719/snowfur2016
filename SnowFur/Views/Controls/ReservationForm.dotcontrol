@@ -19,7 +19,3 @@
 <div class="alert alert-info">
     <h4>Výška platby: {{value: ToPay}} EUR</h4>
 </div>
-
-
-
-

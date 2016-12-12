@@ -16,8 +16,8 @@ namespace SnowFur.BL.Repositories
 
         public ConventionPayment GetByUserConvention(int userId, int conventionId) => 
             ((ApplicationDbContextContainer) Context).ConventionPaymens
-            .SingleOrDefault(p 
-                => p.DateDeleted != null 
+            .FirstOrDefault(p 
+                => p.DateDeleted == null 
                 && p.UserId == userId
                 && p.ConventionId == conventionId);
     }

@@ -17,10 +17,10 @@ namespace SnowFur.BL.Queries
         { }
 
         protected override IQueryable<AttendeeAdminListDto> GetQueryable()
-            => Context.RoomReservations
-                .Include("User")
-                .Where(rr => rr.Room.Convention.Id == Filter.ConventionId)
-                .Select(rr => rr.User)
+            => Context.Users
+                .Include("ServiceOrders")
+                .Include("Services")
+                .Where(u => u.ServiceOrders.Any( o=> o.Service.DateDeleted == null && o.Service.ConventionId == Filter.ConventionId))
                 .ProjectTo<AttendeeAdminListDto>();
 
         protected override void PostProcessResults(IList<AttendeeAdminListDto> results)
@@ -31,7 +31,7 @@ namespace SnowFur.BL.Queries
                     c => c.DateDeleted == null && Filter.ConventionId == c.Id && c.UserId == attendeeAdminListDto.Id);
 
                 attendeeAdminListDto.AmountPayed = payment?.Amount ?? 0;
-                attendeeAdminListDto.DatePaidFormated = $"{payment?.DateCreated:dd. mm. YYYY}";
+                attendeeAdminListDto.DatePaidFormated = $"{payment?.DateCreated:dd. mm. yyyy}";
             }
 
             base.PostProcessResults(results);

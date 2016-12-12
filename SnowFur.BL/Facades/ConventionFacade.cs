@@ -16,6 +16,7 @@ namespace SnowFur.BL.Facades
         private readonly RoomService roomService;
         private readonly RoomReservationService roomReservationService;
         private readonly ServiceService serviceService;
+        private readonly PaymentService paymentService;
 
         public string ActiveConventionName { get; set; }
         public int ActiveConventionId { get; private set; }
@@ -28,12 +29,13 @@ namespace SnowFur.BL.Facades
             }
         }
 
-        public ConventionFacade(ConventionService conventionService, RoomService roomService, RoomReservationService roomReservationService, ServiceService serviceService)
+        public ConventionFacade(ConventionService conventionService, RoomService roomService, RoomReservationService roomReservationService, ServiceService serviceService, PaymentService paymentService)
         {
             this.conventionService = conventionService;
             this.roomService = roomService;
             this.roomReservationService = roomReservationService;
             this.serviceService = serviceService;
+            this.paymentService = paymentService;
         }
 
         public void InitializeActiveConvention()
@@ -171,5 +173,15 @@ namespace SnowFur.BL.Facades
 
         public List<PriceListSectionDto> GetPriceList() 
             => serviceService.GetPriceList(new ConventionFilter { ConventionId = ActiveConventionId });
+
+        public void SetUserPayment(int userId, decimal amount)
+        {
+            paymentService.SetPayment(userId, ActiveConventionId, amount);
+        }
+
+        public PaymentInfoDto GetUserPayment(int userId)
+        {
+            return paymentService.GetPayment(userId, ActiveConventionId);
+        }
     }
 }

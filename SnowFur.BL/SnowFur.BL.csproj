@@ -238,7 +238,8 @@
     <Compile Include="Queries\ReservedRoomsQuery.cs" />
     <Compile Include="Queries\PriceListQuery.cs" />
     <Compile Include="Queries\ServiceListQuery.cs" />
-    <Compile Include="Queries\ServiceUserOrderQuery.cs" />
+    <Compile Include="Queries\ServiceOrderTableQuery.cs" />
+    <Compile Include="Queries\UserServiceOrderQuery.cs" />
     <Compile Include="Queries\ConventionListQuery.cs" />
     <Compile Include="Queries\UnacomodatedUsersQuery.cs" />
     <Compile Include="Services\ApplicationServiceBase.cs" />

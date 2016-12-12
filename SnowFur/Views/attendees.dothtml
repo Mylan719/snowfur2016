@@ -11,9 +11,10 @@
         Zoznam účastníkov ktorý označili, že sa zúčastnia aspoň jedného dňa conu.
     </p>
     <p>
-        <b>Legenda:</b>
+        <%--<b>Legenda:</b>
         <div class="alert-success color-sample">&nbsp;</div> - platba potvrdená
         <div class="alert-warning color-sample">&nbsp;</div> - platba zatiaľ nepotvrdená
+        --%>
     </p>
     <div class="attendee-table">
         <dot:Repeater DataSource="{value: AttendeeDataSet}">

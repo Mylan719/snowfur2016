@@ -8,9 +8,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DotVVM.Framework.Runtime.Filters;
 
 namespace SnowFur.ViewModels.Controls
 {
+    [Authorize]
     public class PaimentConfirmationForm
     {
         [Required(ErrorMessage = "Zadajte zaplatenu sumu")]
@@ -48,7 +50,16 @@ namespace SnowFur.ViewModels.Controls
 
         public void Show(int userId)
         {
-            throw new NotImplementedException();
+            ParentViewModel.ReportErrors(() =>
+            {
+                var info = conventionFacade.GetUserPayment(userId);
+                CurrentUserId = userId;
+                Amount = info?.Amount ?? 0;
+                Day = info?.Date.Day ?? DateTime.UtcNow.Day;
+                Month = info?.Date.Month ?? DateTime.UtcNow.Month;
+                Year = info?.Date.Year ?? DateTime.UtcNow.Year;
+                IsShown = true;
+            });
         }
 
         public void Hide()
@@ -64,7 +75,12 @@ namespace SnowFur.ViewModels.Controls
 
         public void Confirm()
         {
-            throw new NotImplementedException();
+           ParentViewModel.ReportErrors(() =>
+           {
+               conventionFacade.SetUserPayment(CurrentUserId, Amount);
+               ParentViewModel.SuccessMessage = "Platba potvrdená.";
+               IsShown = false;
+           });
         }
     }   
 }

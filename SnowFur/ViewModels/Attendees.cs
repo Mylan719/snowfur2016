@@ -28,7 +28,13 @@ namespace SnowFur.ViewModels
             RabitBackgroundCssClass = "sf-bg-ucastnici";
         }
 
-        public override Task PreRender()
+	    public override Task Init()
+	    {
+            infoFacade.InitializeActiveConvention();
+	        return base.Init();
+	    }
+
+	    public override Task PreRender()
         {
             infoFacade.FillAttendees(AttendeeDataSet);
 
