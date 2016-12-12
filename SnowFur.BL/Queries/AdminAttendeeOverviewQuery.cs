@@ -31,7 +31,7 @@ namespace SnowFur.BL.Queries
                     c => c.DateDeleted == null && Filter.ConventionId == c.Id && c.UserId == attendeeAdminListDto.Id);
 
                 attendeeAdminListDto.AmountPayed = payment?.Amount ?? 0;
-                attendeeAdminListDto.DatePaidFormated = $"{payment?.DateCreated:dd. mm. yyyy}";
+                attendeeAdminListDto.DatePaidFormated = $"{payment?.DateCreated:dd. MM. yyyy}";
             }
 
             base.PostProcessResults(results);
