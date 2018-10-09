@@ -1,16 +1,14 @@
 ﻿@viewModel SnowFur.ViewModels.PriceList, SnowFur
-@masterPage Views/Master.dotmaster
+@masterPage Views/user.dotmaster
 
 <dot:Content ContentPlaceHolderID="SuccessfulFinishContent">
 </dot:Content>
 <dot:Content ContentPlaceHolderID="PageContent">
-    <div class="row">
-        <div class="col-md-12">&nbsp;</div>
-    </div>
-    <div class="row">
-            <dot:Repeater DataSource="{value: Sections}" RenderSettings.Mode="Server" WrapperTagName="div" class="col-md-6">
+    <div class="row  sf-block">
+        <div class="col-md-6 col-sm-12">
+            <dot:Repeater DataSource="{value: Sections}" RenderSettings.Mode="Server" WrapperTagName="div">
                 <ItemTemplate>
-                    <table class="grid-view grid-view-middle grid-view-streatch">
+                    <table class="grid-view grid-view-middle stretch">
                         <thead>
                             <tr>
                                 <th>{{value: Name}}</th>
@@ -33,43 +31,55 @@
                     Cenník ešte nie je zverejnený
                 </EmptyDataTemplate>
             </dot:Repeater>
-            <div class="col-md-6">
-                <p>
-                    Keďže nie je k dispozícii kuchynka na varenie, na izbách je varenie zakázané a Snowfur je príliš krátky, než aby furrík strávil 90% času zháňaním potravy, rozhodli sme sa <strong>plnú penziu tentoraz integrovať do ceny pobytu</strong>. Zároveň sme s pani chatárkou dojednali cenu jedla o 3 eurá nižšiu než minulý rok . Samozrejme ak má niekto špeciálne dietárne požiadavky, dajte nám to vedieť.
-                </p>
-                <p>Ceny za pobyt psa zatiaľ neboli stanovené a budú poskytnuté neskôr. </p>
+        </div>
+        <div class="col-md-6 hidden-sm">
+        </div>
+    </div>
+    <div class="row sf-block even">
+        <div class="col-md-6 hidden-sm">
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <h3>Pár slov k cenníku...</h3>
+            <p>
+                Keďže nie je k dispozícii kuchynka na varenie, na izbách je varenie zakázané a Snowfur je príliš krátky, než aby furrík strávil 90% času zháňaním potravy, rozhodli sme sa <strong>plnú penziu tentoraz integrovať do ceny pobytu</strong>. Zároveň sme s pani chatárkou dojednali cenu jedla o 3 eurá nižšiu než minulý rok . Samozrejme ak má niekto špeciálne dietárne požiadavky, dajte nám to vedieť.
+            </p>
+            <p>Ceny za pobyt psa zatiaľ neboli stanovené a budú poskytnuté neskôr. </p>
 
-                <p>Skorá platba je do 11.12.2015.</p>
+            <p>Skorá platba je do 11.12.2015.</p>
 
-                <p>Neskorá platba je od 12.12.2015 najneskôr do 15.1.2016.</p>
+            <p>Neskorá platba je od 12.12.2015 najneskôr do 15.1.2016.</p>
+        </div>
+    </div>
+    <div class="row sf-block">
+        <div class="col-md-6 col-sm-12">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Platby</h3>
+                </div>
+                <div class="col-md-6">
+                    <p class="payment">
+                        <strong>Na Slovensku:</strong><br />
+                        Banka: Fio Banka<br />
+                        Č. Účtu: <strong>2400324556</strong><br />
+                        Číslo banky: <strong>8330</strong><br />
+                        Názov účtu: Mészáros, Ľubomír<br />
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <p class="payment">
+                        <strong>V Čechách:</strong><br />
+                        Banka: Fio Banka<br />
+                        Č. Účtu: <strong>2500324561</strong><br />
+                        Číslo banky: <strong>2010</strong><br />
+                        Názov účtu: Mészáros, Ľubomír<br />
+                    </p>
+                </div>
+                <div class="col-md-12">
+                    <strong> Ako poznámku dajte svoj nick.</strong>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12"><h3>Platby posielajte na účty:</h3></div>
+        <div class="col-md-6 hidden-sm">
         </div>
-        <div class="row">
-            <div class="col-md-5">
-                <p class="payment">
-                    <strong>Na Slovensku:</strong><br />
-                    Banka: Fio Banka<br />
-                    Č. Účtu: <strong>2400324556</strong><br />
-                    Číslo banky: <strong>8330</strong><br />
-                    Názov účtu: Mészáros, Ľubomír<br />
-                </p>
-            </div>
-            <div class="col-md-5">
-                <p class="payment">
-                    <strong>V Čechách:</strong><br />
-                    Banka: Fio Banka<br />
-                    Č. Účtu: <strong>2500324561</strong><br />
-                    Číslo banky: <strong>2010</strong><br />
-                    Názov účtu: Mészáros, Ľubomír<br />
-                </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <h4> Ako poznámku dajte svoj nick.</h4>
-            </div>
-        </div>
+    </div>
 </dot:Content>

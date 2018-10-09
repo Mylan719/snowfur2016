@@ -1,10 +1,14 @@
 ﻿@viewModel SnowFur.ViewModels.Contact, SnowFur
-@masterPage Views/Master.dotmaster
+@masterPage Views/user.dotmaster
 
 <dot:Content ContentPlaceHolderID="SuccessfulFinishContent">
 </dot:Content>
 <dot:Content ContentPlaceHolderID="PageContent">
-    <div DataContext="{value: Page}">
-        <dot:HtmlLiteral Html="{value: ContactInfo}" />
-    </div>    
+    <div class="row sf-block">
+        <div class="col-md-3 hidden-sm"></div>
+        <div DataContext="{value: Page}" class="col-md-6 col-sm-12">
+            <dot:HtmlLiteral Html="{value: ContactInfo}" />
+        </div>
+        <div class="col-md-3 hidden-sm"></div>
+    </div>
 </dot:Content>

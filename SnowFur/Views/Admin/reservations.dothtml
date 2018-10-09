@@ -4,26 +4,33 @@
 <dot:Content ContentPlaceHolderID="SuccessfulFinishContent">
 </dot:Content>
 <dot:Content ContentPlaceHolderID="PageContent">
-    <dot:GridView class="grid-view" DataSource="{value: Attendees}">
-        <Columns>
-            <dot:GridViewTextColumn ValueBinding="{value: Id}" HeaderText="ID"></dot:GridViewTextColumn>
-            <dot:GridViewTextColumn ValueBinding="{value: UserName}" HeaderText="Prezývka"></dot:GridViewTextColumn>
-            <dot:GridViewTextColumn ValueBinding="{value: FirstName}" HeaderText="Meno"></dot:GridViewTextColumn>
-            <dot:GridViewTextColumn ValueBinding="{value: LastName}" HeaderText="Priezvisko"></dot:GridViewTextColumn>
-            <dot:GridViewTemplateColumn CssClass="{value: (IsPayed ? 'payed':'unpayed')}" HeaderText="Pladba za registráciu">
-                <ContentTemplate>
-					{{value: DatePaidFormated}} <br />
-                    {{value: AmountPayed}} Eur
-                    <dot:Button ButtButtonTagName="button" class="btn btn-info" Validation.Enabled="false" Click="{command: _parent.ConfirmPayment(Id)}" Text="Zadať sumu" />
-                </ContentTemplate>
-            </dot:GridViewTemplateColumn>
-            <dot:GridViewTemplateColumn HeaderText="Požiadavky">
-                {{value: Note}}
-            </dot:GridViewTemplateColumn>
-        </Columns>
-        <EmptyDataTemplate>
-            <p>Žiadne rezervácie</p>
-        </EmptyDataTemplate>
-    </dot:GridView>
-	<cc:PaimentConfirmationForm DataContext="{value: PaimentConfirmationForm}"></cc:PaimentConfirmationForm>
+    <div class="row sf-block">
+        <dot:GridView class="grid-view col-md-12" DataSource="{value: Attendees}">
+            <Columns>
+                <dot:GridViewTextColumn ValueBinding="{value: Id}" HeaderText="ID">
+                </dot:GridViewTextColumn>
+                <dot:GridViewTextColumn ValueBinding="{value: UserName}" HeaderText="Prezývka">
+                </dot:GridViewTextColumn>
+                <dot:GridViewTextColumn ValueBinding="{value: FirstName}" HeaderText="Meno">
+                </dot:GridViewTextColumn>
+                <dot:GridViewTextColumn ValueBinding="{value: LastName}" HeaderText="Priezvisko">
+                </dot:GridViewTextColumn>
+                <dot:GridViewTemplateColumn CssClass="{value: (IsPayed ? 'payed':'unpayed')}" HeaderText="Pladba za registráciu">
+                    <ContentTemplate>
+                        {{value: DatePaidFormated}} <br />
+                        {{value: AmountPayed}} Eur
+                        <dot:Button ButtButtonTagName="button" class="btn btn-info" Validation.Enabled="false" Click="{command: _parent.ConfirmPayment(Id)}" Text="Zadať sumu" />
+                    </ContentTemplate>
+                </dot:GridViewTemplateColumn>
+                <dot:GridViewTemplateColumn HeaderText="Požiadavky">
+                    {{value: Note}}
+                </dot:GridViewTemplateColumn>
+            </Columns>
+            <EmptyDataTemplate>
+                <p>Žiadne rezervácie</p>
+            </EmptyDataTemplate>
+        </dot:GridView>
+    </div>
+    <cc:PaimentConfirmationForm DataContext="{value: PaimentConfirmationForm}">
+    </cc:PaimentConfirmationForm>
 </dot:Content>

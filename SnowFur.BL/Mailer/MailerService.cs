@@ -57,7 +57,7 @@ namespace SnowFur.BL.Mailer
                     message.ReplyToList.Add(replyTo);
                 }
 
-                message.Subject = "Snowfur 2016: " + subject;
+                message.Subject = "Snowfur 2019: " + subject;
                 message.IsBodyHtml = isBodyHtml;
                 message.Body = body;
 

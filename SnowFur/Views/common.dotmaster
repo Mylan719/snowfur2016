@@ -1,0 +1,63 @@
+﻿@viewModel SnowFur.ViewModels.PageViewModelBase, SnowFur
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{value:Title}}</title>
+
+    <dot:RequiredResource Name="Bootstrap.Celurean" />
+    <dot:RequiredResource Name="Site" />
+    <dot:RequiredResource Name="jquery" />
+    <dot:RequiredResource Name="bootstrap-js" />
+</head>
+<body class="sf-background">
+    <header>
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand sf-logo-text" href="#">Snowfur 2019</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <cc:LoginPanel DataContext="{value: LoginSection}" class="navbar-form  navbar-right" />
+                <div class="container">
+                    <dot:ContentPlaceHolder ID="NavbarLinks" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container sf-container">
+        <div class="sf-page-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>{{value: SubpageTitle}}</h2>
+                </div>
+                <div Visible="{value: IsError}" class="col-md-12">
+                    <div class="alert alert-danger" role="alert">{{value: ErrorMessage}}</div>
+                </div>
+                <div Visible="{value: IsSuccess}" class="col-md-12">
+                    <div class="alert alert-success" role="alert">{{value: SuccessMessage}}</div>
+                </div>
+                <div Visible="{value: IsSuccessfullyFinished}" class="col-md-12">
+                    <div class="alert alert-success" role="alert">
+                        <dot:ContentPlaceHolder ID="SuccessfulFinishContent" />
+                    </div>
+                </div>
+                <div Visible="{value: !IsSuccessfullyFinished}" class="col-md-12">
+                    <dot:ContentPlaceHolder ID="PageContent" />
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>© Snowfur 2015</p>
+            <p><dot:RouteLink RouteName="AdminReservations">Admin</dot:RouteLink></p>
+        </footer>
+    </div>
+</body>
+</html>

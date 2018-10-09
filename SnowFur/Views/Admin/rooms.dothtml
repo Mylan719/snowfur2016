@@ -4,65 +4,64 @@
 <dot:Content ContentPlaceHolderID="SuccessfulFinishContent">
 </dot:Content>
 <dot:Content ContentPlaceHolderID="PageContent">
-    <div class="row">
+    <div class="row sf-block">
         <div class="col-md-12">
             <h4>{{value: ConventionName}} - management izieb</h4>
+            <table class="grid-view stretch top" DataContext="{value: Detail}" Visible="{value: Id == 0}">
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td><dot:TextBox Text="{value: Name}" /></td>
+                        <td><dot:TextBox Type="Number" Text="{value: Capacity}" /></td>
+                        <td>
+                            <dot:Button class="btn btn-sm btn-success" Click="{command: _parent.SaveEdit()}">Pridať izbu</dot:Button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <dot:GridView class="grid-view stretch" DataSource="{value: Rooms}" InlineEditing="true">
+                <Columns>
+                    <dot:GridViewTextColumn AllowSorting="true" ValueBinding="{value: Id}"
+                                            HeaderText="#"
+                                            IsEditable="false" />
+                    <dot:GridViewTemplateColumn AllowSorting="true" SortExpression="Name" HeaderText="Meno">
+                        <ContentTemplate>
+                            {{value: Name}}
+                        </ContentTemplate>
+                        <EditTemplate>
+                            <dot:TextBox Text="{value: _parent.Detail.Name}" />
+                        </EditTemplate>
+                    </dot:GridViewTemplateColumn>
+                    <dot:GridViewTemplateColumn HeaderText="Miesta" AllowSorting="true" SortExpression="Capacity">
+                        <ContentTemplate>
+                            {{value: Capacity}}
+                        </ContentTemplate>
+                        <EditTemplate>
+                            <dot:TextBox Type="Number" Text="{value: _parent.Detail.Capacity}" />
+                        </EditTemplate>
+                    </dot:GridViewTemplateColumn>
+                    <dot:GridViewTemplateColumn HeaderText="">
+                        <ContentTemplate>
+                            <dot:Button class="btn btn-sm btn-primary" Click="{command: _parent.Edit(Id)}">Upraviť</dot:Button>
+                            <dot:Button class="btn btn-sm btn-danger" Click="{command: _parent.Delete(Id, false)}">Zmazať</dot:Button>
+                        </ContentTemplate>
+                        <EditTemplate>
+                            <dot:Button class="btn btn-sm btn-success" Click="{command: _parent.SaveEdit()}">Uložit</dot:Button>
+                            <dot:Button class="btn btn-sm btn-danger" Click="{command: _parent.CancelEdit()}">Zrušiť</dot:Button>
+                        </EditTemplate>
+                    </dot:GridViewTemplateColumn>
+                </Columns>
+                <EmptyDataTemplate>
+                    <p>Žiadne izby</p>
+                </EmptyDataTemplate>
+            </dot:GridView>
         </div>
-        <table class="col-md-12 grid-view" DataContext="{value: Detail}" Visible="{value: Id == 0}">
-            <tbody>
-                <tr>
-                    <td><dot:TextBox Text="{value: Name}" /></td>
-                    <td><dot:TextBox Type="Number" Text="{value: Capacity}" /></td>
-                    <td>
-                        <dot:Button class="btn btn-sm btn-success" Click="{command: _parent.SaveEdit()}">Pridať</dot:Button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <dot:GridView class="col-md-12 grid-view" DataSource="{value: Rooms}" InlineEditing="true">
-            <Columns>
-                <dot:GridViewTextColumn AllowSorting="true" ValueBinding="{value: Id}"
-                                        HeaderText="#"
-                                        IsEditable="false" />
-                <dot:GridViewTemplateColumn  AllowSorting="true" SortExpression="Name" HeaderText="Meno">
-                    <ContentTemplate>
-                        {{value: Name}}
-                    </ContentTemplate>
-                    <EditTemplate>
-                        <dot:TextBox Text="{value: _parent.Detail.Name}" />
-                    </EditTemplate>
-                </dot:GridViewTemplateColumn>
-                <dot:GridViewTemplateColumn HeaderText="Miesta" AllowSorting="true" SortExpression="Capacity">
-                    <ContentTemplate>
-                        {{value: Capacity}}
-                    </ContentTemplate>
-                    <EditTemplate>
-                        <dot:TextBox Type="Number" Text="{value: _parent.Detail.Capacity}" />
-                    </EditTemplate>
-                </dot:GridViewTemplateColumn>
-                <dot:GridViewTemplateColumn HeaderText="">
-                    <ContentTemplate>
-                        <dot:Button class="btn btn-sm btn-primary" Click="{command: _parent.Edit(Id)}">Upraviť</dot:Button>
-                        <dot:Button class="btn btn-sm btn-danger" Click="{command: _parent.Delete(Id, false)}">Zmazať</dot:Button>
-                    </ContentTemplate>
-                    <EditTemplate>
-                        <dot:Button class="btn btn-sm btn-success" Click="{command: _parent.SaveEdit()}">Uložit</dot:Button>
-                        <dot:Button class="btn btn-sm btn-danger" Click="{command: _parent.CancelEdit()}">Zrušiť</dot:Button>
-                    </EditTemplate>
-                </dot:GridViewTemplateColumn>
-            </Columns>
-            <EmptyDataTemplate>
-                <p>Žiadne izby</p>
-            </EmptyDataTemplate>
-        </dot:GridView>
     </div>
-
-    <cc:YesNo
-        IsShown="{value: DeletePropmptId != null}"
-        Header="Zmazať?"
-        Message="Izbu má už niekto rezervovanú naozaj zmazať?"
-        YesAction="{command: Delete(DeletePropmptId.Value, true)}"
-        NoAction="{command: DeletePropmptId = null}" />
+    <cc:YesNo IsShown="{value: DeletePropmptId != null}"
+              Header="Zmazať?"
+              Message="Izbu má už niekto rezervovanú naozaj zmazať?"
+              YesAction="{command: Delete(DeletePropmptId.Value, true)}"
+              NoAction="{command: DeletePropmptId = null}" />
 
 
 </dot:Content>

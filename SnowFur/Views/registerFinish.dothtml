@@ -1,32 +1,49 @@
 ﻿@viewModel SnowFur.ViewModels.RegisterFinish, SnowFur
-@masterPage Views/master.dotmaster
+@masterPage Views/user.dotmaster
 
 <dot:Content ContentPlaceHolderID="SuccessfulFinishContent">
-	<h3 class="alert-heading">Registrácia dokončená</h3>
-	<p>Teraz sa môžete prihlásiť.</p>
+    <h3 class="alert-heading">Registrácia dokončená</h3>
+    <p>Teraz sa môžete prihlásiť.</p>
 </dot:Content>
 <dot:Content ContentPlaceHolderID="PageContent">
-    <div class="row">
-        <div class="col-md-12">
+    <div class="row sf-block even">
+        <div class="col-md-3 hidden-sm"></div>
+        <div class="col-md-6 col-sm-12">
             <h3>Heslo k užívateľskému účtu</h3>
             <form class="form">
                 <div class="form-group">
                     <label>Heslo:</label>
                     <dot:TextBox class="form-control" Type="Password" Text="{value: NewPassword.Password}" />
-                    <dot:Validator class="label label-danger" ShowErrorMessageText="true" Value="{value: NewPassword.Password}">*</dot:Validator>
+                    <dot:Validator class="label label-danger" ShowErrorMessageText="true" Value="{value: NewPassword.Password}">
+                        *
+                    </dot:Validator>
                 </div>
                 <div class="form-group">
                     <label>Heslo znovu:</label>
                     <dot:TextBox class="form-control" Type="Password" Text="{value: NewPassword.PasswordAgain}" />
-                    <dot:Validator class="label label-danger" ShowErrorMessageText="true" Value="{value: NewPassword.PasswordAgain}">*</dot:Validator>
+                    <dot:Validator class="label label-danger" ShowErrorMessageText="true" Value="{value: NewPassword.PasswordAgain}">
+                        *
+                    </dot:Validator>
                 </div>
             </form>
         </div>
-        <div class="col-md-12">
-            <cc:PersonalProfileForm DataContext="{value: Profile}"></cc:PersonalProfileForm>
+        <div class="col-md-3 hidden-sm"></div>
+    </div>
+    <div class="row sf-block">
+        <div class="col-md-3 hidden-sm"></div>
+        <div class="col-md-6 col-sm-12">
+            <h3>Niečo málo o tebe...</h3>
+            <cc:PersonalProfileForm DataContext="{value: Profile}" />
         </div>
-        <div class="col-md-12">
-            <dot:Button Text="Dokončiť registráciu" Click="{command: Submit()}" Validation.Target="{value: _this}" class="btn btn-primary" />
+        <div class="col-md-3 hidden-sm"></div>
+    </div>
+    <div class="row sf-block even">
+        <div class="col-md-3 hidden-sm"></div>
+        <div class="col-md-6 col-sm-12">
+            <div class="form-group">
+                <dot:Button Text="Dokončiť registráciu" Click="{command: Submit()}" Validation.Target="{value: _this}" class="btn btn-primary" />
+            </div>
         </div>
+        <div class="col-md-3 hidden-sm"></div>
     </div>
 </dot:Content>

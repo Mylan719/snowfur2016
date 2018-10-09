@@ -23,6 +23,7 @@
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -359,7 +360,7 @@
     <Content Include="Views\myProfile.dothtml" />
     <Content Include="Views\Controls\PasswordChangeForm.dotcontrol" />
     <Content Include="Views\Controls\ReservationForm.dotcontrol" />
-    <Content Include="Views\Master.dotmaster" />
+    <Content Include="Views\common.dotmaster" />
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
@@ -388,6 +389,7 @@
     <Content Include="Views\Admin\roomReservations.dothtml" />
     <Content Include="Views\Controls\RoomReservationForm.dotcontrol" />
     <Content Include="Views\Admin\services.dothtml" />
+    <Content Include="Views\user.dotmaster" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>

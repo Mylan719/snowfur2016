@@ -36,7 +36,7 @@ namespace SnowFur.ViewModels
         {
             if( !personalProfileFacade.ProfileExists(UserName))
             {
-                Context.RedirectToRoute($"~/registerFinish?username={UserName}&token={PasswordToken}");
+                Context.RedirectToRoute("registerFinish", urlSuffix: $"?username={UserName}&token={PasswordToken}");
             }
             return base.Init();
         }

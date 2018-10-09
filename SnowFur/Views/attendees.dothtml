@@ -1,5 +1,5 @@
 ﻿@viewModel SnowFur.ViewModels.Attendees, SnowFur
-@masterPage Views/Master.dotmaster
+@masterPage Views/user.dotmaster
 
 <dot:Content ContentPlaceHolderID="SuccessfulFinishContent">
 

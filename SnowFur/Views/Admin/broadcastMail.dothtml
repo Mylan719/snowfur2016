@@ -6,17 +6,25 @@
     <p>Email bol odoslaný všetkým užívateľom.</p>
 </dot:Content>
 <dot:Content ContentPlaceHolderID="PageContent">
-    <form class="form">
-        <div class="form-group">
-            <label class="col-md-4 col-sm-8">Predmet</label>
-            <dot:Validator class="label label-danger" ShowErrorMessageText="true" ValidatedValue="{value: Subject}"></dot:Validator>
-            <dot:TextBox class="form-control" Text="{value: Subject}" />
+    <div class="row sf-block">
+        <div class="col-md-3 hidden-sm"></div>
+        <div class="col-md-6 col-sm-12">
+            <form class="form">
+                <div class="form-group">
+                    <label>Predmet</label>
+                    <dot:Validator class="label label-danger" ShowErrorMessageText="true" ValidatedValue="{value: Subject}" />
+                    <dot:TextBox class="form-control" Text="{value: Subject}" />
+                </div>
+                <div class="form-group">
+                    <label>Správa</label>
+                    <dot:Validator class="label label-danger" ShowErrorMessageText="true" ValidatedValue="{value: Message}" />
+                    <dot:TextBox Rows="10" Type="MultiLine" class="form-control" Text="{value: Message}" />
+                </div>
+                <div class="form-group">
+                    <dot:Button Validation.Target="{value: _this}" class="btn btn-danger" Click="{command: SendMail()}" Text="Odoslať všetkým registrovaným." />
+                </div>
+            </form>
         </div>
-        <div class="form-group">
-            <label class="col-md-4 col-sm-8">Správa</label>
-            <dot:Validator class="label label-danger" ShowErrorMessageText="true" ValidatedValue="{value: Message}"></dot:Validator>
-            <dot:TextBox Rows="10" Type="MultiLine" class="form-control" Text="{value: Message}" />
-        </div>
-        <dot:Button Validation.Target="{value: _this}" class="btn btn-danger" Click="{command: SendMail()}" Text="Odoslať všetkým registrovaným." />
-    </form>
+        <div class="col-md-3 hidden-sm"></div>
+    </div>
 </dot:Content>

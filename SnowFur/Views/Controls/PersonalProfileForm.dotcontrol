@@ -1,6 +1,5 @@
 ﻿@viewModel SnowFur.ViewModels.Controls.PersonalProfileForm, Snowfur
 
-<h3>Ubytovacie údaje</h3>
 <form class="form">
     <div class="form-group">
         <label>Meno:</label>

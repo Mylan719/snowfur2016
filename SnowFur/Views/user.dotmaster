@@ -1,0 +1,22 @@
+﻿@viewModel SnowFur.ViewModels.PageViewModelBase, SnowFur
+@masterPage Views/common.dotmaster
+
+<dot:Content ContentPlaceHolderID="NavbarLinks">
+    <ul class="nav navbar-nav">
+        <li><dot:RouteLink RouteName="Default" Text="Home" /></li>
+        <li><dot:RouteLink RouteName="Register" Text="Registrácia" /></li>
+        <li><dot:RouteLink RouteName="Attendees" Text="Účastníci" /></li>
+        <li><dot:RouteLink RouteName="PriceList" Text="Cenník" /></li>
+        <li><dot:RouteLink RouteName="Contact" Text="Kontakt" /></li>
+        <li><dot:RouteLink RouteName="PasswordRecoveryStep1" Text="Obnova hesla" /></li>
+    </ul>
+</dot:Content>
+
+<dot:Content ContentPlaceHolderID="SuccessfulFinishContent">
+    <dot:ContentPlaceHolder ID="SuccessfulFinishContent" />
+</dot:Content>
+
+<dot:Content ContentPlaceHolderID="PageContent">
+    <dot:ContentPlaceHolder ID="PageContent" />
+</dot:Content>
+

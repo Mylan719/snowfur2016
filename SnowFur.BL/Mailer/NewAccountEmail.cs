@@ -28,7 +28,7 @@ namespace SnowFur.BL.Mailer
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("\r\n<h1>Nová registrácia na Snowfur 2016</h1>\r\n\r\n<p>Ďakujeme za vašu registráciu na" +
+            this.Write("\r\n<h1>Nová registrácia na Snowfur 2019</h1>\r\n\r\n<p>Ďakujeme za vašu registráciu na" +
                     " Snowfur</p>\r\n\r\n<p>Kliknutím na nasledujúci odkaz dokončíte registráciu vášho úč" +
                     "tu.</p>\r\n\r\n<p><a href=\"");
             

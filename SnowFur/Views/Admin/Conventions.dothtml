@@ -4,10 +4,8 @@
 <dot:Content ContentPlaceHolderID="SuccessfulFinishContent">
 </dot:Content>
 <dot:Content ContentPlaceHolderID="PageContent">
-    <div class="row">
-        <div class="col-md-12">
-            <dot:Button class="btn btn-success" ButtonTagName="button" Click="{command: AddConvention()}">Pridať</dot:Button>
-        </div>
+    <div class="row sf-block">
+        <dot:Button class="btn btn-success" ButtonTagName="button" Click="{command: AddConvention()}">Pridať</dot:Button>
         <dot:GridView class="col-md-12 grid-view" DataSource="{value: Conventions}">
             <Columns>
                 <dot:GridViewTextColumn ValueBinding="{value: Name}" HeaderText="Meno" />
@@ -24,8 +22,9 @@
                     </dot:Button>
                 </dot:GridViewTemplateColumn>
             </Columns>
-            
+
         </dot:GridView>
     </div>
-    <cc:ConventionDetail DataContext="{value: ConventionDetail}"></cc:ConventionDetail>
+    <cc:ConventionDetail DataContext="{value: ConventionDetail}">
+    </cc:ConventionDetail>
 </dot:Content>

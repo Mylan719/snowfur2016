@@ -1,13 +1,14 @@
 ﻿@viewModel SnowFur.ViewModels.Register, SnowFur
-@masterPage Views/master.dotmaster
+@masterPage Views/user.dotmaster
 
 <dot:Content ContentPlaceHolderID="SuccessfulFinishContent">
     <h3 class="alert-heading">Bol vám odoslaný registračný e-mail.</h3>
     <p>Pokračujte kliknutím na odkaz, ktorý nájdete v registračnom e-maile.</p>
 </dot:Content>
 <dot:Content ContentPlaceHolderID="PageContent">
-    <div class="row">
-        <div class="col-md-12">
+    <div class="row sf-block">
+        <div class="col-md-3 hidden-sm"></div>
+        <div class="col-md-6 col-sm-12">
             <h4>Registračné pravidlá a podmienky:</h4>
             <ol>
                 <li>Registrácia prebieha v dvoch fázach. V prvej účastník vyplní registračný formulár a potvrdí email, registrácia je ukončená zaslaním platby na účet Snowfuru.</li>
@@ -19,21 +20,31 @@
                 <li>Organizačný tím Snowfuru si vyhradzuje právo odmietnuť registráciu. </li>
             </ol>
         </div>
-		<div class="col-md-12">&nbsp;</div>
+        <div class="col-md-3 hidden-sm"></div>
     </div>
-    <form Validation.Target="{value: Account}" class="form">
-        <div class="form-group">
-            <label>Prezývka (login):</label>
-            <dot:TextBox class="form-control" Text="{value: Account.UserName}" />
-            <dot:Validator class="label label-danger" ShowErrorMessageText="true" Value="{value: Account.UserName}">*</dot:Validator>
+    <div class="row sf-block even">
+        <div class="col-md-3 hidden-sm"></div>
+        <div class="col-md-6 col-sm-12">
+            <form Validation.Target="{value: Account}" class="form">
+                <div class="form-group">
+                    <label>Prezývka (login):</label>
+                    <dot:TextBox class="form-control" Text="{value: Account.UserName}" />
+                    <dot:Validator class="label label-danger" ShowErrorMessageText="true" Value="{value: Account.UserName}">
+                        *
+                    </dot:Validator>
+                </div>
+                <div class="form-group">
+                    <label>E-mail:</label>
+                    <dot:TextBox class="form-control" Text="{value: Account.Email}" />
+                    <dot:Validator class="label label-danger" ShowErrorMessageText="true" Value="{value: Account.Email}">
+                        *
+                    </dot:Validator>
+                </div>
+                <div class="form-group text-right">
+                    <dot:Button Text="Registrovať" class="btn btn-primary" Click="{command: Submit()}" />
+                </div>
+            </form>
         </div>
-        <div class="form-group">
-            <label>E-mail:</label>
-            <dot:TextBox class="form-control" Text="{value: Account.Email}" />
-            <dot:Validator class="label label-danger" ShowErrorMessageText="true" Value="{value: Account.Email}">*</dot:Validator>
-        </div>
-        <div class="form-group text-right">
-            <dot:Button Text="Registrovať" class="btn btn-primary" Click="{command: Submit()}" />
-        </div>
-    </form>
+        <div class="col-md-3 hidden-sm"></div>
+    </div>
 </dot:Content>
